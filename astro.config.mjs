@@ -5,8 +5,8 @@ import { defineConfig, passthroughImageService } from "astro/config";
 const isProd = env.NODE_ENV !== "development";
 
 export default defineConfig({
-	site: "https://maxxusx.github.io/nullfire-site/",
-	base: "/nullfire-site/",
+	site: "https://nullfire.pages.dev/",
+	base: "/",
 	trailingSlash: "ignore",
 	output: "static",
 	integrations: [
