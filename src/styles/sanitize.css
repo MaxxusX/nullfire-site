@@ -31,6 +31,7 @@
  * 4. Use a 4-space tab width in all browsers (opinionated).
  * 5. Remove the grey highlight on links in iOS (opinionated).
  * 6. Prevent adjustments of font size after orientation changes in iOS.
+ * 7. Better default fonts (opinionated)
  */
 
 :where(:root) {
@@ -42,6 +43,9 @@
 	-webkit-tap-highlight-color: transparent; /* 5 */
 	-webkit-text-size-adjust: 100%; /* 6 */
 	text-size-adjust: 100%; /* 6 */
+	font-family: -apple-system, ui-sans-serif, system-ui, BlinkMacSystemFont, ".SFNSDisplay-Regular",
+		"Segoe UI", Roboto, "Helvetica Neue", "Lucida Grande", "Noto Sans", Arial, Tahoma, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* Sections
@@ -104,18 +108,6 @@
 	float: left;
 }
 
-/**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
- * 3. Prevent overflow of the container in all browsers (opinionated).
- */
-
-:where(pre) {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
-	overflow: auto; /* 3 */
-}
-
 /* Text-level semantics
  * ========================================================================== */
 
@@ -145,13 +137,24 @@
 }
 
 /**
- * 1. Correct the inheritance and scaling of font size in all browsers.
- * 2. Correct the odd `em` font sizing in all browsers.
+ * 1. Better default fonts (opinionated)
+ * 2. Correct the inheritance and scaling of font size in all browsers.
+ * 3. Correct the odd `em` font sizing in all browsers.
  */
 
-:where(code, kbd, samp) {
-	font-family: monospace, monospace; /* 1 */
-	font-size: 1em; /* 2 */
+:where(pre, code, kbd, samp) {
+	font-family: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono", "Roboto Mono", Monaco,
+		"Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas, monospace, monospace,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 and 2 */
+	font-size: 1em; /* 3 */
+}
+
+/**
+ * Prevent overflow of the container in all browsers (opinionated).
+ */
+
+:where(pre) {
+	overflow: auto;
 }
 
 /**
