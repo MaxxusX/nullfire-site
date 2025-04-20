@@ -10,13 +10,13 @@ import IFrame from "../components/IFrame.astro";
 
 import img_catperson from "../assets/cat_person.webp";
 import img_maxxus from "../assets/maxxus.webp";
-import img_rob from "../assets/rob_2.png";
+import img_seikoso from "../assets/seikoso.png";
 import img_shrimp from "../assets/shrimp.png";
 import img_cherry from "../assets/cherry.png";
 
-const nullfire_script_rob =
+const nullfire_script_seikoso =
 	'loadstring(game:HttpGet("https://raw.githubusercontent.com/NuIlFire/NullFire/main/loader.lua"))()';
-const nullfire_script_infernus =
+const nullfire_script_cherry =
 	'loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()';
 ---
 
@@ -45,7 +45,7 @@ const nullfire_script_infernus =
 			<li>Doors</li>
 		</ul>
 		<h4>Script</h4>
-		<Code code={nullfire_script_rob} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		<Code code={nullfire_script_seikoso} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 
 		<br />
 
@@ -58,7 +58,7 @@ const nullfire_script_infernus =
 			<li>Dead Rails</li>
 		</ul>
 		<h4>Script</h4>
-		<Code code={nullfire_script_infernus} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		<Code code={nullfire_script_cherry} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 	</Section>
 
 	<Section title="FAQ">
@@ -71,7 +71,7 @@ const nullfire_script_infernus =
 
 	<Section title="Developers">
 		<DevList>
-			<DevCard image={img_rob} name="seikoso" role="owner" rolecolor="#ff0000">
+			<DevCard image={img_seikoso} name="seikoso" role="owner" rolecolor="#ff0000">
 				main dev<br />
 				does pretty much all the work
 			</DevCard>
