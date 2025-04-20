@@ -13,9 +13,9 @@
 	font-display: swap;
 	font-variation-settings: normal;
 	font-feature-settings:
-		"zero",
-		/* slashed 0 */ "cv08",
-		/* no bridge on k */ "cv18"; /* curly 2 6 and 9 */
+		"zero" /* slashed 0 */,
+		"cv08" /* no bridge on k */,
+		"cv18" /* curly 2 6 and 9 */;
 	src:
 		url("/fonts/JetBrainsMono.woff2") format("woff2 supports variations"),
 		url("/fonts/JetBrainsMono.woff2") format("woff2-variations");
@@ -28,9 +28,9 @@
 	font-display: swap;
 	font-variation-settings: normal;
 	font-feature-settings:
-		"zero",
-		/* slashed 0 */ "cv08",
-		/* no bridge on k */ "cv18"; /* curly 2 6 and 9 */
+		"zero" /* slashed 0 */,
+		"cv08" /* no bridge on k */,
+		"cv18" /* curly 2 6 and 9 */;
 	src:
 		url("/fonts/JetBrainsMono-Italic.woff2") format("woff2 supports variations"),
 		url("/fonts/JetBrainsMono-Italic.woff2") format("woff2-variations");
