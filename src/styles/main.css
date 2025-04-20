@@ -29,18 +29,19 @@ html {
 	overflow: visible;
 	overscroll-behavior: none;
 
-	font-family: "JetBrains Mono", monospace, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-		"Segoe UI Symbol", "Noto Color Emoji";
+	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
+		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
+		monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-variation-settings: normal;
 	font-feature-settings:
-		"zero",
-		/* slashed 0 */ "ss19",
-		/* break equals ligatures */ "cv06",
-		/* short m pp */ "cv07",
-		/* lower middle connection on w */ "cv08",
-		/* sharply connected k */ "cv11",
-		/* curly tailed y */ "cv16",
-		/* curly tailed Q */ "cv18"; /* curly 2 6 and 9 */
+		"zero" /* slashed 0 */,
+		"ss19" /* break equals ligatures */,
+		"cv06" /* short m pp */,
+		"cv07" /* lower middle connection on w */,
+		"cv08" /* sharply connected k */,
+		"cv11" /* curly tailed y */,
+		"cv16" /* curly tailed Q */,
+		"cv18" /* curly 2 6 and 9 */;
 	font-optical-sizing: auto;
 	font-stretch: normal;
 	font-style: normal;
@@ -92,19 +93,19 @@ h4 {
 	margin: 0;
 	line-height: 1;
 
-	font-feature-settings:
-		"zero",
-		/* slashed 0 */ "ss19",
-		/* break equals ligatures */ "cv01",
-		/* l bottom serif */ "cv06",
-		/* short m pp */ "cv07",
-		/* lower middle connection on w */ "cv08",
-		/* sharply connected k */ "cv09",
-		/* base stroke on f */ "cv10",
-		/* r serifs */ "cv11",
-		/* curly tailed y */ "cv12",
-		/* u tail */ "cv16",
-		/* curly tailed Q */ "cv18"; /* curly 2 6 and 9 */
+	font-feature-settings:	
+		"zero" /* slashed 0 */,
+		"ss19" /* break equals ligatures */,
+		"cv01" /* l bottom serif */,
+		"cv06" /* short m pp */,
+		"cv07" /* lower middle connection on w */,
+		"cv08" /* sharply connected k */,
+		"cv09" /* base stroke on f */,
+		"cv10" /* r serifs */,
+		"cv11" /* curly tailed y */,
+		"cv12" /* u tail */,
+		"cv16" /* curly tailed Q */,
+		"cv18" /* curly 2 6 and 9 */;
 }
 h1 {
 	text-align: center;
@@ -165,14 +166,14 @@ code {
 	hyphens: none;
 	overflow-wrap: normal;
 
-	font-family: "JetBrains Mono", Menlo, "DejaVu Sans Mono", "Roboto Mono", Monaco, "Lucida Console",
-		"Liberation Mono", "Bitstream Vera Sans Mono", monospace, monospace, "Apple Color Emoji",
-		"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
+		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
+		monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-variation-settings: normal;
 	font-feature-settings:
-		"zero",
-		/* slashed 0 */ "cv08",
-		/* sharply connected k */ "cv18"; /* curly 2 6 and 9 */
+		"zero" /* slashed 0 */,
+		"cv08" /* sharply connected k */,
+		"cv18" /* curly 2 6 and 9 */;
 	font-optical-sizing: auto;
 	font-stretch: normal;
 	font-style: normal;
@@ -205,7 +206,7 @@ code {
 	padding: 0;
 }
 
-/*
+	/*
 	since the <a> element is used for things like the social cards,
 	this stuff should be moved to a seperate class only for text hyperlinks.
 
