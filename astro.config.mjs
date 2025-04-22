@@ -45,13 +45,13 @@ export default defineConfig({
 		*/
 	},
 	vite: {
-		mode: isProd ? "production" : "development",
+		mode: isDevBuild ? "development" : "production",
 		logLevel: "info",
 		css: {
 			transformer: "lightningcss",
 			lightningcss: {
-				minify: isProd,
-				sourceMap: isProd,
+				minify: true,
+				sourceMap: isDevBuild,
 				errorRecovery: false,
 				targets: {
 					and_chr: 128 << 16,
