@@ -3,11 +3,11 @@ import { defineConfig, passthroughImageService } from "astro/config";
 //import purgecss from "astro-purgecss";
 
 const isDevBuild = env.NODE_ENV === "development";
-const buildForGithubPages = env.BUILD_FOR_GITHUB_PAGES === "true";
+const isGithubPages = env.IS_GITHUB_PAGES === true;
 
 export default defineConfig({
-	site: buildForGithubPages ? "https://maxxusx.github.io/nullfire-site/" : "https://nullfire.pages.dev/",
-	base: buildForGithubPages ? "/nullfire-site/" : "/",
+	site: isGithubPages ? "https://maxxusx.github.io/nullfire-site/" : "https://nullfire.pages.dev/",
+	base: isGithubPages ? "/nullfire-site/" : "/",
 	trailingSlash: "ignore",
 	output: "static",
 	integrations: [
