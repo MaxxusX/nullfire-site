@@ -20,6 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  IS_GITHUB_PAGES: true
   NODE_ENV: "production"
   MODE: "production"
   PROD: true
