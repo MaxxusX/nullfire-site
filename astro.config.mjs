@@ -2,11 +2,12 @@ import { env } from "node:process";
 import { defineConfig, passthroughImageService } from "astro/config";
 //import purgecss from "astro-purgecss";
 
-const isProd = env.NODE_ENV !== "development";
+const isDevBuild = env.NODE_ENV === "development";
+const isGithubPages = env.IS_GITHUB_PAGES === true;
 
 export default defineConfig({
-	site: "https://nullfire.pages.dev/",
-	base: "/",
+	site: isGithubPages ? "https://maxxusx.github.io/nullfire-site/" : "https://nullfire.pages.dev/",
+	base: isGithubPages ? "/nullfire-site/" : "/",
 	trailingSlash: "ignore",
 	output: "static",
 	integrations: [
@@ -20,7 +21,7 @@ export default defineConfig({
   	}),
 		*/
 	],
-	compressHTML: isProd,
+	compressHTML: true,
 	scopedStyleStrategy: "class",
 	build: {
 		format: "file",
@@ -44,13 +45,13 @@ export default defineConfig({
 		*/
 	},
 	vite: {
-		mode: isProd ? "production" : "development",
+		mode: isDevBuild ? "development" : "production",
 		logLevel: "info",
 		css: {
 			transformer: "lightningcss",
 			lightningcss: {
-				minify: isProd,
-				sourceMap: isProd,
+				minify: true,
+				sourceMap: isDevBuild,
 				errorRecovery: false,
 				targets: {
 					and_chr: 128 << 16,
@@ -72,9 +73,9 @@ export default defineConfig({
 			target: ["es2020", "edge126", "firefox115", "chrome109", "safari15.6"],
 			assetsInlineLimit: 0,
 			cssCodeSplit: false,
-			cssMinify: isProd ? "lightningcss" : false,
-			minify: isProd ? "esbuild" : false,
-			sourcemap: isProd,
+			cssMinify: "lightningcss",
+			minify: "esbuild",
+			sourcemap: isDevBuild,
 			reportCompressedSize: false,
 		},
 	},

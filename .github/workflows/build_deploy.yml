@@ -20,6 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
+  IS_GITHUB_PAGES: true
   NODE_ENV: "production"
   MODE: "production"
   PROD: true
@@ -44,7 +45,7 @@ jobs:
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
         with:
-          version: "9.15.2"
+          version: "10.9.0"
           package_json_file: "./package.json"
 
       - name: "Setup Node"
