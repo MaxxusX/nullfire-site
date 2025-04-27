@@ -4,10 +4,10 @@ import logo from "../assets/logo.png";
 interface Props {
 	path: string;
 	title: string;
-	no-crawl?: boolean;
+	noCrawl?: boolean;
 }
 
-const { path, title: pageName, no-crawl: noCrawl } = Astro.props;
+const { path, title: pageName, noCrawl } = Astro.props;
 
 const url = new URL(path, Astro.site).href;
 const siteName = "NullFire";
