@@ -5,6 +5,8 @@ import { defineConfig, passthroughImageService } from "astro/config";
 const isDevBuild = env.NODE_ENV === "development";
 const isGithubPages = env.IS_GITHUB_PAGES === "true";
 
+console.log(env);
+
 export default defineConfig({
 	site: isGithubPages ? "https://maxxusx.github.io/nullfire-site/" : (env.CF_PAGES_URL ?? "https://nullfire.pages.dev/"),
 	base: isGithubPages ? "/nullfire-site/" : "/",
