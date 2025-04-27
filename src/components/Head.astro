@@ -42,7 +42,7 @@ const themeColor = "#651089"; // previously #0e0f13
 	<link rel="canonical" href={url} />
 	<meta name="description" content={desc} />
 	<meta name="keywords" content={tags} />
-	<meta name="robots" content={noCrawl === true ? "noindex,nofollow" : "index,follow"} />
+	<meta name="robots" content={noCrawl ? "noindex,nofollow" : "index,follow"} />
 
 	<!-- Apple Metadata -->
 	<meta name="apple-mobile-web-app-title" content={siteName} />
