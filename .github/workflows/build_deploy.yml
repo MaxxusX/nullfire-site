@@ -20,12 +20,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IS_GITHUB_PAGES: true
   NODE_ENV: "production"
   MODE: "production"
   PROD: true
   DEV: false
   ASTRO_TELEMETRY_DISABLED: 1
+  SITE_URL_OVERRIDE: "https://maxxusx.github.io/nullfire-site/"
+  SITE_PATH_OVERRIDE: "/nullfire-site/"
 
 defaults:
   run:
