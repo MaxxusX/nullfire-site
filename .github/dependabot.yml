@@ -1,9 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "github-actions"
-    directory: "/.github/workflows"
+    directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "wednesday"
     assignees:
       - "maxxusx"
     commit-message:
@@ -13,7 +14,8 @@ updates:
     directory: "/"
     versioning-strategy: "increase"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "wednesday"
     assignees:
       - "maxxusx"
     commit-message:
