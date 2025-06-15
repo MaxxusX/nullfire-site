@@ -7,7 +7,7 @@ keep_vars = true
 workers_dev = false
 
 [build]
-command = "pnpm run build --mode production"
+command = 'pnpm run build --mode production'
 
 [assets]
 directory = './dist/'
