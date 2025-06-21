@@ -45,11 +45,11 @@ jobs:
 
       - name: "Get Outdated Packages"
         run: |
-          {
+          echo {
             echo "UPDATED<<EOF"
             pnpm outdated --compatible --long --format list
             echo "EOF"
-          } >> "$GITHUB_ENV"
+          } # >> "$GITHUB_ENV"
 
       - name: "Update"
         run: |
