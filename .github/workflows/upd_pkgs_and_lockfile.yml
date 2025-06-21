@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git clone ${{}} nullfire-site
+          git clone ${{ github.repositoryUrl }} nullfire-site
           cd nullfire-site
           git checkout -b "actions/update-lockfile" main
 
