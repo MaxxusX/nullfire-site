@@ -23,14 +23,13 @@ jobs:
 
     runs-on: "ubuntu-latest"
     steps:
-      - name: "Checkout repository"
-        # uses: "actions/checkout@v4"
-        run: |
-          git clone ${{ github.repositoryUrl }} nullfire-site
-          cd nullfire-site
-          git checkout -b "actions/update-lockfile" main
+      - name: "Checkout Repository"
+        uses: "actions/checkout@v4"
 
-      - name: "Delete lockfile"
+      - name: "Create New Branch"
+        run: 'git checkout -b "actions/update-lockfile" main'
+
+      - name: "Delete Lockfile"
         run: "rm pnpm-lock.yaml"
 
       - name: "Setup PNPM"
@@ -62,7 +61,6 @@ jobs:
           git push origin "actions/update-lockfile"
 
       - name: "Create Pull Request"
-        run: |
-          gh pr create -B main -H 'actions/update-lockfile' --title 'update packages and lockfile' --body 'automatically generated'"
+        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "automatically generated"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
