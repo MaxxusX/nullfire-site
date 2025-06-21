@@ -48,7 +48,7 @@ jobs:
           {
             echo "UPDATED<<EOF"
             pnpm outdated --compatible --long --format list
-            echo EOF
+            echo "EOF"
           } >> "$GITHUB_ENV"
 
       - name: "Update"
