@@ -12,6 +12,7 @@ on:
       - "!.prettierignore"
       - "!.prettierrc"
       - "!README.md"
+      - "!_outdated.txt"
       - ".github/workflows/build_deploy.yml"
   workflow_dispatch:
 
