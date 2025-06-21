@@ -1,0 +1,68 @@
+name: "Update Packages & Lockfile"
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "update-packages-lockfile"
+  cancel-in-progress: true
+
+env:
+  NODE_ENV: "production"
+
+defaults:
+  run:
+    shell: "bash"
+    working-directory: "."
+
+jobs:
+  build:
+    permissions:
+      contents: "read"
+      pull-requests: "write"
+
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        # uses: "actions/checkout@v4"
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git clone ${{ github.repositoryUrl }} nullfire-site
+          cd nullfire-site
+          git checkout -b "actions/update-lockfile" main
+
+      - name: "Delete lockfile"
+        run: "rm pnpm-lock.yaml"
+
+      - name: "Setup PNPM"
+        uses: "pnpm/action-setup@v4"
+        with:
+          version: "10.12.1"
+          package_json_file: "./package.json"
+
+      - name: "Setup Node"
+        uses: "actions/setup-node@v4"
+        with:
+          node-version-file: "./package.json"
+
+      - name: "Update"
+        run: |
+          pnpm update
+          pnpm install --lockfile-only
+
+      - name: "Write Outdated"
+        run: |
+          pnpm outdated --long --format table > _outdated.txt
+
+      - name: "Push Branch"
+        run: |
+          git add .
+          git commit -m "update packages and lockfile"
+          git push origin "actions/update-lockfile"
+
+      - name: "Create Pull Request"
+        run: |
+          gh pr create -B main -H 'actions/update-lockfile' --title 'update packages and lockfile' --body 'automatically generated'"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
