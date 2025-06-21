@@ -1,0 +1,61 @@
+# force unix-style line-endings
+* text=auto eol=lf
+
+# git's built-in binary detection should be good enough,
+# but we'll explicitl define stuff anyway -- just in case
+
+## text files
+*.txt text
+*.md text
+*.js text
+*.mjs text
+*.cjs text
+*.ts text
+*.mts text
+*.cts text
+*.json text
+*.jsonc text
+*.json5 text
+*.toml text
+*.yaml text
+*.yml text
+*.xml text
+*.svg text
+*.html text
+*.astro text
+*.jsx text
+*.tsx text
+*.css text
+*.scss text
+*.sass text
+*.ps1 text
+*.cmd text
+*.bat text
+.gitignore text
+.prettierignore text
+.prettierrc text
+.assetsignore text
+
+## binary files
+*.png binary
+*.apng binary
+*.jpeg binary
+*.jpg binary
+*.gif binary
+*.webp binary
+*.webm binary
+*.avif binary
+*.heic binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.wav binary
+*.ogg binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# better compression
+[core]
+compression 4
