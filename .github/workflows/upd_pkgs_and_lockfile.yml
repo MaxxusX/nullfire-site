@@ -29,9 +29,6 @@ jobs:
       - name: "Create New Branch"
         run: 'git checkout -b "actions/update-lockfile" main'
 
-      - name: "Delete Lockfile"
-        run: "rm pnpm-lock.yaml"
-
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
         with:
@@ -48,8 +45,11 @@ jobs:
           echo {
             echo "UPDATED<<EOF"
             pnpm outdated --compatible --long --format list
-            echo "EOF"
-          } # >> "$GITHUB_ENV"
+            echo EOF
+          } >> "$GITHUB_ENV"
+
+      - name: "Delete Lockfile"
+        run: "rm pnpm-lock.yaml"
 
       - name: "Update"
         run: |
