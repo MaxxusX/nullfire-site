@@ -29,6 +29,9 @@ jobs:
       - name: "Create New Branch"
         run: 'git checkout -b "actions/update-lockfile" main'
 
+      - name: "Delete Lockfile"
+        run: "rm pnpm-lock.yaml"
+
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
         with:
@@ -39,17 +42,6 @@ jobs:
         uses: "actions/setup-node@v4"
         with:
           node-version-file: "./package.json"
-
-      - name: "Get Outdated Packages"
-        run: |
-          echo {
-            echo "UPDATED<<EOF"
-            pnpm outdated --compatible --long --format list
-            echo EOF
-          } >> "$GITHUB_ENV"
-
-      - name: "Delete Lockfile"
-        run: "rm pnpm-lock.yaml"
 
       - name: "Update"
         run: |
@@ -69,6 +61,6 @@ jobs:
           git push origin "actions/update-lockfile" --verbose
 
       - name: "Create Pull Request"
-        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "## updated:\n${UPDATED}"'
+        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "check diff for updated packages"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
