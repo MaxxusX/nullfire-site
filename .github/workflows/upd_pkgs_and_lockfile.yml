@@ -43,18 +43,20 @@ jobs:
         with:
           node-version-file: "./package.json"
 
-      - name: "List Current Packages"
-        run: "pnpm list"
+      - name: "Get Outdated Packages"
+        run: |
+          {
+            echo "UPDATED<<EOF"
+            pnpm outdated --compatible --long --format list
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - name: "Update"
         run: |
           pnpm update
           pnpm install --lockfile-only
 
-      - name: "List Updated Packages"
-        run: "pnpm list"
-
-      - name: "Write Outdated"
+      - name: "Write Unupdateable Packages to _outdated.txt"
         run: |
           pnpm outdated --long --format table > _outdated.txt
 
@@ -67,6 +69,6 @@ jobs:
           git push origin "actions/update-lockfile" --verbose
 
       - name: "Create Pull Request"
-        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "automatically generated"'
+        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "## updated:\n${UPDATED}"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
