@@ -19,7 +19,7 @@
 		"typescript": "^5.8.3"
 	},
 	"devDependencies": {
-		"prettier": "3.5.3",
+		"prettier": "3.6.1",
 		"prettier-plugin-astro": "0.14.1"
 	},
 	"packageManager": "pnpm@10.12.1",
