@@ -33,33 +33,26 @@ const nullfire_script_cherry =
 
 	<Section title="Script">
 		<p>
-			The NullFire project is split into two scripts; one maintained by seikoso, and the other by
-			Cherry.
+			The NullFire project is a hobby project by seikoso and Cherry
 		</p>
 
 		<br />
 
-		<h3>seikoso's Script</h3>
 		<h4>Supported Games</h4>
-		<ul>
-			<li>Doors</li>
-			<li>The Foundation</li>
-		</ul>
+		<ul id="supported"></ul>
+		<script src="/injectgames.js" defer />
+
 		<h4>Script</h4>
 		<Code code={nullfire_script_seikoso} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 
 		<br />
 
-		<h3>Cherry's Script</h3>
-		<h4>Supported Games</h4>
-		<ul>
-			<li>Funky Friday</li>
-			<li>Natural Disaster Survival</li>
-			<li>Pressure</li>
-			<li>Dead Rails</li>
-		</ul>
-		<h4>Script</h4>
+		<h3>OR</h3>
 		<Code code={nullfire_script_cherry} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+
+		<p>
+			Both of these loadstrings work equally well.
+		</p>
 	</Section>
 
 	<Section title="FAQ">
@@ -120,4 +113,3 @@ const nullfire_script_cherry =
 		/>
 	</Section>
 </Page>
-
