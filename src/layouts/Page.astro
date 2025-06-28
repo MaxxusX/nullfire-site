@@ -21,10 +21,11 @@ import "../styles/main.css";
 	<Head path={path} title={title}>
 		<Fragment slot="preload">
 			<link
-				rel="preload"
+				rel="preload expect"
 				href={bgImage.src}
 				as="image"
-				fetchpriority="high"
+				blocking="render"
+				fetchpriority="high
 				referrerpolicy="no-referrer"
 			/>
 			<slot name="preload" />
