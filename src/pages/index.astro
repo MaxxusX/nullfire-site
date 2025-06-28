@@ -14,10 +14,14 @@ import img_seikoso from "../assets/seikoso.png";
 import img_shrimp from "../assets/shrimp.png";
 import img_cherry from "../assets/cherry.png";
 
-const nullfire_script_seikoso =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()';
-const nullfire_script_cherry =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()';
+const nullfire_script =
+`-- both of these loadstrings work equally well; use either!
+
+-- maintained by seikoso
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()
+
+-- maintained by Cherry
+loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()`;
 ---
 
 <Page path={Astro.url.pathname} title="About">
@@ -32,27 +36,52 @@ const nullfire_script_cherry =
 	</Part>
 
 	<Section title="Script">
-		<p>
-			The NullFire project is a hobby project by seikoso and Cherry
-		</p>
+		<p>The NullFire project is a hobby project by seikoso and Cherry.</p>
 
 		<br />
 
 		<h4>Supported Games</h4>
-		<ul id="supported"></ul>
-		<script src="/injectgames.js" defer />
+		<p id="supportedGamesSuspense">loading...</p>
+		<script async>
+			"use strict";
+
+			(async function() {
+				const supportedGamesSuspense = document.getElementById("supportedGamesSuspense");
+	
+				try {
+					const response = await fetch("https://raw.githubusercontent.com/TeamNullFire/NullFire/refs/heads/main/games.json");
+					if (!response.ok) throw new Error("request failed");
+	
+					const gamesData = await response.json();
+	
+					const supportedGames = document.createElement("ul");
+					supportedGames.id = "supportedGames";
+	
+					for (const [name, status] of Object.entries(gamesData)) {
+						const listEl = document.createElement("li");
+	
+						const nameEl = document.createElement("span");
+						nameEl.className = "bold";
+						nameEl.textContent = name;
+	
+						const statusEl = document.createElement("span");
+						statusEl.className = "italic";
+						statusEl.textContent = status;
+	
+						listEl.append(nameEl, ": ", statusEl);
+						supportedGames.appendChild(listEl);
+					};
+	
+					supportedGamesSuspense.replaceWith(supportedGames);
+				} catch (err) {
+					supportedGamesSuspense.textContent = "failed to load list of supported games. try reloading!";
+					console.error("failed to load games list: ", err);
+				};
+			})();
+		</script>
 
 		<h4>Script</h4>
-		<Code code={nullfire_script_seikoso} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
-
-		<br />
-
-		<h3>OR</h3>
-		<Code code={nullfire_script_cherry} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
-
-		<p>
-			Both of these loadstrings work equally well.
-		</p>
+		<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 	</Section>
 
 	<Section title="FAQ">
