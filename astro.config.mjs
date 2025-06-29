@@ -83,7 +83,7 @@ export default defineConfig({
 			modulePreload: { polyfill: false },
 		},
 		esbuild: {
-			supports: {
+			supported: {
 				"top-level-await": true,
 			},
 		},
