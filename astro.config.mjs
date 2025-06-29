@@ -46,8 +46,12 @@ export default defineConfig({
 	vite: {
 		mode: isDevBuild ? "development" : "production",
 		logLevel: "info",
+		json: {
+			stringify: true,
+		},
 		css: {
 			transformer: "lightningcss",
+			devSourcemap: isDevBuild,
 			lightningcss: {
 				minify: true,
 				sourceMap: isDevBuild,
@@ -59,23 +63,27 @@ export default defineConfig({
 					chrome: 109 << 16, // vite default: 87
 					edge: 126 << 16, // vite default: 88
 					firefox: 115 << 16, // vite default: 78
-					ios_saf: (15 << 16) | (6 << 8),
+					ios_saf: 16 << 16,
 					op_mob: 80 << 16,
 					opera: 109 << 16,
-					safari: (15 << 16) | (6 << 8), // vite default: 14
+					safari: 16 << 16, // vite default: 14
 					samsung: 25 << 16,
 				},
 			},
 		},
 		build: {
 			// vite default: ["es2020", "edge88", "firefox78", "chrome87", "safari14"]
-			target: ["es2020", "edge126", "firefox115", "chrome109", "safari15.6"],
+			target: ["es2020", "edge126", "firefox115", "chrome109", "safari16"],
 			assetsInlineLimit: 0,
 			cssCodeSplit: false,
 			cssMinify: "lightningcss",
 			minify: "esbuild",
 			sourcemap: isDevBuild,
 			reportCompressedSize: false,
+			modulePreload: { polyfill: false },
+		},
+		esbuild: {
+			"top-level-await": true,
 		},
 	},
 });
