@@ -14,13 +14,20 @@ import img_seikoso from "../assets/seikoso.png";
 import img_shrimp from "../assets/shrimp.png";
 import img_cherry from "../assets/cherry.png";
 
-const nullfire_script_seikoso =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()';
-const nullfire_script_cherry =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()';
+const nullfire_script =
+`-- both of these loadstrings work equally well; use either!
+
+-- maintained by seikoso
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()
+
+-- maintained by Cherry
+loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()`;
 ---
 
 <Page path={Astro.url.pathname} title="About">
+	<link slot="preload" rel="modulepreload" as="script" href="../scripts/loadGamesList.mjs" fetchpriority="high" referrerpolicy="no-referrer" />
+	<Fragment slot="head"><script src="../scripts/loadGamesList.mjs"></script></Fragment>
+
 	<Part>
 		<h1 translate="no">NullFire</h1>
 		<p class="lead">
@@ -32,34 +39,15 @@ const nullfire_script_cherry =
 	</Part>
 
 	<Section title="Script">
-		<p>
-			The NullFire project is split into two scripts; one maintained by seikoso, and the other by
-			Cherry.
-		</p>
+		<p>The NullFire project is a hobby project by seikoso and Cherry.</p>
 
 		<br />
 
-		<h3>seikoso's Script</h3>
 		<h4>Supported Games</h4>
-		<ul>
-			<li>Doors</li>
-			<li>The Foundation</li>
-		</ul>
-		<h4>Script</h4>
-		<Code code={nullfire_script_seikoso} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		<p id="supportedGamesSuspense">loading...</p>
 
-		<br />
-
-		<h3>Cherry's Script</h3>
-		<h4>Supported Games</h4>
-		<ul>
-			<li>Funky Friday</li>
-			<li>Natural Disaster Survival</li>
-			<li>Pressure</li>
-			<li>Dead Rails</li>
-		</ul>
 		<h4>Script</h4>
-		<Code code={nullfire_script_cherry} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 	</Section>
 
 	<Section title="FAQ">
@@ -121,3 +109,11 @@ const nullfire_script_cherry =
 	</Section>
 </Page>
 
+<style is:global>
+#supportedGames .bold {
+	font-weight: bold;
+}
+#supportedGames .italic {
+	font-style: italic;
+}
+</style>
