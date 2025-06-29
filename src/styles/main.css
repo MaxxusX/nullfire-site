@@ -146,6 +146,7 @@ ul,
 ol,
 li {
 	font-size: inherit;
+	margin-top: 0.25lh;
 }
 
 abbr {
