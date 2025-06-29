@@ -26,7 +26,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-
 
 <Page path={Astro.url.pathname} title="About">
 	<link slot="preload" rel="preload" as="script" href="../scripts/loadGamesList.js" fetchpriority="high" referrerpolicy="no-referrer" />
-	<slot="head"><script defer src="../scripts/loadGamesList.js" fetchpriority="high"></script></>
+	<Fragment slot="head"><script defer src="../scripts/loadGamesList.js"></script></Fragment>
 
 	<Part>
 		<h1 translate="no">NullFire</h1>
