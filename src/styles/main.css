@@ -131,7 +131,7 @@ h4 {
 	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--color-foreground-heading);
-	margin-top: 1rem;
+	margin-top: 1lh;
 	margin-bottom: 0.2rem;
 }
 
@@ -143,10 +143,7 @@ p {
 }
 
 ul,
-ol {
-	font-size: inherit;
-	margin-top: 0;
-}
+ol,
 li {
 	font-size: inherit;
 }
