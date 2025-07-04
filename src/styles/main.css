@@ -207,22 +207,16 @@ code {
 	padding: 0;
 }
 
-	/*
-	since the <a> element is used for things like the social cards,
-	this stuff should be moved to a seperate class only for text hyperlinks.
+/*
+since the <a> element is used for things like the social cards,
+this stuff should be moved to a seperate class only for text hyperlinks.
 
-	a {
-		font-weight: 600;
-		color: #ddd;
-		text-decoration: underline solid #44f 2px;
-	}
-	*/
-
-.icon {
-	height: inherit;
-	width: auto;
-	aspect-ratio: 1/1;
+a {
+	font-weight: 600;
+	color: #ddd;
+	text-decoration: underline solid #44f 2px;
 }
+*/
 
 .pwrful {
 	font-weight: 800;
