@@ -2,8 +2,8 @@
 
 made w/ astro
 
-development site: https://nullfire-preview.pages.dev/<br>
-production site: https://nullfire.pages.dev/
+**production site:** <a href="https://nullfire.pages.dev/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">nullfire.pages.dev</a><br />
+**development site:** <a href="https://nullfire-preview.pages.dev/" target="_blank" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer">nullfire-preview.pages.dev</a>
 
 ## todo
 
