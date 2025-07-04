@@ -6,7 +6,7 @@ const response = await fetch("https://raw.githubusercontent.com/TeamNullFire/Nul
 
 if (response.ok) throw new Error("request for supported games failed");
 
-const json: { [string]: string } = await response.json();
+const json: { [index: string]: string } = await response.json();
 const data: Array<[string, string]> = Object.entries(json);
 console.info("successfully received supported games!");
 ---
