@@ -131,6 +131,7 @@ h4 {
 	font-size: 1.4rem;
 	font-weight: 500;
 	color: var(--color-foreground-heading);
+	margin-top: 1lh;
 	margin-bottom: 0.2rem;
 }
 
@@ -144,9 +145,9 @@ p {
 ul,
 ol {
 	font-size: inherit;
-	margin-top: 0;
-	margin-bottom: 0.8rem;
+	margin-top: 0.25lh;
 }
+
 li {
 	font-size: inherit;
 }
@@ -206,22 +207,16 @@ code {
 	padding: 0;
 }
 
-	/*
-	since the <a> element is used for things like the social cards,
-	this stuff should be moved to a seperate class only for text hyperlinks.
+/*
+since the <a> element is used for things like the social cards,
+this stuff should be moved to a seperate class only for text hyperlinks.
 
-	a {
-		font-weight: 600;
-		color: #ddd;
-		text-decoration: underline solid #44f 2px;
-	}
-	*/
-
-.icon {
-	height: inherit;
-	width: auto;
-	aspect-ratio: 1/1;
+a {
+	font-weight: 600;
+	color: #ddd;
+	text-decoration: underline solid #44f 2px;
 }
+*/
 
 .pwrful {
 	font-weight: 800;
@@ -236,10 +231,14 @@ code {
 
 .lead {
 	margin-top: 0;
-	margin-bottom: 0;
 	font-weight: 500;
 	color: rgb(230 230 230);
 	font-size: 1.5rem;
+	text-align: center;
+}
+.lead-subtext {
+	margin-bottom: 0;
+	font-size: 1.25rem;
 	text-align: center;
 }
 

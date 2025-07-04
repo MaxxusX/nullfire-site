@@ -2,6 +2,9 @@
 
 made w/ astro
 
+development site: https://nullfire-preview.pages.dev/<br>
+production site: https://nullfire.pages.dev/
+
 ## todo
 
 - [ ] add social links
@@ -12,7 +15,7 @@ i love when people do my job for me, but **DO NOT EDIT THIS REPO.**
 
 if you want to make a change:
 
-1. familiarize yourself with [Astro](https://astro.build) if you haven't already
+1. familiarize yourself with [Astro](https://astro.build/) if you haven't already
 2. fork this repo
 3. make your changes on that fork
 4. **_TEST YOUR CHANGES_**

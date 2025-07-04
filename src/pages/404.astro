@@ -1,17 +1,25 @@
 ---
-// components
-import Head from "../components/Head.astro";
+const refresh = "0;url=" + Astro.site;
+const script = `"use strict";(function(){window.location.replace(${ Astro.site })})()`;
+const url = new URL("/404", Astro.site).href;
 ---
 
 <!doctype html>
 <html lang="en-US">
-	<Head path="/" title="404" no-crawl>
-		<Fragment slot="preload"></Fragment>
-	</Head>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NullFire | 404</title>
+		<link rel="canonical" href={url} />
+		<meta name="robots" content="noindex,nofollow,nosnippet" />
+		<meta http-equiv="refresh" content={refresh} />
+		<script is:inline set:html={script}></script>
+	</head>
 	<body>
 		<main>
 			<h1>404 Not Found</h1>
-      <p>Redirecting to homepage.<br /><a href="/">Click here if you are not automatically redirected</a></p>
+			<p class="lead"><a href="/" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"
+				>Click here if you are not automatically redirected</a>.</p>
 		</main>
 	</body>
 </html>

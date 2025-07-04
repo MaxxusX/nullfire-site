@@ -6,36 +6,36 @@ interface Props {}
 	<slot />
 </div>
 
-<style>
-	.DevList {
-		display: grid;
-		justify-items: center;
-		gap: 1rem;
+<style is:global>
+.DevList {
+	display: grid;
+	justify-items: center;
+	gap: 1rem;
 
-		grid-template-columns: repeat(1, minmax(0, 1fr));
+	grid-template-columns: repeat(1, minmax(0, 1fr));
 
-		@media (min-width: 850px) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		@media (min-width: 1280px) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-
-		/*
-		margin-top: 0;
-		padding-top: 0;
-		margin-bottom: 0;
-		padding-bottom: 0;
-		width: 100%;
-		height: 100%;
-		text-align: center;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-content: start;
-		justify-content: space-evenly;
-		gap: 0.5rem;
-		*/
+	@media (min-width: 850px) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
+
+	@media (min-width: 1280px) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	/*
+	margin-top: 0;
+	padding-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: start;
+	justify-content: space-evenly;
+	gap: 0.5rem;
+	*/
+}
 </style>

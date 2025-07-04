@@ -4,6 +4,7 @@ import { Code } from "astro:components";
 import Page from "../layouts/Page.astro";
 import Part from "../components/Part.astro";
 import Section from "../components/Section.astro";
+import SupportedGames from "../components/SupportedGames.astro";
 import DevList from "../components/DevList.astro";
 import DevCard from "../components/DevCard.astro";
 import IFrame from "../components/IFrame.astro";
@@ -14,10 +15,14 @@ import img_seikoso from "../assets/seikoso.png";
 import img_shrimp from "../assets/shrimp.png";
 import img_cherry from "../assets/cherry.png";
 
-const nullfire_script_seikoso =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()';
-const nullfire_script_cherry =
-	'loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()';
+const nullfire_script =
+`-- both of these loadstrings work equally well; use either!
+
+-- maintained by seikoso
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()
+
+-- maintained by Cherry
+loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-Fire/main/Loader"))()`;
 ---
 
 <Page path={Astro.url.pathname} title="About">
@@ -25,52 +30,30 @@ const nullfire_script_cherry =
 		<h1 translate="no">NullFire</h1>
 		<p class="lead">
 			<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span>
-			<span translate="no">Roblox</span> script hub with <span class="imprtnt"
-				>countless features</span
-			> and a <span class="imprtnt">wide array of supported games</span>.
+			<span translate="no">Roblox</span> script hub with <span class="imprtnt">countless features</span>
+			and a <span class="imprtnt">wide array of supported games</span>.
 		</p>
+		<br />
+		<p class="lead-subtext">Developed by <span translate="no">seikoso</span> and <span translate="no">Cherry</span> as a hobby.</p>
 	</Part>
 
-	<Section title="Script">
-		<p>
-			The NullFire project is split into two scripts; one maintained by seikoso, and the other by
-			Cherry.
-		</p>
+	<Section title="Script" id="script">
+		<h4 id="supported_games">Supported Games</h4>
+		<SupportedGames />
 
-		<br />
-
-		<h3>seikoso's Script</h3>
-		<h4>Supported Games</h4>
-		<ul>
-			<li>Doors</li>
-			<li>The Foundation</li>
-		</ul>
-		<h4>Script</h4>
-		<Code code={nullfire_script_seikoso} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
-
-		<br />
-
-		<h3>Cherry's Script</h3>
-		<h4>Supported Games</h4>
-		<ul>
-			<li>Funky Friday</li>
-			<li>Natural Disaster Survival</li>
-			<li>Pressure</li>
-			<li>Dead Rails</li>
-		</ul>
-		<h4>Script</h4>
-		<Code code={nullfire_script_cherry} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		<h4 id="loadstring">Loadstring</h4>
+		<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
 	</Section>
 
-	<Section title="FAQ">
+	<Section title="FAQ" id="faq">
 		<p class="no-pad-y">
 			<b aria-hidden="true">Q.</b> What information do you log?<br />
 			<b aria-hidden="true">A.</b> We log <abbr title="Hardware IDs">HWIDs</abbr> to prevent premium
-			users from sharing their <span translate="no">NullFire+</span><br />
+			users from sharing their <span translate="no">NullFire+</span>
 		</p>
 	</Section>
 
-	<Section title="Developers">
+	<Section title="Developers" id="developers">
 		<DevList>
 			<DevCard image={img_seikoso} name="seikoso" role="owner" rolecolor="#ff0000">
 				main dev<br />
@@ -93,7 +76,7 @@ const nullfire_script_cherry =
 		</DevList>
 	</Section>
 
-	<Section title="Join our Discord(s)!">
+	<Section title="Join our Discord(s)!" id="discord">
 		<IFrame
 			class="discordEmbed"
 			title="Discord server"
@@ -120,4 +103,3 @@ const nullfire_script_cherry =
 		/>
 	</Section>
 </Page>
-

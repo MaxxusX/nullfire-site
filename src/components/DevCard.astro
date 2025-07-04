@@ -23,14 +23,15 @@ const { image, name, role, rolecolor } = Astro.props;
 		alt=""
 	/>
 	<div class="DevCard-About">
-		<div class="DevCard-Name-Container">
-			<h3 class="DevCard-Name">
+		<div class="DevCard-Header">
+			{/* TODO: (a11y) use css styling instead of h3 */}
+			<h3 class="DevCard-Title">
 				<span translate="no">{name}</span><span
 					class="DevCard-Role"
 					style={`background-color: ${rolecolor};`}>{role}</span
 				>
 			</h3>
-			<!-- <a class="DevCard-Link"><svg></svg></a> -->
+			{/* <a class="DevCard-Profile" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"><svg></svg></a> */}
 		</div>
 		<p class="DevCard-Desc">
 			<slot />
@@ -38,42 +39,40 @@ const { image, name, role, rolecolor } = Astro.props;
 	</div>
 </div>
 
-<style>
-	.DevCard {
-		display: flex;
-		width: 100%;
-		height: fit-content;
-		align-items: center;
-		justify-content: space-between;
-		border-radius: 0.375rem;
-		border-color: var(--color-foreground-border);
-		border-width: 2px;
-		border-style: solid;
-		padding: 1rem;
-		background-color: var(--color-foreground);
-		transform: translateY(0);
+<style is:global>
+.DevCard {
+	display: flex;
+	width: 100%;
+	height: fit-content;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 0.375rem;
+	border-color: var(--color-foreground-border);
+	border-width: 2px;
+	border-style: solid;
+	padding: 1rem;
+	background-color: var(--color-foreground);
+	transform: translateY(0);
+	transition:
+		border-color 75ms ease-in-out,
+		background-color 75ms ease-in-out,
+		transform 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
 
-		transition:
-			border-color 75ms ease-in-out,
-			background-color 75ms ease-in-out,
-			transform 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
+	@media (min-width: 440px) {
+		height: 9rem;
+	}
 
-		@media (min-width: 440px) {
-			height: 9rem;
+	&:hover {
+		border-color: var(--color-foreground-border-selected);
+		background-color: var(--color-foreground-selected);
+		transform: translateY(-0.5rem);
+
+		.DevCard-Image {
+			border-color: var(--color-foreground-border-selected);
 		}
 
-		&:hover {
-			border-color: var(--color-foreground-border-selected);
-			background-color: var(--color-foreground-selected);
-			transform: translateY(-0.5rem);
-
-			& .DevCard-Image {
-				border-color: var(--color-foreground-border-selected);
-			}
-
-			& .DevCard-Link {
-				background-color: var(--color-foreground-ui-selected);
-			}
+		.DevCard-Profile {
+			background-color: var(--color-foreground-ui-selected);
 		}
 	}
 
@@ -88,7 +87,6 @@ const { image, name, role, rolecolor } = Astro.props;
 		border-width: 2px;
 		border-style: solid;
 		margin-right: 1rem;
-
 		transition: border-color 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
 
 		/*
@@ -108,14 +106,14 @@ const { image, name, role, rolecolor } = Astro.props;
 		text-align: center;
 	}
 
-	.DevCard-Name-Container {
+	.DevCard-Header {
 		display: flex;
 		flex-direction: row;
 		gap: 0.5rem;
 		text-align: center;
 	}
 
-	.DevCard-Name {
+	.DevCard-Title {
 		margin: 0;
 		display: flex;
 		align-items: center;
@@ -152,13 +150,12 @@ const { image, name, role, rolecolor } = Astro.props;
 		}
 	}
 
-	.DevCard-Link {
+	.DevCard-Profile {
 		text-decoration: none;
 		display: flex;
 		border-radius: 9999px;
 		background-color: var(--color-foreground-ui);
 		padding: 0.625rem;
-
 		transition: background-color 0.3s linear;
 
 		& > svg {
@@ -183,4 +180,5 @@ const { image, name, role, rolecolor } = Astro.props;
 			line-height: 1.5rem;
 		}
 	}
+}
 </style>

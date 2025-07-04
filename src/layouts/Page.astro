@@ -21,12 +21,14 @@ import "../styles/main.css";
 	<Head path={path} title={title}>
 		<Fragment slot="preload">
 			<link
-				rel="preload"
+				rel="preload expect"
 				href={bgImage.src}
 				as="image"
+				blocking="render"
 				fetchpriority="high"
 				referrerpolicy="no-referrer"
 			/>
+			<slot name="preload" />
 			<link
 				rel="preload"
 				href="/fonts/JetBrainsMono.woff2"
@@ -42,6 +44,7 @@ import "../styles/main.css";
 				referrerpolicy="no-referrer"
 			/>
 		</Fragment>
+		<slot name="head" />
 	</Head>
 	<body style={`background-image: url('${bgImage.src}');`}>
 		<main>
