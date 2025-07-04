@@ -1,16 +1,22 @@
 ---
 import Head from "../components/Head.astro";
+
+const refresh = "0;url=" + Astro.site;
+const script = `"use strict";(function(){window.location.replace(${ Astro.site })})()`;
 ---
 
 <!doctype html>
 <html lang="en-US">
-	<Head path="/404" title="404" no-crawl>
-		<Fragment slot="preload"></Fragment>
+	<Head path="/404" title="404" no-crawl no-seo>
+		<Fragment slot="preload">
+			<meta http-equiv="refresh" content={refresh} />
+			<script is:inline set:html={script}></script>
+		</Fragment>
 	</Head>
 	<body>
 		<main>
 			<h1>404 Not Found</h1>
-			<p>Redirecting to homepage.<br /><a href="/">Click here if you are not automatically redirected.</a></p>
+			<p class="lead"><a href="/">Click here if you are not automatically redirected</a>.</p>
 		</main>
 	</body>
 </html>
