@@ -50,7 +50,7 @@ jobs:
 
       - name: "Write Unupdateable Packages to _outdated.txt"
         run: |
-          pnpm outdated --long --format table > _outdated.txt
+          printf "%s" "$(pnpm outdated --long --format table)"
 
       - name: "Push Branch"
         run: |
