@@ -242,7 +242,6 @@ code {
 	font-size: 1.5rem;
 	text-align: center;
 }
-
 .lead-subtext {
 	margin-bottom: 0;
 	font-size: 1.25rem;
@@ -264,12 +263,4 @@ code {
 	   - maxxus
 	*/
 	color-scheme: normal;
-}
-
-.bold {
-	font-weight: bold;
-}
-
-.italic {
-	font-style: italic;
 }
