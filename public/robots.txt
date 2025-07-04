@@ -18,7 +18,8 @@ Allow: /_astro/*.jpeg$
 Allow: /_astro/*.webp$
 Allow: /_astro/*.ico$
 Disallow: /cdn-cgi/
-Crawl-delay: 10
+Disallow: /404
+Crawl-delay: 5
 
 # favicon bots
 User-agent: DuckDuckGo-Favicons-Bot
