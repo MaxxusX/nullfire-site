@@ -4,10 +4,9 @@ import logo from "../assets/logo.png";
 interface Props {
 	path: string;
 	title: string;
-	noCrawl?: boolean;
 }
 
-const { path, title: pageName, noCrawl } = Astro.props;
+const { path, title: pageName } = Astro.props;
 
 const url = new URL(path, Astro.site).href;
 const siteName = "NullFire";
@@ -44,19 +43,19 @@ const themeColor = "#651089"; // previously #0e0f13
 	<link rel="canonical" href={url} />
 	<meta name="description" content={desc} />
 	<meta name="keywords" content={tags} />
-	<meta name="robots" content={noCrawl ? "noindex,nofollow" : "index,follow"} />
+	<meta name="robots" content="index,follow" />
 
 	{/* Apple Metadata */}
 	<meta name="apple-mobile-web-app-title" content={siteName} />
 	<link rel="apple-touch-icon" href={icon} />
-
+	
 	{/* Twitter Metadata */}
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={desc} />
 	<meta name="twitter:image" content={icon} />
 	<meta name="twitter:image:alt" content={iconAlt} />
-
+	
 	{/* OpenGraph Metadata */}
 	<meta property="og:url" content={url} />
 	<meta property="og:type" content="website" />
