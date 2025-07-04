@@ -2,7 +2,19 @@
 interface Props {};
 
 console.log("requesting supported games...");
-const response = await fetch("https://raw.githubusercontent.com/TeamNullFire/NullFire/refs/heads/main/games.json");
+const response = await fetch("https://raw.githubusercontent.com/TeamNullFire/NullFire/refs/heads/main/games.json", {
+	"method": "GET",
+	"mode": "cors",
+	"credentials": "omit",
+	"cache": "no-cache",
+	"referrer": "",
+	"referrerPolicy": "no-referrer",
+	"headers": {
+		"Accept": "application/json,text/plain;q=0.9",
+		"Cache-Control": "no-cache,max-age=0,stale-if-error",
+		"Upgrade-Insecure-Requests": "1",
+	},
+});
 
 if (!response.ok) throw new Error("request for supported games failed w/ " + response.status + ": " + response.statusText);
 
