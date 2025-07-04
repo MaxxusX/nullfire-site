@@ -1,17 +1,17 @@
 ---
 interface Props {
 	title: string;
-	centered?: boolean;
+	id: string;
 }
 
-const { title } = Astro.props;
+const { title, id } = Astro.props;
 
 import Part from "./Part.astro";
 ---
 
 <Part>
 	<section class="Section">
-		<h2>{title}</h2>
+		<h2 id={id}>{title}</h2>
 		<div><slot /></div>
 	</section>
 </Part>
