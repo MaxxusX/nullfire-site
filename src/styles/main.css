@@ -27,7 +27,7 @@ html {
 	padding: 0;
 
 	overflow: visible;
-	overscroll-behavior: none;
+	/* overscroll-behavior: none; */
 
 	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
 		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
