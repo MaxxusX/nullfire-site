@@ -27,7 +27,7 @@ jobs:
         uses: "actions/checkout@v4"
 
       - name: "Create New Branch"
-        run: 'git checkout -b "actions/update-lockfile" main'
+        run: "git checkout -b actions/update-lockfile origin/main"
 
       - name: "Delete Lockfile"
         run: "rm pnpm-lock.yaml"
