@@ -12,7 +12,7 @@ console.info("successfully received supported games!");
 ---
 
 <ul class="SupportedGames">
-{data.map([game, status] => (
+{data.map(([game, status]) => (
 	<li><span>{game}</span>: <span>{status}</span></li>
 ))}
 </ul>
