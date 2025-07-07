@@ -69,7 +69,7 @@ export default defineConfig({
 		},
 		build: {
 			// vite default: ["es2020", "edge88", "firefox78", "chrome87", "safari14"]
-			target: ["es2020", "chrome112", "edge112", "firefox128", "safari16.6"],
+			target: ["es2022", "chrome112", "edge112", "firefox128", "safari16.6"],
 			assetsInlineLimit: 0,
 			cssCodeSplit: false,
 			cssMinify: "lightningcss",
