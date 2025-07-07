@@ -57,19 +57,18 @@ export default defineConfig({
 				sourceMap: isDevBuild,
 				errorRecovery: false,
 				targets: {
-					chrome: 112 << 16, // vite default: 87
+					chrome: 112 << 16, // vite default: 107
 					and_chr: 138 << 16,
-					edge: 112 << 16, // vite default: 88
-					firefox: 128 << 16, // vite default: 78
+					edge: 112 << 16, // vite default: 107
+					firefox: 128 << 16, // vite default: 104
 					and_ff: 140 << 16,
-					safari: (16 << 16) | (6 << 8), // vite default: 14
+					safari: (16 << 16) | (6 << 8), // vite default: 16
 					ios_saf: (16 << 16) | (7 << 8),
 				},
 			},
 		},
 		build: {
-			// vite default: ["es2020", "edge88", "firefox78", "chrome87", "safari14"]
-			target: ["es2022", "chrome112", "edge112", "firefox128", "safari16.6"],
+			target: ["es2020", "chrome112", "edge112", "firefox128", "safari16.6"],
 			assetsInlineLimit: 0,
 			cssCodeSplit: false,
 			cssMinify: "lightningcss",
@@ -77,11 +76,6 @@ export default defineConfig({
 			sourcemap: isDevBuild,
 			reportCompressedSize: false,
 			modulePreload: { polyfill: false },
-		},
-		esbuild: {
-			supported: {
-				"top-level-await": true,
-			},
 		},
 	},
 });
