@@ -29,8 +29,8 @@ jobs:
       - name: "Create New Branch"
         run: "git checkout -B actions/update-lockfile"
 
-      - name: "Delete Lockfile"
-        run: "rm pnpm-lock.yaml"
+      # - name: "Delete Lockfile"
+        # run: "rm pnpm-lock.yaml"
 
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
@@ -62,7 +62,7 @@ jobs:
           git add package.json
           git add pnpm-lock.yaml
           git commit -m "update packages and lockfile"
-          git push origin "actions/update-lockfile" --verbose
+          git push origin "actions/update-lockfile" --force --verbose
 
       - name: "Create Pull Request"
         run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "$PR_BODY"'
