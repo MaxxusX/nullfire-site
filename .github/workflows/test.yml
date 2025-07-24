@@ -17,7 +17,6 @@ on:
       - "!CODEOWNERS"
       - "!README.md"
       - "!wrangler.toml"
-      - "!_outdated.txt"
       - ".github/workflows/test.yml"
   pull_request:
     paths:
@@ -32,7 +31,6 @@ on:
       - "!CODEOWNERS"
       - "!README.md"
       - "!wrangler.toml"
-      - "!_outdated.txt"
       - ".github/workflows/test.yml"
   workflow_dispatch:
 
@@ -63,7 +61,6 @@ jobs:
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
         with:
-          version: "10.12.4"
           package_json_file: "./package.json"
 
       - name: "Setup Node"
