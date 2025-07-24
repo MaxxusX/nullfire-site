@@ -5,18 +5,25 @@ updates:
     schedule:
       interval: "weekly"
       day: "wednesday"
+      time: "00:00"
     assignees:
-      - "maxxusx"
+      - "@MaxxusX"
     commit-message:
       prefix: "[actions] "
 
   - package-ecosystem: "npm"
     directory: "/"
     versioning-strategy: "increase"
+    groups:
+      non-major:
+        update-types:
+          - "minor"
+          - "patch"
     schedule:
       interval: "weekly"
       day: "wednesday"
+      time: "00:00"
     assignees:
-      - "maxxusx"
+      - "@MaxxusX"
     commit-message:
       prefix: "[pnpm] "
