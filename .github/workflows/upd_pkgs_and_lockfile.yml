@@ -16,7 +16,7 @@ defaults:
     working-directory: "."
 
 jobs:
-  build:
+  update:
     permissions:
       contents: "write"
       pull-requests: "write"
