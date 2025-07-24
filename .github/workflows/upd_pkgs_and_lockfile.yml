@@ -26,6 +26,9 @@ jobs:
       - name: "Checkout Repository"
         uses: "actions/checkout@v4"
 
+      - name: "Delete Old Branch"
+        run: "git push origin --delete actions/update-lockfile"
+
       - name: "Create New Branch"
         run: "git checkout -B actions/update-lockfile"
 
@@ -44,10 +47,10 @@ jobs:
 
       - name: "Update"
         run: |
-          pnpm install --lockfile-only
-        # pnpm update
+          pnpm update
+          pnpm install
 
-      - name: "Log Skipped Packages"
+      - name: "Get Skipped Packages"
         run: |
           {
             echo 'PR_BODY<<EOF'
@@ -62,7 +65,7 @@ jobs:
           git add package.json
           git add pnpm-lock.yaml
           git commit -m "update packages and lockfile"
-          git push origin "actions/update-lockfile" --force --verbose
+          git push origin "actions/update-lockfile" --verbose
 
       - name: "Create Pull Request"
         run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "$PR_BODY"'
