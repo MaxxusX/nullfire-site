@@ -15,7 +15,6 @@ on:
       - "!.prettierrc"
       - "!CODEOWNERS"
       - "!README.md"
-      - "!_outdated.txt"
       - ".github/workflows/build_deploy.yml"
   workflow_dispatch:
 
@@ -50,7 +49,6 @@ jobs:
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
         with:
-          version: "10.12.4"
           package_json_file: "./package.json"
 
       - name: "Setup Node"
@@ -86,3 +84,5 @@ jobs:
       - name: "Deploy to GitHub Pages"
         id: "deployment"
         uses: "actions/deploy-pages@v4"
+        with:
+          error_count: "1"
