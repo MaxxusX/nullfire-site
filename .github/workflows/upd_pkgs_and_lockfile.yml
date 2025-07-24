@@ -29,8 +29,8 @@ jobs:
       - name: "Create New Branch"
         run: "git checkout -B actions/update-lockfile"
 
-      # - name: "Delete Lockfile"
-        # run: "rm pnpm-lock.yaml"
+      - name: "Delete Lockfile"
+        run: "rm pnpm-lock.yaml"
 
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v4"
@@ -42,10 +42,10 @@ jobs:
         with:
           node-version-file: "./package.json"
 
-      # - name: "Update"
-        # run: |
-          # pnpm update
-          # pnpm install --lockfile-only
+      - name: "Update"
+        run: |
+          pnpm install --lockfile-only
+        # pnpm update
 
       - name: "Log Skipped Packages"
         run: |
