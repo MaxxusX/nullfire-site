@@ -42,16 +42,16 @@ jobs:
         with:
           node-version-file: "./package.json"
 
-      - name: "Update"
-        run: |
-          pnpm update
-          pnpm install --lockfile-only
+      # - name: "Update"
+        # run: |
+          # pnpm update
+          # pnpm install --lockfile-only
 
-      - name: "Log Unupdateable Packages"
+      - name: "Log Skipped Packages"
         run: |
           {
-            echo 'SKIPPED_PACKAGES<<EOF'
-            printf -- "%s\n" "$(pnpm outdated --long --format list)"
+            echo 'PR_BODY<<EOF'
+            printf -- "check diff for updated packages.\n## Skipped Packages:\n%s\n" "$(pnpm outdated --long --format list)"
             echo EOF
           } >> "$GITHUB_ENV"
 
@@ -65,6 +65,6 @@ jobs:
           git push origin "actions/update-lockfile" --verbose
 
       - name: "Create Pull Request"
-        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "check diff for updated packages.\n## skipped packages:\n$SKIPPED_PACKAGES"'
+        run: 'gh pr create -B main -H "actions/update-lockfile" --title "update packages and lockfile" --body "$PR_BODY"'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
