@@ -7,7 +7,7 @@ updates:
       day: "wednesday"
       time: "00:00"
     assignees:
-      - "@MaxxusX"
+      - "MaxxusX"
     commit-message:
       prefix: "[actions] "
 
@@ -24,6 +24,7 @@ updates:
       day: "wednesday"
       time: "00:00"
     assignees:
-      - "@MaxxusX"
+      - "MaxxusX"
     commit-message:
       prefix: "[pnpm] "
+
