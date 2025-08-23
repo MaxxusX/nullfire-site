@@ -1,19 +1,19 @@
 ---
 import { Code } from "astro:components";
 
-import Page from "../layouts/Page.astro";
-import Part from "../components/Part.astro";
-import Section from "../components/Section.astro";
-import SupportedGames from "../components/SupportedGames.astro";
-import DevList from "../components/DevList.astro";
-import DevCard from "../components/DevCard.astro";
-import IFrame from "../components/IFrame.astro";
+import Page from "@layouts/Page.astro";
+import Part from "@components/Part.astro";
+import Section from "@components/Section.astro";
+import SupportedGames from "@components/SupportedGames.astro";
+import DevList from "@components/DevList.astro";
+import DevCard from "@components/DevCard.astro";
+import IFrame from "@components/IFrame.astro";
 
-import img_catperson from "../assets/cat_person.webp";
-import img_maxxus from "../assets/maxxus.webp";
-import img_seikoso from "../assets/seikoso.webp";
-import img_shrimper from "../assets/shrimper.webp";
-import img_cherry from "../assets/cherry.webp";
+import img_catperson from "@assets/cat_person.webp";
+import img_maxxus from "@assets/maxxus.webp";
+import img_seikoso from "@assets/seikoso.webp";
+import img_shrimper from "@assets/shrimper.webp";
+import img_cherry from "@assets/cherry.webp";
 
 const nullfire_script =
 `-- both of these loadstrings work equally well; use either!
@@ -107,6 +107,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-
 	<br>
 	<p>&copy; 2025 NullFire | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a></p>
 </Page>
+
 
 
 
