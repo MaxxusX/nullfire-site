@@ -1,4 +1,5 @@
 ---
+import { getImage } from "astro:assets";
 import logo from "@assets/logo.png";
 
 interface Props {
@@ -22,6 +23,7 @@ const icon = await getImage({
 	quality: "max",
 	priority: true
 });
+const iconAbsoluteSrc = new URL(icon.src, Astro.site).href;
 const iconAlt = "NullFire Logo";
 
 const themeColor = "#651089"; // previously #0e0f13
@@ -58,7 +60,7 @@ const themeColor = "#651089"; // previously #0e0f13
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={desc} />
-	<meta name="twitter:image" content={icon.src} />
+	<meta name="twitter:image" content={iconAbsoluteSrc} />
 	<meta name="twitter:image:alt" content={iconAlt} />
 	
 	{/* OpenGraph Metadata */}
@@ -67,7 +69,7 @@ const themeColor = "#651089"; // previously #0e0f13
 	<meta property="og:site_name" content={siteName} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={desc} />
-	<meta property="og:image" content={icon.src} />
+	<meta property="og:image" content={iconAbsoluteSrc} />
 	<meta property="og:image:alt" content={iconAlt} />
 	<meta property="og:image:width" content={icon.attributes.width.toString()} />
 	<meta property="og:image:height" content={icon.attributes.height.toString()} />
@@ -75,4 +77,3 @@ const themeColor = "#651089"; // previously #0e0f13
 	{/* Other Data */}
 	<slot />
 </head>
-
