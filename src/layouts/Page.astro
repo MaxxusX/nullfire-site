@@ -1,4 +1,9 @@
 ---
+import { getImage } from "astro:assets";
+import Head from "@components/Head.astro";
+import bgImage from "@assets/reception_blur.webp";
+import "@styles/main.css";
+
 interface Props {
 	path: string;
 	title: string;
@@ -6,14 +11,14 @@ interface Props {
 
 const { path, title } = Astro.props;
 
-// components
-import Head from "../components/Head.astro";
-
-// images
-import bgImage from "../assets/reception_blur.webp";
-
-// stylesheets
-import "../styles/main.css";
+const optimizedBackgroundImage = await getImage({
+	src: bgImage.src,
+	width: bgImage.width,
+	height: bgImage.height,
+	format: "webp",
+	quality: "max",
+	priority: true
+});
 ---
 
 <!doctype html>
@@ -21,10 +26,9 @@ import "../styles/main.css";
 	<Head path={path} title={title}>
 		<Fragment slot="preload">
 			<link
-				rel="preload expect"
-				href={bgImage.src}
+				rel="preload"
+				href={optimizedBackgroundImage.src}
 				as="image"
-				blocking="render"
 				fetchpriority="high"
 				referrerpolicy="no-referrer"
 			/>
@@ -46,7 +50,7 @@ import "../styles/main.css";
 		</Fragment>
 		<slot name="head" />
 	</Head>
-	<body style={`background-image: url('${bgImage.src}');`}>
+	<body style={`background-image: url('${optimizedBackgroundImage.src}');`}>
 		<main>
 			<slot />
 		</main>
