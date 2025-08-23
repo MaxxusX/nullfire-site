@@ -1,5 +1,5 @@
-@import "../styles/sanitize.css";
-@import "../styles/JetBrains-Mono.css";
+@import "@styles/sanitize.css";
+@import "@styles/JetBrains-Mono.css";
 
 :root {
 	--color-foreground: rgb(20 15 15 / 0.75);
@@ -259,3 +259,4 @@ a {
 	*/
 	color-scheme: normal;
 }
+
