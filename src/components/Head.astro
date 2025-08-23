@@ -1,5 +1,5 @@
 ---
-import logo from "../assets/logo.png";
+import logo from "@assets/logo.png";
 
 interface Props {
 	path: string;
@@ -14,10 +14,15 @@ const title = `${siteName} | ${pageName}`;
 const desc = "NullFire is a powerful Roblox script hub with countless features and a wide array of supported games.";
 const tags = "nullfire,nullhub,firehub,mshub revive,roblox,hacks,scripts,exploits,script hub";
 
-const icon = new URL(logo.src, url).href;
+const icon = await getImage({
+	src: logo.src,
+	width: logo.width,
+	height: logo.height,
+	format: "png",
+	quality: "max",
+	priority: true
+});
 const iconAlt = "NullFire Logo";
-const iconWidth = logo.width.toString();
-const iconHeight = logo.height.toString();
 
 const themeColor = "#651089"; // previously #0e0f13
 ---
@@ -34,7 +39,7 @@ const themeColor = "#651089"; // previously #0e0f13
 
 	{/* Titlebar Data */}
 	<title>{title}</title>
-	<link rel="icon" href={icon} fetchpriority="low" referrerpolicy="no-referrer" />
+	<link rel="icon" href={icon.src} fetchpriority="low" referrerpolicy="no-referrer" />
 
 	{/* Google Site Verification */}
 	<meta name="google-site-verification" content="B2gh4n76Eeh_x1Rm-tNwsvEHCjqIqZzz1lIdO8GeDsY" />
@@ -47,13 +52,13 @@ const themeColor = "#651089"; // previously #0e0f13
 
 	{/* Apple Metadata */}
 	<meta name="apple-mobile-web-app-title" content={siteName} />
-	<link rel="apple-touch-icon" href={icon} />
+	<link rel="apple-touch-icon" href={icon.src} />
 	
 	{/* Twitter Metadata */}
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={desc} />
-	<meta name="twitter:image" content={icon} />
+	<meta name="twitter:image" content={icon.src} />
 	<meta name="twitter:image:alt" content={iconAlt} />
 	
 	{/* OpenGraph Metadata */}
@@ -62,11 +67,12 @@ const themeColor = "#651089"; // previously #0e0f13
 	<meta property="og:site_name" content={siteName} />
 	<meta property="og:title" content={title} />
 	<meta property="og:description" content={desc} />
-	<meta property="og:image" content={icon} />
+	<meta property="og:image" content={icon.src} />
 	<meta property="og:image:alt" content={iconAlt} />
-	<meta property="og:image:width" content={iconWidth} />
-	<meta property="og:image:height" content={iconHeight} />
+	<meta property="og:image:width" content={icon.attributes.width.toString()} />
+	<meta property="og:image:height" content={icon.attributes.height.toString()} />
 
 	{/* Other Data */}
 	<slot />
 </head>
+
