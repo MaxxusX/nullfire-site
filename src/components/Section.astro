@@ -5,16 +5,12 @@ interface Props {
 }
 
 const { title, id } = Astro.props;
-
-import Part from "@components/Part.astro";
 ---
 
-<Part>
-	<section class="Section">
-		<h2 id={id}>{title}</h2>
-		<div><slot /></div>
-	</section>
-</Part>
+<section class="Section">
+	<h2 id={id}>{title}</h2>
+	<div><slot /></div>
+</section>
 
 <style is:global>
 .Section {
@@ -23,7 +19,7 @@ import Part from "@components/Part.astro";
 	/* background-color: var(--ui-color); */
 	/* border: var(--border); */
 	/* padding: 1rem; */
-	margin-top: 5rem;
+	/* margin-top: 5rem; */
 	align-items: center;
 	justify-items: center;
 	justify-content: center;
@@ -44,4 +40,5 @@ import Part from "@components/Part.astro";
 	}
 }
 </style>
+
 
