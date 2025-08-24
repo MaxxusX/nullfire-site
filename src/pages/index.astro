@@ -3,6 +3,7 @@ import { Code } from "astro:components";
 
 import Page from "@layouts/Page.astro";
 import Part from "@components/Part.astro";
+import SectionList from "@components/SectionList.astro";
 import Section from "@components/Section.astro";
 import SupportedGames from "@components/SupportedGames.astro";
 import DevList from "@components/DevList.astro";
@@ -26,87 +27,89 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-
 ---
 
 <Page path={Astro.url.pathname} title="About">
-	<Part>
-		<h1 translate="no">NullFire</h1>
-		<p class="lead">
-			<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span>
-			<span translate="no">Roblox</span> script hub with <span class="imprtnt">countless features</span>
-			and a <span class="imprtnt">wide array of supported games</span>.
-		</p>
-		<br />
-		<p class="lead-subtext">Developed by <span translate="no">seikoso</span> and <span translate="no">Cherry</span> as a hobby.</p>
-	</Part>
+	<h1 translate="no">NullFire</h1>
+	<p class="lead">
+		<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span>
+		<span translate="no">Roblox</span> script hub with <span class="imprtnt">countless features</span>
+		and a <span class="imprtnt">wide array of supported games</span>.
+	</p>
+	<br />
+	<p class="lead-subtext">Developed by <span translate="no">seikoso</span> and <span translate="no">Cherry</span> as a hobby.</p>
 
-	<Section title="Script" id="script">
-		<h4 id="supported_games">Supported Games</h4>
-		<SupportedGames />
+	<SectionList>
+		<Section title="Script" id="script">
+			<h4 id="supported_games">Supported Games</h4>
+			<SupportedGames />
+	
+			<h4 id="loadstring">Loadstring</h4>
+			<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+		</Section>
+	
+		<Section title="FAQ" id="faq">
+			<p class="no-pad-y">
+				<b aria-hidden="true">Q.</b> What information do you log?<br />
+				<b aria-hidden="true">A.</b> We log <abbr title="Hardware IDs">HWIDs</abbr> and hashed <abbr title="IP Addresses">IPs</abbr>
+				to prevent premium users from sharing their <span translate="no">NullFire+</span>
+			</p>
+		</Section>
+	
+		<Section title="Developers" id="developers">
+			<DevList>
+				<DevCard image={img_seikoso} name="seikoso" role="owner" rolecolor="#ff0000">
+					main dev<br />
+					does pretty much all the work
+				</DevCard>
+				<DevCard image={img_cherry} name="cherry" role="ui designer" rolecolor="#ff4447">
+					also helping with some stuff other than ui
+				</DevCard>
+				<DevCard image={img_maxxus} name="maxxus" role="website dev" rolecolor="#0016ff">
+					coolest <span translate="no">nullfire</span> dev<br />
+					not gay
+				</DevCard>
+				<DevCard image={img_shrimper} name="shrimper" role="developer" rolecolor="#4600ff">
+					second dev<br />
+					mainly worked on the script for <span translate="no">The Foundation</span>
+				</DevCard>
+				<DevCard image={img_catperson} name="cat_person" role="contributer" rolecolor="#7c00ff">
+					contributed scripts for <span translate="no">doors</span>
+				</DevCard>
+			</DevList>
+		</Section>
+	
+		<Section title="Join our Discord(s)!" id="discord">
+			<IFrame
+				class="discordEmbed"
+				title="Discord server"
+				src="https://discord.com/widget?id=1289878746463207424&theme=dark"
+				width="350"
+				height="500"
+				allowtransparency="true"
+				loading="lazy"
+				credentialless="true"
+				referrerpolicy="no-referrer"
+				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+				allow="cross-origin-isolated 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'"
+			/>
+			<IFrame
+				class="discordEmbed"
+				title="Discord server"
+				src="https://discord.com/widget?id=1183062272193605784&theme=dark"
+				width="350"
+				height="500"
+				allowtransparency="true"
+				loading="lazy"
+				credentialless="true"
+				referrerpolicy="no-referrer"
+				sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+				allow="cross-origin-isolated 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'"
+			/>
+		</Section>
+	</SectionList>
 
-		<h4 id="loadstring">Loadstring</h4>
-		<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
-	</Section>
-
-	<Section title="FAQ" id="faq">
-		<p class="no-pad-y">
-			<b aria-hidden="true">Q.</b> What information do you log?<br />
-			<b aria-hidden="true">A.</b> We log <abbr title="Hardware IDs">HWIDs</abbr> and hashed <abbr title="IP Addresses">IPs</abbr>
-			to prevent premium users from sharing their <span translate="no">NullFire+</span>
-		</p>
-	</Section>
-
-	<Section title="Developers" id="developers">
-		<DevList>
-			<DevCard image={img_seikoso} name="seikoso" role="owner" rolecolor="#ff0000">
-				main dev<br />
-				does pretty much all the work
-			</DevCard>
-			<DevCard image={img_cherry} name="cherry" role="ui designer" rolecolor="#ff4447">
-				also helping with some stuff other than ui
-			</DevCard>
-			<DevCard image={img_maxxus} name="maxxus" role="website dev" rolecolor="#0016ff">
-				coolest <span translate="no">nullfire</span> dev<br />
-				not gay
-			</DevCard>
-			<DevCard image={img_shrimper} name="shrimper" role="developer" rolecolor="#4600ff">
-				second dev<br />
-				mainly worked on the script for <span translate="no">The Foundation</span>
-			</DevCard>
-			<DevCard image={img_catperson} name="cat_person" role="contributer" rolecolor="#7c00ff">
-				contributed scripts for <span translate="no">doors</span>
-			</DevCard>
-		</DevList>
-	</Section>
-
-	<Section title="Join our Discord(s)!" id="discord">
-		<IFrame
-			class="discordEmbed"
-			title="Discord server"
-			src="https://discord.com/widget?id=1289878746463207424&theme=dark"
-			width="350"
-			height="500"
-			allowtransparency="true"
-			loading="lazy"
-			credentialless="true"
-			referrerpolicy="no-referrer"
-			sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-			allow="cross-origin-isolated 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'"
-		/>
-		<IFrame
-			class="discordEmbed"
-			title="Discord server"
-			src="https://discord.com/widget?id=1183062272193605784&theme=dark"
-			width="350"
-			height="500"
-			allowtransparency="true"
-			loading="lazy"
-			credentialless="true"
-			referrerpolicy="no-referrer"
-			sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-			allow="cross-origin-isolated 'none'; execution-while-not-rendered 'none'; execution-while-out-of-viewport 'none'"
-		/>
-	</Section>
-	<br>
+	<br />
 	<p>&copy; 2025 NullFire | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a></p>
 </Page>
+
 
 
 
