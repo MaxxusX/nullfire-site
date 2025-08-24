@@ -1,0 +1,17 @@
+---
+interface Props {};
+---
+
+<div class="SectionList">
+	<slot />
+</div>
+
+<style is:global>
+.SectionList {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	row-gap: 5rem;
+}
+</style>
