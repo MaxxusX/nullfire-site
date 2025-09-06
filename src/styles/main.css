@@ -28,8 +28,6 @@ html {
 
 	overflow-x: hidden;
 	overflow-y: auto;
-	/* TODO: remove my hacky scrolling shit so we can allow overscroll refreshing on mobile */
-	overscroll-behavior: none;
 
 	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
 		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
@@ -62,8 +60,6 @@ body {
 	margin: 0;
 	padding: 0;
 
-	overscroll-behavior: none;
-
 	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
 
@@ -78,8 +74,6 @@ main {
 	padding-bottom: 2rem;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
-
-	overscroll-behavior: auto;
 
 	display: block;
 	background-color: rgb(0 0 0 / 0.25);
@@ -259,6 +253,7 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
 
