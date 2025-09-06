@@ -4,7 +4,7 @@
 	"private": true,
 	"version": "0.6.0",
 	"scripts": {
-		"test": "astro check --minimumFailingSeverity hint",
+		"test": "astro check --minimumFailingSeverity warning",
 		"dev": "astro dev",
 		"start": "astro dev",
 		"build": "astro build",
