@@ -26,7 +26,8 @@ html {
 	margin: 0;
 	padding: 0;
 
-	overflow: visible;
+	overflow-x: hidden;
+	overflow-y: auto;
 	/* TODO: remove my hacky scrolling shit so we can allow overscroll refreshing on mobile */
 	overscroll-behavior: none;
 
@@ -61,7 +62,6 @@ body {
 	margin: 0;
 	padding: 0;
 
-	overflow: visible;
 	overscroll-behavior: none;
 
 	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
@@ -79,8 +79,6 @@ main {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 
-	overflow-x: hidden;
-	overflow-y: auto;
 	overscroll-behavior: auto;
 
 	display: block;
@@ -261,6 +259,7 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
 
