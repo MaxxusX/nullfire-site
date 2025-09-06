@@ -16,6 +16,7 @@
 }
 
 html {
+	/*
 	position: fixed;
 
 	top: 0;
@@ -25,9 +26,10 @@ html {
 
 	margin: 0;
 	padding: 0;
+	*/
 
 	overflow-x: hidden;
-	overflow-y: auto;
+	/* overflow-y: auto; */
 
 	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
 		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
@@ -52,30 +54,27 @@ html {
 }
 
 body {
-	position: static;
-
 	width: 100%;
-	height: 100%;
-
 	margin: 0;
 	padding: 0;
+
+	overflow-x: hidden;
 
 	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
 
 main {
-	position: static;
+	display: block;
 
 	width: 100%;
-	height: 100%;
-
 	margin: 0;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 
-	display: block;
+	overflow-x: hidden;
+
 	background-color: rgb(0 0 0 / 0.25);
 }
 
@@ -253,9 +252,3 @@ a {
 	*/
 	color-scheme: normal;
 }
-
-
-
-
-
-
