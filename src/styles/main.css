@@ -60,7 +60,7 @@ body {
 
 	overflow-x: hidden;
 
-	background: local no-repeat center top/cover border-box rgb(14 15 19);
+	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
 
 main {
@@ -252,5 +252,6 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
