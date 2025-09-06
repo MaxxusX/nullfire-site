@@ -113,7 +113,7 @@ h1 {
 	font-size: 4rem;
 	font-weight: 800;
 	color: var(--color-foreground-title);
-	margin-bottom: 1rem;
+	margin-bottom: 1.5rem;
 }
 h2 {
 	text-align: center;
@@ -261,6 +261,7 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
 
