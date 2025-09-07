@@ -83,7 +83,7 @@ body::before {
 
 	overflow: hidden;
 
-	background: url("@assets/reception_blur.webp") fixed no-repeat center top/cover border-box rgb(14 15 19);
+	background: url("@assets/reception_blur.webp") fixed no-repeat center top/cover content-box rgb(14 15 19);
 }
 
 main {
@@ -275,6 +275,7 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
 
