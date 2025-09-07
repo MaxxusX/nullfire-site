@@ -59,6 +59,8 @@ body {
 	padding: 0;
 
 	overflow-x: hidden;
+
+	background-color: rgb(0 0 0 / 0.25);
 }
 /**
  * safari claims to support `background-attachment: fixed;`.
@@ -77,9 +79,11 @@ body::before {
 	isolation: isolate;
 	contain: strict;
 	contain-intrinsic-width: 100lvw;
-	contain-intrinsic-height: 100lvw;
+	contain-intrinsic-height: 100lvh;
 	width: 100lvw;
 	height: 100lvh;
+
+	overflow-x: hidden;
 
 	background: url("@assets/reception_blur.webp") fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
@@ -95,8 +99,6 @@ main {
 	padding-right: 2.5rem;
 
 	overflow-x: hidden;
-
-	background-color: rgb(0 0 0 / 0.25);
 }
 
 h1,
@@ -273,3 +275,4 @@ a {
 	*/
 	color-scheme: normal;
 }
+
