@@ -71,13 +71,17 @@ body::before {
 	content: "";
 	position: fixed;
 	top: 0;
-	bottom: 0;
 	left: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
+
 	z-index: -1;
+	isolation: isolate;
+	contain: strict;
+	contain-intrinsic-width: 100lvw;
+	contain-intrinsic-height: 100lvw;
+	width: 100lvw;
+	height: 100lvh;
+
+	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
 
 main {
@@ -269,6 +273,7 @@ a {
 	*/
 	color-scheme: normal;
 }
+
 
 
 
