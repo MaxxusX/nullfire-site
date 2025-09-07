@@ -1,4 +1,5 @@
 import { env } from "node:process";
+import { fileURLToPath, URL } from "node:url";
 import { defineConfig, passthroughImageService } from "astro/config";
 //import purgecss from "astro-purgecss";
 
@@ -77,5 +78,15 @@ export default defineConfig({
 			reportCompressedSize: false,
 			modulePreload: { polyfill: false },
 		},
+		resolve: {
+			alias: {
+				"@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
+				"@styles": fileURLToPath(new URL("./src/styles", import.meta.url)),
+				"@components": fileURLToPath(new URL("./src/components", import.meta.url)),
+				"@layouts": fileURLToPath(new URL("./src/layouts", import.meta.url)),
+				"@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
+			},
+		},
 	},
 });
+
