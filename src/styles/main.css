@@ -81,7 +81,7 @@ body::before {
 	width: 100lvw;
 	height: 100lvh;
 
-	background: fixed no-repeat center top/cover border-box rgb(14 15 19);
+	background: url("@assets/reception_blur.webp") fixed no-repeat center top/cover border-box rgb(14 15 19);
 }
 
 main {
@@ -273,10 +273,3 @@ a {
 	*/
 	color-scheme: normal;
 }
-
-
-
-
-
-
-
