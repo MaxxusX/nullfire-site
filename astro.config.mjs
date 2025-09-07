@@ -2,7 +2,7 @@ import { env } from "node:process";
 import { defineConfig, passthroughImageService } from "astro/config";
 //import purgecss from "astro-purgecss";
 
-const isDevBuild = env.NODE_ENV === "development";
+const isDevBuild = env.NODE_ENV === "development" || env.MODE === "development";
 
 export default defineConfig({
 	site: env.SITE_URL_OVERRIDE ?? "https://nullfire.pages.dev/",
@@ -79,3 +79,4 @@ export default defineConfig({
 		},
 	},
 });
+
