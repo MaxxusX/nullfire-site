@@ -25,6 +25,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-
 ---
 
 <Page path={Astro.url.pathname} title="About">
+	<Fragment slot="head">
+		<link rel="preconnect" href="https://discord.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link rel="dns-prefetch" href="https://discord.com" />
+		<link rel="prefetch" href="/privacy" referrerpolicy="no-referrer" />
+	</Fragment>
+
 	<h1 translate="no">NullFire</h1>
 	<p class="lead">
 		<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span>
@@ -105,5 +111,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/InfernusScripts/Null-
 	<br />
 	<p>&copy; 2025 NullFire | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a></p>
 </Page>
+
 
 

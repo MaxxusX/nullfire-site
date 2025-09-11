@@ -3,6 +3,11 @@ import Page from "@layouts/Page.astro";
 ---
 
 <Page path={Astro.url.pathname} title="Privacy Policy">
+	<Fragment slot="head">
+		<link rel="dns-prefetch" href="https://seikoso.pythonanywhere.com" />
+		<link rel="prefetch" href="/" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</Fragment>
+
 	<h1>Privacy Policy</h1>
 	<p>Last updated: <time datetime="2025-09-11">September 11th, 2025</time></p>
 
