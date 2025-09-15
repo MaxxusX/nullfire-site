@@ -7,7 +7,7 @@
 		"test": "astro check --minimumFailingSeverity warning",
 		"dev": "astro dev",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"format": "prettier . --write"
