@@ -30,6 +30,7 @@ env:
   ASTRO_TELEMETRY_DISABLED: 1
   SITE_URL_OVERRIDE: "https://maxxusx.github.io/nullfire-site/"
   SITE_PATH_OVERRIDE: "/nullfire-site/"
+  CI: true
 
 defaults:
   run:
@@ -59,7 +60,7 @@ jobs:
           cache-dependency-path: "./pnpm-lock.yaml"
 
       - name: "Install"
-        run: "pnpm install --prod"
+        run: "pnpm install --prod --frozen-lockfile"
 
       - name: "Build"
         run: "pnpm run build --mode production"
@@ -86,3 +87,4 @@ jobs:
         uses: "actions/deploy-pages@v4"
         with:
           error_count: "1"
+
