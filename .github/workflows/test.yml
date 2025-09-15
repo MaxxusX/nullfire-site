@@ -1,5 +1,5 @@
 name: "Test"
-run-name: 'Test ${{ format(fromJSON(''{"push":"commit \"{0}\" by @{1} ({2})","pull_request":"PR #{3} (\"{4}\" by @{5})"}'')[github.event_name], github.event.head_commit.message, (github.event.pusher.username || github.actor), github.event.head_commit.id, github.event.number, github.event.pull_request.title, (github.event.pull_request.user.name || github.actor)) || format(''(ran by @{0})'', github.triggering_actor) }}'
+run-name: 'Test ${{ format(fromJSON(''{"push":"commit {0} by @{1}","pull_request":"PR #{2} by @{3}"}'')[github.event_name], github.event.head_commit.id, (github.event.pusher.username || github.actor), github.event.number, (github.event.pull_request.user.name || github.actor)) || format(''(ran by @{0})'', github.triggering_actor) }}'
 
 on:
   push:
@@ -68,5 +68,8 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: "./pnpm-lock.yaml"
 
+      - name: "Install Dependancies"
+        run: "pnpm install --prod --frozen-lockfile"
+
       - name: "Test"
-        run: "pnpm --package=@astrojs/check dlx astro-check --minimumFailingSeverity warning"
+        run: "pnpm run test"
