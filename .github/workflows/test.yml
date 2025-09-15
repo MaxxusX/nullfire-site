@@ -43,8 +43,6 @@ env:
   PROD: true
   DEV: false
   ASTRO_TELEMETRY_DISABLED: 1
-  SITE_URL_OVERRIDE: "https://maxxusx.github.io/nullfire-site/"
-  SITE_PATH_OVERRIDE: "/nullfire-site/"
 
 defaults:
   run:
@@ -70,8 +68,5 @@ jobs:
           cache: "pnpm"
           cache-dependency-path: "./pnpm-lock.yaml"
 
-      - name: "Install"
-        run: "pnpm install --prod"
-
       - name: "Test"
-        run: "pnpm run test"
+        run: "pnpm --package=@astrojs/check dlx astro-check --minimumFailingSeverity warning"
