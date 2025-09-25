@@ -7,66 +7,21 @@ User-agent: msnbot
 User-agent: Slurp
 User-agent: YandexBot
 User-agent: Baiduspider
-Disallow: /
-Allow: /$
-Allow: /*/$
-Allow: /*.html$
-Allow: /_astro/*.svg$
-Allow: /_astro/*.png$
-Allow: /_astro/*.jpg$
-Allow: /_astro/*.jpeg$
-Allow: /_astro/*.webp$
-Allow: /_astro/*.ico$
+Allow: /
 Disallow: /cdn-cgi/
 Disallow: /404
-Crawl-delay: 5
 
-# favicon bots
-User-agent: DuckDuckGo-Favicons-Bot
-Disallow: /
-Allow: /_astro/*.svg$
-Allow: /_astro/*.png$
-Allow: /_astro/*.jpg$
-Allow: /_astro/*.jpeg$
-Allow: /_astro/*.webp$
-Allow: /_astro/*.ico$
-Crawl-delay: 120
+# AI
+User-agent: ChatGPT-User
+User-agent: GPTBot
+Allow: /
+Disallow: /cdn-cgi/
+Disallow: /404
 
 # Internet Archive
 User-agent: ia_archiver
 Disallow:
 Allow: /
-Crawl-delay: 120
-
-# unnecessary
-User-agent: adidxbot
-User-agent: AdsBot-Google
-User-agent: AdsBot-Google-Mobile
-User-agent: APIs-Google
-User-agent: CCBot
-User-agent: DOC
-User-agent: FeedFetcher-Google
-User-agent: Feedly
-User-agent: Google-Extended
-User-agent: Google-Safety
-User-agent: Googlebot-News
-User-agent: GoogleOther
-User-agent: GoogleProducer
-User-agent: Mediapartners-Google
-User-agent: Mediapartners-Google*
-User-agent: Googlebot-Video
-User-agent: Googlebot-Image
-User-agent: msnbot-media
-User-agent: MSNBot-Media
-User-agent: Pinterest
-User-agent: Storebot-Google
-User-agent: UbiCrawler
-User-agent: wget
-User-agent: wget*
-User-agent: Zao
-Disallow: /
-Allow:
-Crawl-delay: 120
 
 # evil robots (copying websites, spamming, bad behavior, etc.)
 User-agent: *Download*
@@ -80,9 +35,6 @@ User-agent: BackDoorBot/1.0
 User-agent: BacklinkCrawler
 User-agent: Big Brother
 User-agent: BLEXBot
-User-agent: Bytespider
-User-agent: ChatGPT-User
-User-agent: GPTBot
 User-agent: Collector
 User-agent: Comscore
 User-agent: Comscore / Proximic
@@ -100,12 +52,6 @@ User-agent: EirGrabber
 User-agent: EmailCollector
 User-agent: EmailSiphon
 User-agent: EmailWolf
-User-agent: Facebook
-User-agent: FacebookBot
-User-agent: facebookcatalog
-User-agent: facebookexternalhit
-User-agent: facebookexternalhit/*
-User-agent: facebot
 User-agent: fast
 User-agent: Fetch
 User-agent: FHscan
@@ -123,7 +69,6 @@ User-agent: MauiBot
 User-agent: meanpathbot
 User-agent: megaindex.com
 User-agent: MegaIndex.ru
-User-agent: Microsoft.URL.Control
 User-agent: MJ12bot
 User-agent: MSIECrawler
 User-agent: Nessus
@@ -149,8 +94,6 @@ User-agent: SEOkicks-Robot
 User-agent: SISTRIX
 User-agent: sistrix
 User-agent: SISTRIX Crawler
-User-agent: sitecheck.internetseer.com
-User-agent: Sitechecker
 User-agent: SiteSnagger
 User-agent: Sogou blog
 User-agent: Sogou inst spider
@@ -173,32 +116,4 @@ User-agent: Zealbot
 User-agent: ZyBORG
 Disallow: /
 Allow:
-Crawl-delay: 120
-
-# anti skid
-User-agent: *python*
-User-agent: *Python*
-User-agent: python-httpx/*
-User-agent: python-httpx/0.23.3
-User-agent: python-requests/*
-User-agent: python-requests/2.28.1
-User-agent: python-urllib3/*
-User-agent: python-urllib3/1.26.12
-User-agent: Python-urllib/*
-User-agent: Python-urllib/2.7
-User-agent: Python/* aiohttp/*
-User-agent: Python/* aiohttp/3.8.1
-User-agent: Python/3.8 aiohttp/*
-User-agent: Python/3.8 aiohttp/3.8.1
-Disallow: /
-Allow:
-Crawl-delay: 120
-
-# shh
-User-agent: shadow government
-User-agent: nsa
-User-agent: cia
-User-agent: fbi
-Disallow: /
-Allow:
-Crawl-delay: 120
+Crawl-delay: 9999
