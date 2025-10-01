@@ -80,7 +80,9 @@ const { image, name, role, rolecolor } = Astro.props;
 		display: block;
 		vertical-align: middle;
 		width: auto;
-		height: 100%;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
 		aspect-ratio: 1 / 1;
 		border-radius: 0.375rem;
 		border-color: var(--color-foreground-border);
@@ -182,6 +184,7 @@ const { image, name, role, rolecolor } = Astro.props;
 	}
 }
 </style>
+
 
 
 
