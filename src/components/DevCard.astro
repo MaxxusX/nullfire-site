@@ -42,7 +42,7 @@ const { image, name, role, rolecolor } = Astro.props;
 <style is:global>
 .DevCard {
 	display: flex;
-	width: 100%;
+	width: auto;
 	height: fit-content;
 	align-items: center;
 	justify-content: space-between;
@@ -79,8 +79,8 @@ const { image, name, role, rolecolor } = Astro.props;
 	.DevCard-Image {
 		display: block;
 		vertical-align: middle;
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 100%;
 		aspect-ratio: 1 / 1;
 		border-radius: 0.375rem;
 		border-color: var(--color-foreground-border);
@@ -182,3 +182,4 @@ const { image, name, role, rolecolor } = Astro.props;
 	}
 }
 </style>
+
