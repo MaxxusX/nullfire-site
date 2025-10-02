@@ -1,0 +1,112 @@
+---
+import Page from "@layouts/Page.astro";
+import Section from "@components/Section.astro";
+import { getImage } from "astro:assets";
+import Part from "@components/Part.astro";
+
+import robuxicon from "@assets/robux.png";
+import kofiicon from "@assets/kofi-cup.png";
+
+const optimzirox = await getImage({
+	src: robuxicon,
+	width: robuxicon.width,
+	height: robuxicon.height,
+	format: "png",
+	quality: "max",
+	priority: true
+});
+
+const optimzikofi = await getImage({
+	src: kofiicon,
+	width: kofiicon.width,
+	height: kofiicon.height,
+	format: "png",
+	quality: "max",
+	priority: true
+});
+---
+
+<style>
+    #robux {
+        background-color: #8c00ff;
+        color: #fff;
+        border: 2px solid #8c00ff;
+        border-radius: 7px;
+        padding: 8px 20px;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Quicksand', Helvetica, sans-serif;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    #robux:hover {
+        opacity: 0.85;
+    }
+
+    .rbx-icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .kofi-icon {
+        height: 15px;
+        width: 20px;
+    }
+
+    .buttons {
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24;
+    }
+</style>
+
+<Page path={Astro.url.pathname} title="Purchase Info">
+    <Section title="🔥 NullFire+  🔥" id="intro">
+        NullFire+ is a premium script for Roblox that offers many features and advantages. You can currently buy premium from one platform:
+    </Section>
+
+	<Section title="Purchase Methods" id="methods">
+        <div class="buttons">
+            <button id="robux", onclick="window.location.href='https://ko-fi.com/s/5f17256f4d'">
+                <img src={optimzikofi.src} alt="kofi icon" class="kofi-icon">
+                Pay on Kofi
+            </button>
+            
+            <button id="robux", onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'">
+                <img src={optimzirox.src} alt="robux icon" class="rbx-icon">
+                Pay on Roblox
+            </button>
+        </div>
+    </Section>
+
+    <Section title="Important" id="important">
+        <h3>
+            By Purchasing NullFire+ you agree to these terms:
+        </h3>
+        <br>
+        <Part>
+            All purchases are final and non-refundable.
+        </Part>
+        <br>
+        <Part>
+            If you have any issues or questions, please create a ticket in our Discord server.
+        </Part>
+        <br>
+        <Part>
+            NullFire+ is an addon to the normal NullFire which provides these perks:
+
+            <li>keysystem bypass (when the keysys is enabled)</li>
+            <li>extra features (depends on game)</li>
+            <li>hidden general in our discord</li>
+        </Part>
+        <br>
+        <h2>VERY IMPORTANT:</h2>
+        <Part>
+            By purchasing NullFire+, you confirm that you are at least 18 years old, or at least 16 years old with parental consent. You also agree to our <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a>. Unauthorized or underage purchases are strictly prohibited.
+        </Part>
+    </Section>
+</Page>
