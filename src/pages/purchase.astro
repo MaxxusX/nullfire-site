@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 
 import Page from "@layouts/Page.astro";
 import Section from "@components/Section.astro";
-import Part from "@components/Part.astro";
 
 import robux_icon from "@assets/robux.png";
 import kofi_icon from "@assets/kofi-cup.png";
@@ -11,7 +10,10 @@ import kofi_icon from "@assets/kofi-cup.png";
 
 <Page path={Astro.url.pathname} title="Purchase Info">
 	<h1>🔥 NullFire+ 🔥</h1>
-	<p>NullFire+ is a premium script for Roblox that offers many features and advantages. You can currently buy NullFire+ from one platform.</p>
+	<p>
+		NullFire+ is a premium script for Roblox that offers many features and advantages.
+		You can currently buy NullFire+ from one platform.
+	</p>
 
 	<Section title="Features" id="features">
 		<p>NullFire+ is an addon to the normal NullFire which provides these perks:</p>
@@ -37,7 +39,11 @@ import kofi_icon from "@assets/kofi-cup.png";
 				Pay with Kofi
 			</button>
 
-			<button type="button" class="purchaseButton" onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'">
+			<button
+				type="button"
+				class="purchaseButton"
+				onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'"
+			>
 				<Image
 					src={robux_icon}
 					format="png"
