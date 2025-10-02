@@ -1,112 +1,112 @@
 ---
+import { Image } from "astro:assets";
+
 import Page from "@layouts/Page.astro";
 import Section from "@components/Section.astro";
-import { getImage } from "astro:assets";
 import Part from "@components/Part.astro";
 
-import robuxicon from "@assets/robux.png";
-import kofiicon from "@assets/kofi-cup.png";
-
-const optimzirox = await getImage({
-	src: robuxicon.src,
-	width: robuxicon.width,
-	height: robuxicon.height,
-	format: "png",
-	quality: "max",
-	priority: true
-});
-
-const optimzikofi = await getImage({
-	src: kofiicon.src,
-	width: kofiicon.width,
-	height: kofiicon.height,
-	format: "png",
-	quality: "max",
-	priority: true
-});
+import robux_icon from "@assets/robux.png";
+import kofi_icon from "@assets/kofi-cup.png";
 ---
 
 <Page path={Astro.url.pathname} title="Purchase Info">
-    <Section title="🔥 NullFire+  🔥" id="intro">
-        NullFire+ is a premium script for Roblox that offers many features and advantages. You can currently buy premium from one platform:
-    </Section>
+	<h1>🔥 NullFire+ 🔥</h1>
+	<p>NullFire+ is a premium script for Roblox that offers many features and advantages. You can currently buy NullFire+ from one platform.</p>
 
-	<Section title="Purchase Methods" id="methods">
-        <div class="buttons">
-            <button id="robux", onclick="window.location.href='https://ko-fi.com/s/5f17256f4d'">
-                <img src={optimzikofi.src} alt="kofi icon" class="kofi-icon">
-                Pay on Kofi
-            </button>
-            
-            <button id="robux", onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'">
-                <img src={optimzirox.src} alt="robux icon" class="rbx-icon">
-                Pay on Roblox
-            </button>
-        </div>
-    </Section>
+	<Section title="Features" id="features">
+		<p>NullFire+ is an addon to the normal NullFire which provides these perks:</p>
+		<ul>
+			<li>keysystem bypass (when the keysys is enabled)</li>
+			<li>extra features (depends on game)</li>
+			<li>access to #hidden-general in our Discord</li>
+		</ul>
+	</Section>
 
-    <Section title="Important" id="important">
-        <h3>
-            By Purchasing NullFire+ you agree to these terms:
-        </h3>
-        <br>
-        <Part>
-            All purchases are final and non-refundable.
-        </Part>
-        <br>
-        <Part>
-            If you have any issues or questions, please create a ticket in our Discord server.
-        </Part>
-        <br>
-        <Part>
-            NullFire+ is an addon to the normal NullFire which provides these perks:
+	<Section title="Purchase Methods" id="purchase">
+		<div class="buttonsList">
+			<button type="button" class="purchaseButton" onclick="window.location.href='https://ko-fi.com/s/5f17256f4d'">
+				<Image
+					src={kofi_icon}
+					format="png"
+					quality="max"
+					priority="true"
+					class="kofi-icon"
+					aria-hidden="true"
+					alt=""
+				/>
+				Pay with Kofi
+			</button>
 
-            <li>keysystem bypass (when the keysys is enabled)</li>
-            <li>extra features (depends on game)</li>
-            <li>hidden general in our discord</li>
-        </Part>
-        <br>
-        <h2>VERY IMPORTANT:</h2>
-        <Part>
-            By purchasing NullFire+, you confirm that you are at least 18 years old, or at least 16 years old with parental consent. You also agree to our <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a>. Unauthorized or underage purchases are strictly prohibited.
-        </Part>
-    </Section>
+			<button type="button" class="purchaseButton" onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'">
+				<Image
+					src={robux_icon}
+					format="png"
+					quality="max"
+					priority="true"
+					class="rbx-icon"
+					aria-hidden="true"
+					alt=""
+					referrerpolicy="no-referrer"
+					crossorigin="anonymous"
+				/>
+				Pay with Robux
+			</button>
+		</div>
+	</Section>
+
+	<Section title="Terms" id="toc">
+		<p>By purchasing NullFire+, you agree to the following Terms and Conditions:</p>
+		<ul>
+			<li>All purchases are final and non-refundable.</li>
+			<li>You are at least 18 years old, or at least 16 years old with parental consent. Unauthorized or underage purchases are strictly prohibited.</li>
+			<li>You have read and agree to our <a href="/privacy" rel="privacy-policy noopener">Privacy Policy</a>.</li>
+			<li>These Terms and Conditions are subject to change at any time.</li>
+			<li>If and when these Terms and Conditions are changed, the "last modified" date listed below will be updated.</li>
+			<li>You are responsible for regularly monitoring these Terms and Conditions for changes.</li>
+			<li>By continuing to use NullFire after a change to these Terms and Conditions, you agree to the updated Terms and Conditions.</li>
+			<li>If you do not agree to changes made to these Terms and Conditions, you must immediately cease your use of NullFire.</li>
+		</ul>
+		<p>These Terms and Conditions were last modified on <time datetime="2025-10-02">October 2nd, 2025</time>.</p>
+		<p>If you have any issues or questions, please create a ticket in our Discord server.</p>
+	</Section>
+
+	<br />
+	<p>Copyright &copy; 2025 NullFire. All Rights Reserved. | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a></p>
 </Page>
 
 <style>
-    #robux {
-        background-color: #8c00ff;
-        color: #fff;
-        border: 2px solid #8c00ff;
-        border-radius: 7px;
-        padding: 8px 20px;
-        font-size: 14px;
-        font-weight: 700;
-        font-family: 'Quicksand', Helvetica, sans-serif;
-        cursor: pointer;
-        display: inline-block;
-        text-align: center;
-        text-decoration: none;
-    }
+	.buttonsList {
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24;
+	}
 
-    #robux:hover {
-        opacity: 0.85;
-    }
+	.purchaseButton {
+		background-color: #8c00ff;
+		color: #fff;
+		border: 2px solid #8c00ff;
+		border-radius: 7px;
+		padding: 8px 20px;
+		font-size: 14px;
+		font-weight: 700;
+		font-family: "Quicksand", Helvetica, Arial, sans-serif;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+		text-decoration: none;
+	}
+	.purchaseButton:hover {
+		opacity: 0.85;
+	}
 
-    .rbx-icon {
-        height: 20px;
-        width: 20px;
-    }
+	.kofi-icon {
+		width: 20px;
+		height: 15px;
+	}
 
-    .kofi-icon {
-        height: 15px;
-        width: 20px;
-    }
-
-    .buttons {
-        justify-content: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24;
-    }
+	.rbx-icon {
+		width: 20px;
+		height: 20px;
+	}
 </style>
