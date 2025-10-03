@@ -62,7 +62,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 
 	<Section title="Terms and Conditions" id="toc">
 		<p>By purchasing NullFire+, you agree to the following Terms and Conditions:</p>
-		<ul>
+		<ul class="tocList">
 			<li>All purchases are final and non-refundable.</li>
 			<li>You are at least 18 years old, or at least 16 years old with parental consent. Unauthorized or underage purchases are strictly prohibited.</li>
 			<li>You have read and agree to our <a href="/privacy" rel="privacy-policy noopener">Privacy Policy</a>.</li>
@@ -91,10 +91,10 @@ import kofi_icon from "@assets/kofi-cup.png";
 	.purchaseButton {
 		background-color: #8c00ff;
 		color: #fff;
-		border: 2px solid #8c00ff;
+		border: none;
 		border-radius: 7px;
 		padding: 8px 20px;
-		font-size: 14px;
+		font-size: 0.7em;
 		font-weight: 700;
 		font-family: "Quicksand", Helvetica, Arial, sans-serif;
 		cursor: pointer;
@@ -103,7 +103,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 		text-decoration: none;
 	}
 	.purchaseButton:hover {
-		opacity: 0.85;
+		background-color: #8000db;
 	}
 
 	.kofi-icon {
@@ -114,5 +114,12 @@ import kofi_icon from "@assets/kofi-cup.png";
 	.rbx-icon {
 		width: 20px;
 		height: 20px;
+	}
+
+	.tocList {
+		font-size: 0.9em;
+	}
+	.tocList > li:not(:first-child) {
+		margin-top: 1.25lh;
 	}
 </style>
