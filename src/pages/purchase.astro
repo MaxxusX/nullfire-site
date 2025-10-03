@@ -26,7 +26,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 
 	<Section title="Purchase Methods" id="purchase">
 		<div class="buttonsList">
-			<button type="button" class="purchaseButton" onclick="location.assign('https://ko-fi.com/s/5f17256f4d')">
+			<a class="purchaseButton" href="https://ko-fi.com/s/5f17256f4d" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
 				<Image
 					src={kofi_icon}
 					format="png"
@@ -37,9 +37,9 @@ import kofi_icon from "@assets/kofi-cup.png";
 					alt=""
 				/>
 				Pay with Kofi
-			</button>
+			</a>
 
-			<button type="button" class="purchaseButton" onclick="location.assign('https://www.roblox.com/games/15577219793/NullFire')">
+			<a class="purchaseButton" href="https://www.roblox.com/games/15577219793/NullFire" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
 				<Image
 					src={robux_icon}
 					format="png"
@@ -52,7 +52,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 					crossorigin="anonymous"
 				/>
 				Pay with Robux
-			</button>
+			</a>
 		</div>
 	</Section>
 
@@ -97,6 +97,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 		cursor: pointer;
 		display: inline-block;
 		text-align: center;
+		vertical-align: middle;
 	}
 	.purchaseButton:hover {
 		background-color: #8000db;
