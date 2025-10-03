@@ -26,7 +26,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 
 	<Section title="Purchase Methods" id="purchase">
 		<div class="buttonsList">
-			<button type="button" class="purchaseButton" onclick="window.location.href='https://ko-fi.com/s/5f17256f4d'">
+			<button type="button" class="purchaseButton" onclick="location.assign('https://ko-fi.com/s/5f17256f4d')">
 				<Image
 					src={kofi_icon}
 					format="png"
@@ -39,11 +39,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 				Pay with Kofi
 			</button>
 
-			<button
-				type="button"
-				class="purchaseButton"
-				onclick="window.location.href='https://www.roblox.com/games/15577219793/NullFire'"
-			>
+			<button type="button" class="purchaseButton" onclick="location.assign('https://www.roblox.com/games/15577219793/NullFire')">
 				<Image
 					src={robux_icon}
 					format="png"
@@ -98,7 +94,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 		font-weight: 700;
 		font-family: "Quicksand", Helvetica, Arial, sans-serif;
 		font-feature-settings: normal; /* cuz this is set for *all* text instead of just for the jetbrains font. i should probably fix that. */
-		/* cursor: pointer; */
+		cursor: pointer;
 		display: inline-block;
 		text-align: center;
 	}
