@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+
+import Page from "@layouts/Page.astro";
+import Section from "@components/Section.astro";
+
+import kofi_icon from "@assets/kofi.svg";
+import robux_icon from "@assets/robux.svg";
+---
+
+<Page path={Astro.url.pathname} title="Purchase Info">
+	<Fragment slot="head">
+		<link rel="dns-prefetch" href="https://ko-fi.com" />
+		<link rel="dns-prefetch" href="https://www.roblox.com" />
+	</Fragment>
+
+	<h1>🔥 NullFire+ 🔥</h1>
+	<p class="lead-subtext">
+		NullFire+ is a premium script for Roblox that offers many features and advantages.<br />
+		You can currently buy NullFire+ from two platforms.
+	</p>
+
+	<Section title="Features" id="features">
+		<p>NullFire+ is an addon to the normal NullFire which provides these perks:</p>
+		<ul>
+			<li>keysystem bypass (when the keysys is enabled)</li>
+			<li>extra features (depends on game)</li>
+			<li>access to #hidden-general in our Discord</li>
+		</ul>
+	</Section>
+
+	<Section title="Purchase Methods" id="purchase">
+		<div class="buttonsList">
+			<a class="purchaseButton" href="https://ko-fi.com/s/5f17256f4d" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
+				<Image
+					src={kofi_icon}
+					format="svg"
+					quality="max"
+					priority
+					class="icon"
+					draggable="false"
+					aria-hidden="true"
+					alt=""
+					referrerpolicy="no-referrer"
+					crossorigin="anonymous"
+				/>
+				Pay with Ko-fi
+			</a>
+
+			<a class="purchaseButton" href="https://www.roblox.com/games/15577219793/NullFire" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
+			<Image
+					src={robux_icon}
+					format="svg"
+					quality="max"
+					priority
+					class="icon"
+					draggable="false"
+					aria-hidden="true"
+					alt=""
+					referrerpolicy="no-referrer"
+					crossorigin="anonymous"
+				/>
+				Pay with Robux
+			</a>
+		</div>
+	</Section>
+
+	<Section title="Terms and Conditions" id="toc">
+		<p>By purchasing NullFire+, you agree to the following Terms and Conditions:</p>
+		<ul class="tocList">
+			<li>All purchases are final and non-refundable.</li>
+			<li>You are at least 18 years old, or at least 16 years old with parental consent. Unauthorized or underage purchases are strictly prohibited.</li>
+			<li>You have read and agree to our <a href="/privacy" rel="privacy-policy noopener">Privacy Policy</a>.</li>
+			<li>These Terms and Conditions are subject to change at any time.</li>
+			<li>If and when these Terms and Conditions are changed, the "last modified" date listed below will be updated.</li>
+			<li>You are responsible for regularly monitoring these Terms and Conditions for changes.</li>
+			<li>By continuing to use NullFire after a change to these Terms and Conditions, you agree to the updated Terms and Conditions.</li>
+			<li>If you do not agree to changes made to these Terms and Conditions, you must immediately cease your use of NullFire.</li>
+		</ul>
+		<p>These Terms and Conditions were last modified on <time datetime="2025-10-02">October 2nd, 2025</time>.</p>
+		<p>If you have any issues or questions, please create a ticket in our Discord server.</p>
+	</Section>
+
+	<br />
+	<p>&copy; 2025 NullFire. All Rights Reserved. | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a></p>
+</Page>
+
+<style>
+	.buttonsList {
+		justify-content: center;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem; /* ~24px */
+	}
+
+	.purchaseButton {
+		background-color: #8c00ff;
+		color: #fff;
+		border: none;
+		border-radius: 7px;
+		padding: 0.5lh 0.75lh;
+		font-size: 0.8em; /* ~16px */
+		font-weight: 700;
+		font-family: "Quicksand", Helvetica, Arial, sans-serif;
+		font-feature-settings: normal; /* cuz this is set for *all* text instead of just for the jetbrains font. i should probably fix that. */
+		text-decoration: none;
+		cursor: pointer;
+		display: inline-block;
+		text-align: center;
+		vertical-align: middle;
+		-webkit-user-select: none;
+		user-select: none;
+	}
+	.purchaseButton:hover {
+		background-color: #8000db;
+	}
+
+	.icon {
+		width: auto;
+		height: 1lh;
+		object-fit: contain;
+		aspect-ratio: 1/1 auto;
+		vertical-align: middle;
+	}
+
+	.tocList {
+		font-size: 0.9em; /* ~18px */
+		margin-top: 0.3lh;
+	}
+	.tocList > li:not(:first-child) {
+		margin-top: 0.25lh;
+	}
+</style>
