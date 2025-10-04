@@ -4,8 +4,8 @@ import { Image } from "astro:assets";
 import Page from "@layouts/Page.astro";
 import Section from "@components/Section.astro";
 
-import robux_icon from "@assets/robux.png";
-import kofi_icon from "@assets/kofi-cup.png";
+import KofiIcon from "@assets/kofi.svg";
+import RobuxIcon from "@assets/robux.svg";
 ---
 
 <Page path={Astro.url.pathname} title="Purchase Info">
@@ -32,34 +32,12 @@ import kofi_icon from "@assets/kofi-cup.png";
 	<Section title="Purchase Methods" id="purchase">
 		<div class="buttonsList">
 			<a class="purchaseButton" href="https://ko-fi.com/s/5f17256f4d" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
-				<Image
-					src={kofi_icon}
-					format="png"
-					quality="max"
-					priority
-					class="kofi-icon"
-					draggable="false"
-					aria-hidden="true"
-					alt=""
-					referrerpolicy="no-referrer"
-					crossorigin="anonymous"
-				/>
+				<KofiIcon class="icon" aria-hidden="true" alt="" />
 				Pay with Ko-fi
 			</a>
 
 			<a class="purchaseButton" href="https://www.roblox.com/games/15577219793/NullFire" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
-				<Image
-					src={robux_icon}
-					format="png"
-					quality="max"
-					priority
-					class="rbx-icon"
-					draggable="false"
-					aria-hidden="true"
-					alt=""
-					referrerpolicy="no-referrer"
-					crossorigin="anonymous"
-				/>
+				<RobuxIcon class="icon" aria-hidden="true" alt="" />
 				Pay with Robux
 			</a>
 		</div>
@@ -115,15 +93,7 @@ import kofi_icon from "@assets/kofi-cup.png";
 		background-color: #8000db;
 	}
 
-	.kofi-icon {
-		width: auto;
-		height: 1lh;
-		object-fit: contain;
-		aspect-ratio: 1/1 auto;
-		vertical-align: middle;
-	}
-
-	.rbx-icon {
+	.icon {
 		width: auto;
 		height: 1lh;
 		object-fit: contain;
