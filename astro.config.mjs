@@ -6,7 +6,7 @@ const isDevBuild = env.NODE_ENV === "development" || env.MODE === "development";
 
 export default defineConfig({
 	site: env.SITE_URL_OVERRIDE ?? "https://nullfire.pages.dev/",
-	base: env.SITE_PATH_OVERRIDE ?? "/",
+	base: "/",
 	trailingSlash: "ignore",
 	output: "static",
 	integrations: [
@@ -79,4 +79,3 @@ export default defineConfig({
 		},
 	},
 });
-
