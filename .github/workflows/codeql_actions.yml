@@ -3,22 +3,19 @@ name: "CodeQL Advanced (actions)"
 on:
   push:
     branches: ["main"]
-    paths: [".github/**"]
+    paths:  
+      - ".github/workflows/**"
   pull_request:
     branches: ["main"]
-    paths: [".github/**"]
+    paths:
+      - ".github/workflows/**"
   schedule:
-    - cron: "0 0 * * 6"
+    - cron: "0 0 * * 0"
   workflow_dispatch:
 
 jobs:
   analyze:
     name: "Analyze actions"
-    # Runner size impacts CodeQL analysis time. To learn more, please see:
-    #   - https://gh.io/recommended-hardware-resources-for-running-codeql
-    #   - https://gh.io/supported-runners-and-hardware-resources
-    #   - https://gh.io/using-larger-runners (GitHub.com only)
-    # Consider using larger runners or machines with greater resources for possible analysis time improvements.
     runs-on: "ubuntu-latest"
     permissions:
       # required for all workflows
@@ -52,4 +49,3 @@ jobs:
         uses: "github/codeql-action/analyze@v3"
         with:
           category: "/language:actions"
-          
