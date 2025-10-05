@@ -4,21 +4,23 @@ on:
   push:
     branches: ["main"]
     paths:
-      - "src/**"
-      - "astro.config.mjs"
-      - "tsconfig.json"
-      - "pnpm-lock.yaml"
-      - "package.json"
       - ".github/workflows/codeql_javascript.yml"
+      - "astro.config.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
+      - "src/**"
+      - "!src/assets/**"
   pull_request:
     branches: ["main"]
     paths:
-      - "src/**"
-      - "astro.config.mjs"
-      - "tsconfig.json"
-      - "pnpm-lock.yaml"
-      - "package.json"
       - ".github/workflows/codeql_javascript.yml"
+      - "astro.config.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "tsconfig.json"
+      - "src/**"
+      - "!src/assets/**"
   schedule:
     - cron: "0 0 * * 6"
   workflow_dispatch:
@@ -26,11 +28,6 @@ on:
 jobs:
   analyze:
     name: "Analyze javascript-typescript"
-    # Runner size impacts CodeQL analysis time. To learn more, please see:
-    #   - https://gh.io/recommended-hardware-resources-for-running-codeql
-    #   - https://gh.io/supported-runners-and-hardware-resources
-    #   - https://gh.io/using-larger-runners (GitHub.com only)
-    # Consider using larger runners or machines with greater resources for possible analysis time improvements.
     runs-on: "ubuntu-latest"
     permissions:
       # required for all workflows
@@ -64,6 +61,3 @@ jobs:
         uses: "github/codeql-action/analyze@v3"
         with:
           category: "/language:javascript-typescript"
-
-
-
