@@ -12,12 +12,9 @@ interface Props {
 const { path, title } = Astro.props;
 
 const optimizedBackgroundImage = await getImage({
-	src: bgImage.src,
-	width: bgImage.width,
-	height: bgImage.height,
+	src: bgImage,
 	format: "webp",
-	quality: "max",
-	priority: true
+	quality: "max"
 });
 ---
 
@@ -56,3 +53,4 @@ const optimizedBackgroundImage = await getImage({
 		</main>
 	</body>
 </html>
+
