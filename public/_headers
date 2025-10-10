@@ -4,6 +4,7 @@
   Access-Control-Max-Age: 86400
   Cache-Control: max-age=43200, stale-while-revalidate=43200, stale-if-error=86400
   No-Vary-Search: params
+  Speculation-Rules: "/prefetch.json"
   Content-Language: en-US
   Referrer-Policy: same-origin
   Cross-Origin-Embedder-Policy: credentialless
@@ -17,6 +18,11 @@
   X-Download-Options: noopen
   X-Permitted-Cross-Domain-Policies: none
   X-XSS-Protection: 0
+
+/prefetch.json
+  Content-Type: application/speculationrules+json
+  Cache-Control: max-age=604800, stale-while-revalidate=31536000, stale-if-error=31536000, immutable
+  X-Robots-Tag: noindex, nofollow, nosnippet
 
 /fonts/*
   Cache-Control: max-age=31536000, stale-while-revalidate=31536000, stale-if-error=31536000, immutable
