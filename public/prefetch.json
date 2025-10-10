@@ -1,0 +1,43 @@
+{
+  "prefetch": [
+    {
+      "urls": ["/"],
+      "eagerness": "eager",
+      "expects_no_vary_search": "params",
+      "referrer_policy": "same-origin"
+    },
+    {
+      "urls": ["/privacy"],
+      "eagerness": "eager",
+      "expects_no_vary_search": "params",
+      "referrer_policy": "same-origin"
+    },
+    {
+      "where": { "selector_matches": ".purchaseButton" },
+      "eagerness": "moderate",
+      "referrer_policy": "no-referrer"
+    }
+  ],
+  "prerender": [
+    {
+      "urls": ["/"],
+      "eagerness": "conservative",
+      "expects_no_vary_search": "params",
+      "referrer_policy": "same-origin",
+      "target_hint": "_self"
+    },
+    {
+      "urls": ["/privacy"],
+      "eagerness": "conservative",
+      "expects_no_vary_search": "params",
+      "referrer_policy": "same-origin",
+      "target_hint": "_self"
+    },
+    {
+      "where": { "selector_matches": ".purchaseButton" },
+      "eagerness": "conservative",
+      "referrer_policy": "no-referrer",
+      "target_hint": "_blank"
+    }
+  ]
+}
