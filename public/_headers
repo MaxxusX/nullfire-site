@@ -1,20 +1,20 @@
 /*
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, HEAD
+  Access-Control-Max-Age: 86400
   Cache-Control: max-age=43200, stale-while-revalidate=43200, stale-if-error=86400
+  No-Vary-Search: params
   Content-Language: en-US
-  Content-Security-Policy: default-src 'none'; script-src 'self'; script-src-elem 'self'; script-src-attr 'none'; style-src 'self' https: data: 'unsafe-inline'; style-src-elem 'self' https: data: 'unsafe-inline'; style-src-attr 'self' https: data: 'unsafe-inline'; worker-src 'self'; font-src 'self' https: data:; img-src 'self' https: data:; media-src 'self' https: data:; frame-src 'self' https:; child-src 'self' https:; connect-src 'self' https:; prefetch-src 'self' https:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https:; frame-ancestors 'self'; upgrade-insecure-requests; block-all-mixed-content
-  Cross-Origin-Embedder-Policy: require-corp
+  Referrer-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
-  Origin-Agent-Cluster: ?1
-  Permissions-Policy: accelerometer=(),ambient-light-sensor=(),attribution-reporting=(),autoplay=(),battery=(),bluetooth=(),browsing-topics=(),camera=(),compute-pressure=(),conversion-measurement=(),digital-credentials-get=(),display-capture=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),hid=(),identity-credentials-get=(),idle-detection=(),local-fonts=(),magnetometer=(),microphone=(),midi=(),otp-credentials=(),payment=(),picture-in-picture=(),publickey-credentials-create=(),publickey-credentials-get=(),screen-wake-lock=(),serial=(),speaker-selection=(),storage-access=(),usb=(),web-share=(),window-management=(),xr-spatial-tracking=()
-  Referrer-Policy: no-referrer
+  Content-Security-Policy: default-src 'self' https: data:; script-src 'self'; script-src-attr 'none'; style-src 'self' https: data: 'unsafe-inline'; manifest-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content
+  Permissions-Policy: cross-origin-isolated=(),storage-access=(),geolocation=(),deferred-fetch=(),deferred-fetch-minimal=(),attribution-reporting=(),browsing-topics=(),conversion-measurement=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-DNS-Prefetch-Control: off
   X-Download-Options: noopen
-  X-Frame-Options: SAMEORIGIN
   X-Permitted-Cross-Domain-Policies: none
   X-XSS-Protection: 0
 
