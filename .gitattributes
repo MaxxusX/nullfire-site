@@ -58,4 +58,8 @@
 
 # better compression
 [core]
-compression 4
+looseCompression = 3
+
+# faster compression
+[pack]
+compression = 5
