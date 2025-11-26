@@ -16,9 +16,12 @@ updates:
     versioning-strategy: "increase"
     groups:
       non-major:
-        applies-to:
-          - "version-updates"
-          - "security-updates"
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+      sec-non-major:
+        applies-to: "security-updates"
         update-types:
           - "minor"
           - "patch"
@@ -30,3 +33,4 @@ updates:
       - "MaxxusX"
     commit-message:
       prefix: "[pnpm] "
+
