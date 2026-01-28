@@ -4,13 +4,13 @@ import { Image } from "astro:assets";
 import Page from "@layouts/Page.astro";
 import Section from "@components/Section.astro";
 
-import kofi_icon from "@assets/kofi.svg";
+import sellapp_icon from "@assets/sellapp.webp";
 import robux_icon from "@assets/robux.svg";
 ---
 
 <Page path={Astro.url.pathname} title="Purchase Info">
 	<Fragment slot="head">
-		<link rel="dns-prefetch" href="https://ko-fi.com" />
+		<link rel="dns-prefetch" href="https://sell.app" />
 		<link rel="dns-prefetch" href="https://www.roblox.com" />
 	</Fragment>
 
@@ -31,10 +31,10 @@ import robux_icon from "@assets/robux.svg";
 
 	<Section title="Purchase Methods" id="purchase">
 		<div class="buttonsList">
-			<a class="purchaseButton" href="https://ko-fi.com/s/5f17256f4d" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
+			<a class="purchaseButton" href="https://nullfire.sell.app/product/nullfire" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
 				<Image
-					src={kofi_icon}
-					format="svg"
+					src={sellapp_icon}
+					format="webp"
 					quality="max"
 					priority
 					class="icon"
@@ -44,7 +44,7 @@ import robux_icon from "@assets/robux.svg";
 					referrerpolicy="no-referrer"
 					crossorigin="anonymous"
 				/>
-				Pay with Ko-fi
+				Pay with SellApp
 			</a>
 
 			<a class="purchaseButton" href="https://www.roblox.com/games/15577219793/NullFire" target="_blank" rel="noreferrer noopener nofollow" referrerpolicy="no-referrer">
