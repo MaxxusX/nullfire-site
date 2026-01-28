@@ -94,6 +94,7 @@ h4 {
 	margin: 0;
 	line-height: 1;
 
+	text-rendering: optimizeLegibility;
 	font-feature-settings:	
 		"zero" /* slashed 0 */,
 		"ss19" /* break equals ligatures */,
@@ -185,7 +186,7 @@ code {
 
 	font-size: 16px;
 	line-height: 1.2;
-	text-rendering: geometricPrecision;
+	text-rendering: optimizeLegibility;
 
 	-webkit-user-select: text;
 	user-select: text;
@@ -238,11 +239,13 @@ a {
 	color: rgb(230 230 230);
 	font-size: 1.5rem;
 	text-align: center;
+	text-rendering: optimizeLegibility;
 }
 .lead-subtext {
 	margin-bottom: 0;
 	font-size: 1.25rem;
 	text-align: center;
+	text-rendering: optimizeLegibility;
 }
 
 .discordEmbed {
@@ -261,7 +264,3 @@ a {
 	*/
 	color-scheme: normal;
 }
-
-
-
-
