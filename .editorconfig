@@ -17,7 +17,7 @@ indent_style = tab
 indent_size = 2
 tab_width = 2
 
-[{.*,*.txt,*.yaml,*.yml,*.toml,_headers}]
+[{.*,*.txt,*.yaml,*.yml,*.toml,_headers,_redirects}]
 indent_style = space
 indent_size = 2
 tab_width = 2
