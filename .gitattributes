@@ -31,10 +31,18 @@
 *.ps1 text
 *.cmd text
 *.bat text
+*.sh text
+_headers text
+.editorconfig text
+.gitattributes text
 .gitignore text
 .prettierignore text
 .prettierrc text
 .assetsignore text
+CODEOWNERS text
+LICENSE text
+COPYING text
+LESSER text
 
 ## binary files
 *.png binary
