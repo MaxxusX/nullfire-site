@@ -33,6 +33,7 @@
 *.bat text
 *.sh text
 _headers text
+_redirects text
 .editorconfig text
 .gitattributes text
 .gitignore text
