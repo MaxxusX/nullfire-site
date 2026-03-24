@@ -1,0 +1,40 @@
+{
+  "$schema": "https://www.schemastore.org/prettierrc.json",
+	"experimentalTernaries": true,
+	"printWidth": 100,
+	"tabWidth": 4,
+	"useTabs": true,
+	"quoteProps": "as-needed",
+	"trailingComma": "es5",
+  "objectWrap": "collapse",
+	"proseWrap": "always",
+	"vueIndentScriptAndStyle": true,
+	"plugins": ["prettier-plugin-astro"],
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		},
+    {
+      "files": "*.md",
+      "options": {
+        "tabWidth": 2,
+      }
+    },
+    {
+      "files": [".*", "*.txt", "*.yaml", "*.yml", "*.toml", "_headers"],
+      "options": {
+        "tabWidth": 2,
+        "useTabs": false
+      }
+    },
+    {
+      "files": ".prettierrc",
+      "options": {
+        "parser": "json"
+      }
+    },
+	],
+}
