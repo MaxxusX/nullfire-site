@@ -19,7 +19,7 @@ defaults:
     working-directory: "."
 
 jobs:
-  test:
+  cleanup_lockfile:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
