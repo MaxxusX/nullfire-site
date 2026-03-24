@@ -13,7 +13,7 @@ on:
       - "!.gitattributes"
       - "!.gitignore"
       - "!.prettierignore"
-      - "!.prettierrc"
+      - "!.prettierrc.json"
       - "!CODEOWNERS"
       - "!README.md"
       - "!wrangler.toml"
@@ -27,7 +27,7 @@ on:
       - "!.gitattributes"
       - "!.gitignore"
       - "!.prettierignore"
-      - "!.prettierrc"
+      - "!.prettierrc.json"
       - "!CODEOWNERS"
       - "!README.md"
       - "!wrangler.toml"
@@ -74,4 +74,3 @@ jobs:
 
       - name: "Test"
         run: "pnpm run test"
-
