@@ -13,6 +13,7 @@ permissions:
 
 env:
   NODE_ENV: "development"
+  CI: false
 
 defaults:
   run:
@@ -58,7 +59,7 @@ jobs:
         run: "rm -rf ./pnpm-lock.yaml"
 
       - name: "Install Dependencies"
-        run: "pnpm install"
+        run: "pnpm install --no-frozen-lockfile"
 
       - name: "Dedupe Dependencies"
         run: "pnpm dedupe"
