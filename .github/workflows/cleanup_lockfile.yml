@@ -1,0 +1,64 @@
+name: "Cleanup Lockfile"
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: "cleanup-lockfile"
+  cancel-in-progress: true
+
+permissions:
+  contents: "read"
+
+env:
+  NODE_ENV: "development"
+
+defaults:
+  run:
+    shell: "bash"
+    working-directory: "."
+
+jobs:
+  test:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout repository"
+        uses: "actions/checkout@v6"
+
+      - name: "Setup PNPM"
+        uses: "pnpm/action-setup@v5"
+        with:
+          package_json_file: "./package.json"
+
+      - name: "Setup Node"
+        uses: "actions/setup-node@v6"
+        with:
+          node-version-file: "./package.json"
+          cache: "pnpm"
+          cache-dependency-path: "./pnpm-lock.yaml"
+
+      - name: "Update Dependencies"
+        run: "pnpm update"
+
+      - name: "Delete node_modules"
+        run: "rm -rf ./node_modules"
+
+      - name: "Delete pnpm-lock.yaml"
+        run: "rm -rf ./pnpm-lock.yaml"
+
+      - name: "Install Dependencies"
+        run: "pnpm install"
+
+      - name: "Dedupe Dependencies"
+        run: "pnpm dedupe"
+
+      - name: "Cat package.json"
+        run: "cat ./package.json"
+
+      - name: "Upload Artifact"
+        uses: "actions/upload-artifact@v7"
+        with:
+          name: "pnpm-lock.yaml"
+          path: "./pnpm-lock.yaml"
+          if-no-files-found: "error"
+          retention-days: 1
