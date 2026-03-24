@@ -1,10 +1,10 @@
-name: "Cleanup Lockfile"
+name: "Rebuild Lockfile"
 
 on:
   workflow_dispatch:
 
 concurrency:
-  group: "cleanup-lockfile"
+  group: "rebuild-lockfile"
   cancel-in-progress: true
 
 permissions:
