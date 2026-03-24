@@ -70,5 +70,7 @@ jobs:
           git add package.json
           git add pnpm-lock.yaml
           git commit -m "rebuild lockfile"
-          git push origin rebuild-lockfile
+          git push origin rebuild-lockfile --force
           gh pr create -f -a @MaxxusX
+        env:
+          GH_TOKEN: ${{ github.token }}
