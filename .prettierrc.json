@@ -24,7 +24,7 @@
 			}
 		},
 		{
-			"files": [".*", "*.txt", "*.yaml", "*.yml", "*.toml", "_headers"],
+			"files": [".*", "*.txt", "*.yaml", "*.yml", "*.toml", "_headers", "_headers"],
 			"options": {
 				"tabWidth": 2,
 				"useTabs": false
