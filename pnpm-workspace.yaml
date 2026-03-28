@@ -1,3 +1,5 @@
 dedupePeers: true
 ignoredOptionalDependencies:
   - sharp
+overrides:
+  "yaml@2.7.1": "2.8.3"
