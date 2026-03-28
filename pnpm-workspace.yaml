@@ -2,4 +2,4 @@ dedupePeers: true
 ignoredOptionalDependencies:
   - sharp
 overrides:
-  "yaml@2.7.1": "2.8.3"
+  "yaml-language-server@1.20.0>yaml@2.7.1": "2.8.3"
