@@ -1,2 +1,3 @@
+dedupePeers: true
 ignoredOptionalDependencies:
 - sharp
