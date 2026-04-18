@@ -61,6 +61,8 @@ jobs:
         uses: "pnpm/action-setup@v6"
         with:
           package_json_file: "./package.json"
+          cache: true
+          cache_dependency_path: "./pnpm-lock.yaml"
 
       - name: "Setup Node"
         uses: "actions/setup-node@v6"
