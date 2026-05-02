@@ -39,15 +39,15 @@ jobs:
         run: |
           git checkout -b rebuild-lockfile
 
+      - name: "Setup PNPM"
+        uses: "pnpm/action-setup@v6"
+
       - name: "Setup Node"
         uses: "actions/setup-node@v6"
         with:
           node-version-file: "./package.json"
           check-latest: true
           package-manager-cache: false
-
-      - name: "Setup PNPM"
-        uses: "pnpm/action-setup@v6"
 
       - name: "Update Dependencies"
         run: "pnpm update"
