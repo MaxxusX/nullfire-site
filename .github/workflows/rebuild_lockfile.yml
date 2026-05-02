@@ -55,6 +55,9 @@ jobs:
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v6"
 
+      - name: "idk"
+        run: "pnpm add -g pnpm"
+
       - name: "debug"
         run: "node -v"
 
