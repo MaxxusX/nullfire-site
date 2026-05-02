@@ -39,9 +39,6 @@ jobs:
         run: |
           git checkout -b rebuild-lockfile
 
-      - name: "debug"
-        run: "node -v"
-
       - name: "Setup Node"
         uses: "actions/setup-node@v6"
         with:
@@ -49,17 +46,8 @@ jobs:
           check-latest: true
           package-manager-cache: false
 
-      - name: "debug"
-        run: "node -v"
-
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v6"
-
-      - name: "idk"
-        run: "pnpm add -g pnpm"
-
-      - name: "debug"
-        run: "node -v"
 
       - name: "Update Dependencies"
         run: "pnpm update"
