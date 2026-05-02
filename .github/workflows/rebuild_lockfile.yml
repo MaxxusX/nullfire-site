@@ -50,17 +50,13 @@ jobs:
           package-manager-cache: false
 
       - name: "debug"
-        run: |
-          node -v
-          pnpm env list
+        run: "node -v"
 
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v6"
 
       - name: "debug"
-        run: |
-          node -v
-          pnpm env list
+        run: "node -v"
 
       - name: "Update Dependencies"
         run: "pnpm update"
