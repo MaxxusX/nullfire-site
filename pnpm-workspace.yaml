@@ -7,6 +7,5 @@ minimumReleaseAgeIgnoreMissingTime: false
 blockExoticSubdeps: true
 dedupePeers: true
 strictPeerDependencies: true
-engineStrict: true
 allowBuilds:
   esbuild: true
