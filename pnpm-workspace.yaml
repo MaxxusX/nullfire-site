@@ -8,6 +8,5 @@ blockExoticSubdeps: true
 dedupePeers: true
 strictPeerDependencies: true
 engineStrict: true
-pmOnFail: "error"
 allowBuilds:
   esbuild: true
