@@ -1,9 +1,13 @@
-minimumReleaseAge: 1440
-blockExoticSubdeps: true
-allowBuilds:
-  esbuild: true
-dedupePeers: true
-ignoredOptionalDependencies:
-  - sharp
 overrides:
   "yaml-language-server@1.20.0>yaml@2.7.1": "2.8.3"
+ignoredOptionalDependencies:
+  - "sharp"
+minimumReleaseAge: 1440
+minimumReleaseAgeIgnoreMissingTime: false
+blockExoticSubdeps: true
+dedupePeers: true
+strictPeerDependencies: true
+engineStrict: true
+pmOnFail: "error"
+allowBuilds:
+  esbuild: true
