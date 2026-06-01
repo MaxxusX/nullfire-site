@@ -3,7 +3,7 @@ overrides:
 ignoredOptionalDependencies:
   - "sharp"
 minimumReleaseAge: 1440
-minimumReleaseAgeIgnoreMissingTime: false
+minimumReleaseAgeIgnoreMissingTime: true
 blockExoticSubdeps: true
 dedupePeers: true
 strictPeerDependencies: true
