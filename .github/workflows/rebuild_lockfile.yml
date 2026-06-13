@@ -34,7 +34,6 @@ jobs:
             package.json
             pnpm-lock.yaml
             pnpm-workspace.yaml
-          persist-credentials: false
 
       - name: "Create branch"
         run: |
