@@ -13,6 +13,7 @@ permissions:
 
 env:
   NODE_ENV: "development"
+  CI: true
 
 defaults:
   run:
