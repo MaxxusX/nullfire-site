@@ -13,7 +13,6 @@ permissions:
 
 env:
   NODE_ENV: "development"
-  CI: false
 
 defaults:
   run:
@@ -34,10 +33,11 @@ jobs:
             package.json
             pnpm-lock.yaml
             pnpm-workspace.yaml
+          persist-credentials: false
 
       - name: "Create branch"
         run: |
-          git checkout -b rebuild-lockfile
+          git switch -c rebuild-lockfile
 
       - name: "Setup PNPM"
         uses: "pnpm/action-setup@v6"
@@ -54,7 +54,7 @@ jobs:
 
       - name: "Delete Modules"
         run: |
-          pnpm clean
+          pnpm clean --lockfile
           rm -rf ./node_modules
           rm -f ./pnpm-lock.yaml
           pnpm store prune
