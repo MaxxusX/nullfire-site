@@ -49,19 +49,19 @@ jobs:
           check-latest: true
           package-manager-cache: false
 
-      - name: "Delete Modules"
-        run: |
-          pnpm clean --lockfile
-          rm -rf ./node_modules
-          rm -f ./pnpm-lock.yaml
-          pnpm store prune
-
       - name: "Update Dependencies"
         run: "pnpm update"
 
       - name: "Update Vulnerable Packages"
         run: "pnpm audit --fix=update"
         # continue-on-error: true
+
+      - name: "Delete Modules"
+        run: |
+          pnpm clean --lockfile
+          rm -rf ./node_modules
+          rm -f ./pnpm-lock.yaml
+          pnpm store prune
 
       - name: "Install Dependencies"
         run: "pnpm install --no-frozen-lockfile --lockfile-only"
