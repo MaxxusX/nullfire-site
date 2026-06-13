@@ -52,7 +52,7 @@ defaults:
 
 jobs:
   test:
-    runs-on: "ubuntu-slim"
+    runs-on: "ubuntu-latest"
     steps:
       - name: "Checkout repository"
         uses: "actions/checkout@v6"
@@ -66,6 +66,7 @@ jobs:
         uses: "actions/setup-node@v6"
         with:
           node-version-file: "./package.json"
+          check-latest: true
           cache: "pnpm"
           cache-dependency-path: "./pnpm-lock.yaml"
 
