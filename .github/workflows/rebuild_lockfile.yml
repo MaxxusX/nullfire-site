@@ -55,6 +55,7 @@ jobs:
 
       - name: "Update Vulnerable Packages"
         run: "pnpm audit --fix=update"
+        continue-on-error: true
 
       - name: "Delete Modules"
         run: |
