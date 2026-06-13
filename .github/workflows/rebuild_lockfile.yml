@@ -53,6 +53,9 @@ jobs:
       - name: "Update Dependencies"
         run: "pnpm update"
 
+      - name: "Update Vulnerable Packages"
+        run: "pnpm audit --fix=update"
+
       - name: "Delete Modules"
         run: |
           pnpm clean --lockfile
@@ -65,9 +68,6 @@ jobs:
 
       - name: "Dedupe Dependencies"
         run: "pnpm dedupe"
-
-      - name: "Update Vulnerable Packages"
-        run: "pnpm audit --fix=update"
 
       - name: "Create PR"
         run: |
