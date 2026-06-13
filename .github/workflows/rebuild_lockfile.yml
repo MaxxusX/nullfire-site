@@ -32,7 +32,6 @@ jobs:
             .gitattributes
             .gitignore
             package.json
-            pnpm-lock.yaml
             pnpm-workspace.yaml
 
       - name: "Create branch"
@@ -49,13 +48,6 @@ jobs:
           check-latest: true
           package-manager-cache: false
 
-      - name: "Update Dependencies"
-        run: "pnpm update"
-
-      - name: "Update Vulnerable Packages"
-        run: "pnpm audit --fix=update"
-        continue-on-error: true
-
       - name: "Delete Modules"
         run: |
           pnpm clean --lockfile
@@ -63,8 +55,15 @@ jobs:
           rm -f ./pnpm-lock.yaml
           pnpm store prune
 
+      - name: "Update Dependencies"
+        run: "pnpm update"
+
+      - name: "Update Vulnerable Packages"
+        run: "pnpm audit --fix=update"
+        # continue-on-error: true
+
       - name: "Install Dependencies"
-        run: "pnpm install --no-frozen-lockfile"
+        run: "pnpm install --no-frozen-lockfile --lockfile-only"
 
       - name: "Dedupe Dependencies"
         run: "pnpm dedupe"
