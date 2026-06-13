@@ -2,8 +2,11 @@ overrides:
   "volar-service-yaml@0.0.70>yaml-language-server@1.20.0": "~1.22.0"
 ignoredOptionalDependencies:
   - "sharp"
-minimumReleaseAge: 1440
 minimumReleaseAgeIgnoreMissingTime: false
+minimumReleaseAgeStrict: true
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - "esbuild@0.28.1"
 blockExoticSubdeps: true
 dedupePeers: true
 strictPeerDependencies: true
