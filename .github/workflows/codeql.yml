@@ -1,0 +1,80 @@
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - ".github/workflows/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - "astro.config.mjs"
+      - "src/**"
+      - "!src/assets/**"
+      - "!src/styles/**"
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "tsconfig.json"
+      - "astro.config.mjs"
+      - "src/**"
+      - "!src/assets/**"
+      - "!src/styles/**"
+  schedule:
+    - cron: "39 20 * * 5"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    name: "Analyze (${{ matrix.language }})"
+    runs-on: "ubuntu-latest"
+    permissions:
+      # required for all workflows
+      security-events: "write"
+
+      # required to fetch internal or private CodeQL packs
+      packages: "read"
+
+      # only required for workflows in private repositories
+      actions: "read"
+      contents: "read"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: "actions"
+          config: |
+            paths:
+              - ".github/workflows/**"
+        - language: "javascript-typescript"
+          config: |
+            paths:
+              - package.json
+              - pnpm-lock.yaml
+              - pnpm-workspace.yaml
+              - tsconfig.json
+              - astro.config.mjs
+              - src/**
+
+    steps:
+    - name: "Checkout repository"
+      uses: "actions/checkout@v7"
+
+    # Initializes the CodeQL tools for scanning.
+    - name: "Initialize CodeQL"
+      uses: "github/codeql-action/init@v4"
+      with:
+        languages: ${{ matrix.language }}
+        build-mode: "none"
+        queries: "+security-and-quality"
+        config: ${{ matrix.config }}
+
+    - name: "Perform CodeQL Analysis"
+      uses: "github/codeql-action/analyze@v4"
+      with:
+        category: "/language:${{matrix.language}}"
