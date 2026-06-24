@@ -43,7 +43,6 @@ env:
   PROD: true
   DEV: false
   ASTRO_TELEMETRY_DISABLED: 1
-  CI: true
 
 defaults:
   run:
