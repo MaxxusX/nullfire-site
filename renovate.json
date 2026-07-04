@@ -6,7 +6,7 @@
 	"configMigration": true,
 	"prHourlyLimit": 0,
 	"semanticCommits": "enabled",
-	"semanticCommitType": "chore"
+	"semanticCommitType": "chore",
 	"rangeStrategy": "bump",
 	"vulnerabilityAlerts": {
 		"enabled": true,
