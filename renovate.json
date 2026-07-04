@@ -1,0 +1,43 @@
+{
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["config:recommended", "abandonments:recommended"],
+	"assignees": ["MaxxusX"],
+	"reviewers": ["MaxxusX"],
+	"configMigration": true,
+	"prHourlyLimit": 0,
+	"semanticCommits": "enabled",
+	"semanticCommitType": "chore",
+	"rangeStrategy": "bump",
+	"vulnerabilityAlerts": {
+		"enabled": true,
+		"rangeStrategy": "bump"
+	},
+	"lockFileMaintenance": {
+		"enabled": true,
+		"schedule": ["before 8am on friday"]
+	},
+	"npm": {
+		"enabled": true
+	},
+	"postUpdateOptions": ["pnpmDedupe"],
+	"packageRules": [
+		{
+			"matchPackageNames": ["*"],
+			"semanticCommitType": "chore"
+		},
+		{
+			"matchDepTypes": ["dependencies", "require"],
+			"semanticCommitType": "chore"
+		},
+		{
+			"matchDatasources": ["npm"],
+			"minimumReleaseAge": "1 days",
+			"internalChecksFilter": "strict"
+		},
+		{
+			"matchDepTypes": ["action"],
+			"matchPackageNames": ["pnpm/action-setup"],
+			"pinDigests": true
+		}
+	]
+}
