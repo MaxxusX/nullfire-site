@@ -1,6 +1,34 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": [
-		"config:recommended"
+	"extends": ["config:recommended", "abandonments:recommended"],
+	"assignees": ["MaxxusX"],
+	"reviewers": ["MaxxusX"],
+	"configMigration": true,
+	"prHourlyLimit": 0,
+	"semanticCommits": "enabled",
+	"rangeStrategy": "bump",
+	"vulnerabilityAlerts": {
+		"enabled": true,
+		"rangeStrategy": "bump"
+	},
+	"lockFileMaintenance": {
+		"enabled": true,
+		"schedule": ["before 8am on friday"]
+	},
+	"npm": {
+		"enabled": true
+	},
+	"postUpdateOptions": ["pnpmDedupe"],
+	"packageRules": [
+		{
+			"internalChecksFilter": "strict",
+			"matchDatasources": ["npm"],
+			"minimumReleaseAge": "1 days"
+		},
+		{
+			"matchDepTypes": ["action"],
+			"matchPackageNames": ["pnpm/action"],
+			"pinDigests": true
+		}
 	]
 }
