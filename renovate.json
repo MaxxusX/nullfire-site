@@ -22,9 +22,17 @@
 	"postUpdateOptions": ["pnpmDedupe"],
 	"packageRules": [
 		{
-			"internalChecksFilter": "strict",
+			"matchPackageNames": ["*"],
+			"semanticCommitType": "chore"
+		},
+		{
+			"matchDepTypes": ["dependencies", "require"],
+			"semanticCommitType": "chore"
+		},
+		{
 			"matchDatasources": ["npm"],
-			"minimumReleaseAge": "1 days"
+			"minimumReleaseAge": "1 days",
+			"internalChecksFilter": "strict"
 		},
 		{
 			"matchDepTypes": ["action"],
