@@ -80,7 +80,7 @@ export default defineConfig({
 			},
 		},
 		build: {
-			target: ["es2020", "chrome112", "edge112", "firefox128", "safari16.6", "ios16.6"],
+			target: ["chrome112", "edge112", "firefox128", "safari16.6", "ios16.6"],
 			assetsInlineLimit: 0,
 			cssCodeSplit: false,
 			cssMinify: "lightningcss",
