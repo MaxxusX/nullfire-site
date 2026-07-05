@@ -2,7 +2,7 @@
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET, HEAD
   Access-Control-Max-Age: 86400
-  Cache-Control: max-age=43200, stale-while-revalidate=43200, stale-if-error=86400
+  Cache-Control: max-age=43200, must-revalidate
   No-Vary-Search: params
   Speculation-Rules: "/prefetch.json"
   Content-Language: en-US
@@ -11,27 +11,29 @@
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: same-origin
   Content-Security-Policy: default-src 'self' https: data:; script-src 'self'; script-src-attr 'none'; style-src 'self' https: data: 'unsafe-inline'; manifest-src 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content
-  Permissions-Policy: cross-origin-isolated=(),storage-access=(),geolocation=(),deferred-fetch=(),deferred-fetch-minimal=(),attribution-reporting=(),browsing-topics=(),conversion-measurement=()
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Permissions-Policy: cross-origin-isolated=(),storage-access=(),geolocation=(),deferred-fetch=(),deferred-fetch-minimal=()
+  Strict-Transport-Security: max-age=31536000; includesubdomains; preload
   X-Content-Type-Options: nosniff
   X-DNS-Prefetch-Control: off
   X-Download-Options: noopen
   X-Permitted-Cross-Domain-Policies: none
   X-XSS-Protection: 0
 
+/404
+  Cache-Control: max-age=2592000
+  X-Robots-Tag: noindex, nofollow, nosnippet
+
 /prefetch.json
   Content-Type: application/speculationrules+json
-  Cache-Control: max-age=604800, stale-while-revalidate=31536000, stale-if-error=31536000, immutable
+  Cache-Control: max-age=2592000
   X-Robots-Tag: noindex, nofollow, nosnippet
 
 /fonts/*
-  Cache-Control: max-age=31536000, stale-while-revalidate=31536000, stale-if-error=31536000, immutable
+  Cache-Control: public, max-age=31536000
+  Cache-Control: immutable
   X-Robots-Tag: indexifembedded, noindex, nofollow, nosnippet
 
 /_astro/*
-  Cache-Control: max-age=31536000, stale-while-revalidate=31536000, stale-if-error=31536000, immutable
+  Cache-Control: public, max-age=31536000
+  Cache-Control: immutable
   X-Robots-Tag: indexifembedded, noindex, nofollow, nosnippet
-
-/404
-  Cache-Control: max-age=604800, stale-while-revalidate=31536000, stale-if-error=31536000
-  X-Robots-Tag: noindex, nofollow, nosnippet
