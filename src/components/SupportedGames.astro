@@ -20,7 +20,7 @@ if (!response.ok) throw new Error("request for supported games failed w/ " + res
 
 const json: { [index: string]: string } = await response.json();
 const data: Array<[string, string]> = Object.entries(json);
-console.log("successfully received supported games!");
+Astro.logger.info("successfully received supported games!");
 ---
 
 <ul class="SupportedGames">
