@@ -205,7 +205,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  volar-service-yaml@0.0.70>yaml-language-server@1.20.0: ~1.23.0
+  volar-service-yaml@0.0.70>yaml-language-server@1.20.0: ~1.24.0
   esbuild@0.27.7: ^0.28.1
 
 importers:
