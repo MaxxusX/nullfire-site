@@ -46,7 +46,8 @@ jobs:
         with:
           node-version-file: "./package.json"
           check-latest: true
-          package-manager-cache: false
+          cache: "pnpm"
+          cache-dependency-path: "./pnpm-lock.yaml"
 
       - name: "Update Dependencies"
         run: "pnpm update"
@@ -57,10 +58,8 @@ jobs:
 
       - name: "Delete Modules"
         run: |
-          pnpm clean --lockfile
           rm -rf ./node_modules
           rm -f ./pnpm-lock.yaml
-          pnpm store prune
 
       - name: "Install Dependencies"
         run: "pnpm install --no-frozen-lockfile --lockfile-only"
