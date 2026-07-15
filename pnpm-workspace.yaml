@@ -1,5 +1,5 @@
 overrides:
-  'volar-service-css>yaml@2.8.3': '2.9.0'
+  'yaml-language-server>yaml@2.8.3': '2.9.0'
 ignoredOptionalDependencies:
   - 'sharp'
 minimumReleaseAgeIgnoreMissingTime: false
