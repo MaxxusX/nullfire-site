@@ -35,7 +35,6 @@ _redirects      text
 .gitattributes  text
 .gitignore      text
 .prettierignore text
-.prettierrc     text
 .assetsignore   text
 CODEOWNERS      text
 LICENSE         text
