@@ -74,7 +74,7 @@ jobs:
           git add package.json
           git add pnpm-lock.yaml
           git add pnpm-workspace.yaml
-          git commit -m "rebuild lockfile"
+          git commit -m "chore(deps): rebuild lockfile"
           git push origin rebuild-lockfile --force
           gh pr create --fill
         env:
