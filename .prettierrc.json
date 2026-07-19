@@ -18,22 +18,16 @@
 			}
 		},
 		{
-			"files": "*.md",
+			"files": ["*.md", "*.json"],
 			"options": {
 				"tabWidth": 2
 			}
 		},
 		{
-			"files": [".*", "*.txt", "*.yaml", "*.yml", "*.toml", "_headers", "_headers"],
+			"files": [".*", "*.txt", "*.yml", "*.yaml", "*.toml", "_headers", "_redirects"],
 			"options": {
 				"tabWidth": 2,
 				"useTabs": false
-			}
-		},
-		{
-			"files": ".prettierrc",
-			"options": {
-				"parser": "json"
 			}
 		},
 		{
