@@ -61,6 +61,7 @@ jobs:
       - name: "Setup PNPM"
         uses: "pnpm/setup@v2"
         with:
+          runtime: "node"
           cache: true
           install: false
 
