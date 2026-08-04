@@ -1,10 +1,9 @@
-name: "Test"
+name: Test
 run-name: 'Test ${{ format(fromJSON(''{"push":"commit {0} by @{1}","pull_request":"PR #{2} by @{3}"}'')[github.event_name], github.event.head_commit.id, (github.event.pusher.username || github.actor), github.event.number, (github.event.pull_request.user.name || github.actor)) || format(''(ran by @{0})'', github.triggering_actor) }}'
 
 on:
   push:
-    branches-ignore:
-      - "main"
+    branches-ignore: [main]
     paths:
       - "**"
       - "!.github/**"
@@ -35,38 +34,38 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: "read"
+  contents: read
 
 env:
-  NODE_ENV: "production"
-  MODE: "production"
+  NODE_ENV: production
+  MODE: production
   PROD: true
   DEV: false
   ASTRO_TELEMETRY_DISABLED: 1
 
 defaults:
   run:
-    shell: "bash"
+    shell: bash
     working-directory: "."
 
 jobs:
   test:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - name: "Checkout repository"
-        uses: "actions/checkout@v7"
+      - name: Checkout repository
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
-      - name: "Setup PNPM"
-        uses: "pnpm/setup@v2"
+      - name: Setup PNPM
+        uses: pnpm/setup@v2
         with:
-          runtime: "node"
+          runtime: node
           cache: true
           install: false
 
-      - name: "Install Dependencies"
-        run: "pnpm install --prod --frozen-lockfile"
+      - name: Install Dependencies
+        run: pnpm install --prod --frozen-lockfile
 
-      - name: "Test"
-        run: "pnpm run test"
+      - name: Test
+        run: pnpm run test
