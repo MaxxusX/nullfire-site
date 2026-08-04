@@ -2,7 +2,7 @@
 
 made w/ astro
 
-**production site:** [nullfire.dev](https://nullfire.dev/)<br />
+**production site:** [script.nullfire.dev](https://script.nullfire.dev/)<br />
 **development site:** [nullfire-preview.pages.dev](https://nullfire-preview.pages.dev/)
 
 ## how to edit this site
