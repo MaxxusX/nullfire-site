@@ -13,13 +13,5 @@ if you want to make a change:
 2. fork this repo
 3. make your changes on that fork
 4. **_TEST YOUR CHANGES_**
-5. sumbit a pull request to this repo
-6. send me a dm on discord (`@maxxusx`) and ask me to review your pr.
-7. wait _patiently._ i have a life.
-8. if i think it's a good change, i'll merge it.
-
-if you'd like, you can also leave little messages in your code.<br>
-
-```javascript
-/* oh hell nah who did this -maxxus */
-```
+5. submit a pull request to this repo
+6. send me a dm on discord (`@maxxusx`) and ask me to review your pr
