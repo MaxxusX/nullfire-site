@@ -11,6 +11,7 @@ trim_trailing_whitespace = true
 spelling_language = en-US
 
 [{*.md,*.json}]
+indent_style = tab
 indent_size = 2
 tab_width = 2
 
