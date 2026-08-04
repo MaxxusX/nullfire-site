@@ -17,7 +17,7 @@ env:
 defaults:
   run:
     shell: bash
-    working-directory: "."
+    working-directory: '.'
 
 jobs:
   rebuild_lockfile:
