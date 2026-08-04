@@ -31,13 +31,6 @@
 			}
 		},
 		{
-			"files": [".*", "*.txt", "*.toml", "_headers", "_redirects"],
-			"options": {
-				"tabWidth": 2,
-				"useTabs": false
-			}
-		},
-		{
 			"files": [".vscode/*.json", "tsconfig.json"],
 			"options": {
 				"parser": "jsonc"
