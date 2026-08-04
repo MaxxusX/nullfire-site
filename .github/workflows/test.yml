@@ -5,32 +5,32 @@ on:
   push:
     branches-ignore: [main]
     paths:
-      - "**"
-      - "!.github/**"
-      - "!.vscode/**"
-      - "!.editorconfig"
-      - "!.gitattributes"
-      - "!.gitignore"
-      - "!.prettierignore"
-      - "!.prettierrc.json"
-      - "!CODEOWNERS"
-      - "!README.md"
-      - "!wrangler.toml"
-      - ".github/workflows/test.yml"
+      - '**'
+      - '!.github/**'
+      - '!.vscode/**'
+      - '!.editorconfig'
+      - '!.gitattributes'
+      - '!.gitignore'
+      - '!.prettierignore'
+      - '!.prettierrc.json'
+      - '!CODEOWNERS'
+      - '!README.md'
+      - '!wrangler.toml'
+      - '.github/workflows/test.yml'
   pull_request:
     paths:
-      - "**"
-      - "!.github/**"
-      - "!.vscode/**"
-      - "!.editorconfig"
-      - "!.gitattributes"
-      - "!.gitignore"
-      - "!.prettierignore"
-      - "!.prettierrc.json"
-      - "!CODEOWNERS"
-      - "!README.md"
-      - "!wrangler.toml"
-      - ".github/workflows/test.yml"
+      - '**'
+      - '!.github/**'
+      - '!.vscode/**'
+      - '!.editorconfig'
+      - '!.gitattributes'
+      - '!.gitignore'
+      - '!.prettierignore'
+      - '!.prettierrc.json'
+      - '!CODEOWNERS'
+      - '!README.md'
+      - '!wrangler.toml'
+      - '.github/workflows/test.yml'
   workflow_dispatch:
 
 permissions:
@@ -46,7 +46,7 @@ env:
 defaults:
   run:
     shell: bash
-    working-directory: "."
+    working-directory: '.'
 
 jobs:
   test:
