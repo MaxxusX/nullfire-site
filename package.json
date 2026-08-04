@@ -27,7 +27,7 @@
 		"runtime": {
 			"name": "node",
 			"version": "^26.5.1",
-			"onFail": "error"
+			"onFail": "download"
 		},
 		"packageManager": {
 			"name": "pnpm",
