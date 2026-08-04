@@ -11,16 +11,10 @@ trim_trailing_whitespace = true
 spelling_language = en-US
 
 [{*.md,*.json}]
-indent_style = tab
 indent_size = 2
 tab_width = 2
 
-[{.*,*.yml,*.yaml}]
-indent_style = space
-indent_size = 2
-tab_width = 2
-
-[{.*,*.txt,*.yml,*.yaml,*.toml,_headers,_redirects}]
+[{*.txt,*.yml,*.yaml,*.toml,_headers,_redirects}]
 indent_style = space
 indent_size = 2
 tab_width = 2
