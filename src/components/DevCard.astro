@@ -22,7 +22,7 @@ const { pixelated, image, name, role, rolecolor } = Astro.props;
 		draggable="false"
 		aria-hidden="true"
 		alt=""
-		{pixelated && (...{ style: "image-rendering: pixelated;" })}
+		{...{ style: pixelated ? "image-rendering: pixelated;" : undefined }}
 	/>
 	<div class="DevCard-About">
 		<div class="DevCard-Header">
