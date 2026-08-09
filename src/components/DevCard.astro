@@ -3,13 +3,14 @@ import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
 interface Props {
+	pixelated?: boolean;
 	image: ImageMetadata;
 	name: string;
 	role: string;
 	rolecolor: string;
 }
 
-const { image, name, role, rolecolor } = Astro.props;
+const { pixelated, image, name, role, rolecolor } = Astro.props;
 ---
 
 <div class="DevCard">
@@ -21,6 +22,7 @@ const { image, name, role, rolecolor } = Astro.props;
 		draggable="false"
 		aria-hidden="true"
 		alt=""
+		{pixelated && (...{ style: "image-rendering: pixelated;" })}
 	/>
 	<div class="DevCard-About">
 		<div class="DevCard-Header">
@@ -160,6 +162,7 @@ const { image, name, role, rolecolor } = Astro.props;
 		padding: 0.625rem;
 		transition: background-color 0.3s linear;
 
+		/*
 		& > svg {
 			display: block;
 			vertical-align: middle;
@@ -169,6 +172,7 @@ const { image, name, role, rolecolor } = Astro.props;
 			width: 1rem;
 			fill: var(--color-foreground-text);
 		}
+		*/
 	}
 
 	.DevCard-Desc {
@@ -184,8 +188,3 @@ const { image, name, role, rolecolor } = Astro.props;
 	}
 }
 </style>
-
-
-
-
-
