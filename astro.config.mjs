@@ -5,7 +5,7 @@ import { defineConfig, passthroughImageService } from "astro/config";
 const isDevBuild = env.NODE_ENV === "development" || env.MODE === "development";
 
 export default defineConfig({
-	site: env.SITE_URL_OVERRIDE ?? "https://nullfire.pages.dev/",
+	site: env.SITE_URL_OVERRIDE ?? "https://script.nullfire.dev/",
 	base: "/",
 	trailingSlash: "ignore",
 	output: "static",
