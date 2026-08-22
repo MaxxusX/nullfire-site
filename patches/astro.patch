@@ -1,0 +1,597 @@
+diff --git a/astro-jsx.d.ts b/astro-jsx.d.ts
+index 8bd4749dcf070fa4c425c502824213361154f500..86cec2ab0d6930b48ed21b277e94384340d9e4de 100644
+--- a/astro-jsx.d.ts
++++ b/astro-jsx.d.ts
+@@ -769,6 +769,7 @@ declare namespace astroHTML.JSX {
+ 		src?: string | undefined | null;
+ 		srcdoc?: string | undefined | null;
+ 		width?: number | string | undefined | null;
++		credentialless?: boolean | string | undefined | null;
+ 	}
+
+ 	interface ImgHTMLAttributes extends HTMLAttributes {
+diff --git a/client.d.ts b/client.d.ts
+index 2672510d79b1fe0b4ef4f8d2ee7d5dc2cb13c7bc..4d7d84ff653a88cc9573c6f2a893e3289a0d4cce 100644
+--- a/client.d.ts
++++ b/client.d.ts
+@@ -1,11 +1,5 @@
+ /// <reference types="vite/types/import-meta.d.ts" />
+
+-/// <reference path="./types/actions.d.ts" />
+-/// <reference path="./types/content.d.ts" />
+-/// <reference path="./types/env.d.ts" />
+-/// <reference path="./types/fonts.d.ts" />
+-/// <reference path="./types/transitions.d.ts" />
+-
+ interface ImportMetaEnv {
+ 	// TODO: remove in Astro 7
+ 	/**
+@@ -55,12 +49,6 @@ declare module 'astro:assets' {
+ 	export const inferRemoteSize: typeof import('./dist/assets/utils/index.js').inferRemoteSize;
+ 	export const Image: typeof import('./components/Image.astro').default;
+ 	export const Picture: typeof import('./components/Picture.astro').default;
+-	export const Font: typeof import('./components/Font.astro').default;
+-	export const fontData: Record<
+-		import('astro:assets').CssVariable,
+-		Array<import('astro:assets').FontData>
+-	>;
+-	export const experimental_getFontFileURL: typeof import('./dist/assets/fonts/runtime.js').experimental_getFontFileURL;
+
+ 	type ImgAttributes = import('./dist/type-utils.js').WithRequired<
+ 		Omit<import('./types').HTMLAttributes<'img'>, 'src' | 'width' | 'height'>,
+@@ -115,14 +103,6 @@ declare module '*.svg' {
+ 	export default Component;
+ }
+
+-declare module 'astro:prefetch' {
+-	export { prefetch, PrefetchOptions } from 'astro/virtual-modules/prefetch.js';
+-}
+-
+-declare module 'astro:i18n' {
+-	export * from 'astro/virtual-modules/i18n.js';
+-}
+-
+ declare module 'astro:container' {
+ 	export * from 'astro/virtual-modules/container.js';
+ }
+@@ -167,117 +147,6 @@ declare module 'astro:schema' {
+ 	export const z = zod.z;
+ }
+
+-type MD = import('./dist/types/public/content.js').MarkdownInstance<Record<string, any>>;
+-
+-interface ExportedMarkdownModuleEntities {
+-	frontmatter: MD['frontmatter'];
+-	file: MD['file'];
+-	url: MD['url'];
+-	getHeadings: MD['getHeadings'];
+-	Content: MD['Content'];
+-	rawContent: MD['rawContent'];
+-	compiledContent: MD['compiledContent'];
+-	load: MD['default'];
+-}
+-
+-declare module '*.md' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.markdown' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.mkdn' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.mkd' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.mdwn' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.mdown' {
+-	const { load }: ExportedMarkdownModuleEntities;
+-	export const {
+-		frontmatter,
+-		file,
+-		url,
+-		getHeadings,
+-		Content,
+-		rawContent,
+-		compiledContent,
+-	}: ExportedMarkdownModuleEntities;
+-	export default load;
+-}
+-
+-declare module '*.mdx' {
+-	type MDX = import('./dist/types/public/content.js').MDXInstance<Record<string, any>>;
+-
+-	export const frontmatter: MDX['frontmatter'];
+-	export const file: MDX['file'];
+-	export const url: MDX['url'];
+-	export const getHeadings: MDX['getHeadings'];
+-	export const Content: MDX['Content'];
+-	export const components: MDX['components'];
+-
+-	const load: MDX['default'];
+-	export default load;
+-}
+-
+ declare module 'astro:static-paths' {
+ 	export const StaticPaths: typeof import('./dist/runtime/prerender/static-paths.js').StaticPaths;
+ }
+diff --git a/components/Code.astro b/components/Code.astro
+index ee2e4589152dcc6be51b36f2b62e53a7ccd1567d..32993082569cbe2ad157c019b768207652fdf22e 100644
+--- a/components/Code.astro
++++ b/components/Code.astro
+@@ -1,7 +1,6 @@
+ ---
+ import { createShikiHighlighter, type ThemePresets } from '@astrojs/internal-helpers/shiki';
+-import type { ShikiTransformer, ThemeRegistration, ThemeRegistrationRaw } from 'shiki';
+-import { bundledLanguages } from 'shiki/langs';
++import type { ShikiTransformer, ThemeRegistration, ThemeRegistrationRaw } from '@shikijs/types';
+ import type { CodeLanguage } from '../dist/types/public/common.js';
+ import type { HTMLAttributes } from '../types.js';
+
+@@ -106,9 +105,7 @@ if (typeof lang === 'object') {
+ const highlighter = await createShikiHighlighter({
+ 	langs: [
+ 		typeof lang === 'string'
+-			? Object.keys(bundledLanguages).includes(lang)
+-				? lang
+-				: 'plaintext'
++			? lang
+ 			: (lang as any),
+ 		...embeddedLangs,
+ 	],
+diff --git a/components/Font.astro b/components/Font.astro
+deleted file mode 100644
+index 2edc686e619acfe3f2de3bda846b6460911e729d..0000000000000000000000000000000000000000
+diff --git a/dist/assets/vite-plugin-assets.js b/dist/assets/vite-plugin-assets.js
+index 25b8c3f6037f3c7888eec376545c88a1f2167bb7..1558f84549404b762c1f3752144221e5b74489c7 100644
+--- a/dist/assets/vite-plugin-assets.js
++++ b/dist/assets/vite-plugin-assets.js
+@@ -23,8 +23,6 @@ import {
+   VIRTUAL_MODULE_ID,
+   VIRTUAL_SERVICE_ID
+ } from "./consts.js";
+-import { RUNTIME_VIRTUAL_MODULE_ID } from "./fonts/constants.js";
+-import { fontsPlugin } from "./fonts/vite-plugin-fonts.js";
+ import { getAssetsPrefix } from "./utils/getAssetsPrefix.js";
+ import { isESMImportedImage } from "./utils/index.js";
+ import { emitClientAsset } from "./utils/assets.js";
+@@ -174,9 +172,6 @@ function assets({ fs, settings, sync, logger }) {
+ 					export { default as Picture } from "astro/components/${imageComponentPrefix}Picture.astro";
+ 					import { inferRemoteSize as inferRemoteSizeInternal } from "astro/assets/utils/inferRemoteSize.js";
+
+-					export { default as Font } from "astro/components/Font.astro";
+-					export * from "${RUNTIME_VIRTUAL_MODULE_ID}";
+-
+ 					export const getConfiguredImageService = _getConfiguredImageService;
+
+ 					export const viteFSConfig = ${JSON.stringify(resolvedConfig.server.fs ?? {})};
+@@ -328,7 +323,6 @@ function assets({ fs, settings, sync, logger }) {
+         }
+       }
+     },
+-    fontsPlugin({ settings, sync, logger }),
+     {
+       name: "astro:image-styles",
+       resolveId: {
+diff --git a/dist/core/config/schemas/base.js b/dist/core/config/schemas/base.js
+index 8c87140ead318ab6c841f16fc30e94526ae0058f..6972030c8703bca4734023b034da969788c745ac 100644
+--- a/dist/core/config/schemas/base.js
++++ b/dist/core/config/schemas/base.js
+@@ -1,6 +1,4 @@
+ import { syntaxHighlightDefaults } from "@astrojs/internal-helpers/markdown";
+-import { satteri } from "@astrojs/markdown-satteri";
+-import { bundledThemes } from "shiki";
+ import * as z from "zod/v4";
+ import { FontFamilySchema } from "../../../assets/fonts/config.js";
+ import { SvgOptimizerSchema } from "../../../assets/svg/config.js";
+@@ -157,10 +155,10 @@ const AstroConfigSchema = z.object({
+         return langs;
+       }).default([]),
+       langAlias: z.record(z.string(), z.string()).optional().default(ASTRO_CONFIG_DEFAULTS.markdown.shikiConfig.langAlias),
+-      theme: z.enum(Object.keys(bundledThemes)).or(z.custom()).default(ASTRO_CONFIG_DEFAULTS.markdown.shikiConfig.theme),
++      theme: z.custom().default(ASTRO_CONFIG_DEFAULTS.markdown.shikiConfig.theme),
+       themes: z.record(
+         z.string(),
+-        z.enum(Object.keys(bundledThemes)).or(z.custom())
++        z.custom()
+       ).optional().default(ASTRO_CONFIG_DEFAULTS.markdown.shikiConfig.themes),
+       defaultColor: z.union([z.literal("light"), z.literal("dark"), z.string(), z.literal(false)]).optional(),
+       wrap: z.boolean().or(z.null()).default(ASTRO_CONFIG_DEFAULTS.markdown.shikiConfig.wrap),
+@@ -199,7 +197,13 @@ const AstroConfigSchema = z.object({
+       createMdxRenderer: z.custom(
+         (v) => v === void 0 || typeof v === "function"
+       ).optional()
+-    }).default(() => satteri())
++    }).default({
++      name: "_disabled",
++      options: {},
++      createRenderer: async function() {
++        throw new Error("markdown disabled");
++      },
++    })
+   }).prefault({}),
+   vite: z.custom((data) => data instanceof Object && !Array.isArray(data)).default(ASTRO_CONFIG_DEFAULTS.vite),
+   i18n: z.optional(
+diff --git a/dist/core/config/settings.js b/dist/core/config/settings.js
+index 9abb8f97abcc6524843a20fa53ecc125dca46f15..00fcd314892885b3d5845e5c6e297882e48e8375 100644
+--- a/dist/core/config/settings.js
++++ b/dist/core/config/settings.js
+@@ -1,19 +1,9 @@
+ import path from "node:path";
+ import { fileURLToPath, pathToFileURL } from "node:url";
+-import * as yaml from "js-yaml";
+-import * as toml from "smol-toml";
+ import { getContentPaths } from "../../content/index.js";
+ import createPreferences from "../../preferences/index.js";
+-import { markdownContentEntryType } from "../../vite-plugin-markdown/content-entry-type.js";
+ import { getDefaultClientDirectives } from "../client-directive/index.js";
+-import { SUPPORTED_MARKDOWN_FILE_EXTENSIONS } from "./../constants.js";
+ import { AstroError, AstroErrorData } from "../errors/index.js";
+-import {
+-  formatTOMLError,
+-  formatYAMLException,
+-  isTOMLError,
+-  isYAMLException
+-} from "../errors/utils.js";
+ import { AstroTimer } from "./timer.js";
+ import { loadTSConfig } from "./tsconfig.js";
+ function createBaseSettings(config, logLevel) {
+@@ -33,8 +23,8 @@ function createBaseSettings(config, logLevel) {
+     prerenderer: void 0,
+     injectedRoutes: [],
+     resolvedInjectedRoutes: [],
+-    pageExtensions: [".astro", ".html", ...SUPPORTED_MARKDOWN_FILE_EXTENSIONS],
+-    contentEntryTypes: [markdownContentEntryType],
++    pageExtensions: [".astro", ".html"],
++    contentEntryTypes: [],
+     dataEntryTypes: [
+       {
+         extensions: [".json"],
+@@ -70,56 +60,6 @@ function createBaseSettings(config, logLevel) {
+           }
+           return { data };
+         }
+-      },
+-      {
+-        extensions: [".yaml", ".yml"],
+-        getEntryInfo({ contents, fileUrl }) {
+-          try {
+-            const data = yaml.load(contents, { filename: fileURLToPath(fileUrl) });
+-            const rawData = contents;
+-            return { data, rawData };
+-          } catch (e) {
+-            const pathRelToContentDir = path.relative(
+-              fileURLToPath(contentDir),
+-              fileURLToPath(fileUrl)
+-            );
+-            const formattedError = isYAMLException(e) ? formatYAMLException(e) : new Error("contains invalid YAML.");
+-            throw new AstroError({
+-              ...AstroErrorData.DataCollectionEntryParseError,
+-              message: AstroErrorData.DataCollectionEntryParseError.message(
+-                pathRelToContentDir,
+-                formattedError.message
+-              ),
+-              stack: formattedError.stack,
+-              location: "loc" in formattedError ? { file: fileUrl.pathname, ...formattedError.loc } : { file: fileUrl.pathname }
+-            });
+-          }
+-        }
+-      },
+-      {
+-        extensions: [".toml"],
+-        getEntryInfo({ contents, fileUrl }) {
+-          try {
+-            const data = toml.parse(contents);
+-            const rawData = contents;
+-            return { data, rawData };
+-          } catch (e) {
+-            const pathRelToContentDir = path.relative(
+-              fileURLToPath(contentDir),
+-              fileURLToPath(fileUrl)
+-            );
+-            const formattedError = isTOMLError(e) ? formatTOMLError(e) : new Error("contains invalid TOML.");
+-            throw new AstroError({
+-              ...AstroErrorData.DataCollectionEntryParseError,
+-              message: AstroErrorData.DataCollectionEntryParseError.message(
+-                pathRelToContentDir,
+-                formattedError.message
+-              ),
+-              stack: formattedError.stack,
+-              location: "loc" in formattedError ? { file: fileUrl.pathname, ...formattedError.loc } : { file: fileUrl.pathname }
+-            });
+-          }
+-        }
+       }
+     ],
+     renderers: [],
+diff --git a/dist/core/config/validate.js b/dist/core/config/validate.js
+index 54fa4ade5dc3f4fb33aeff965baa8965d514781a..5a25461f965290aa53c8d222fc98c849b948f1ff 100644
+--- a/dist/core/config/validate.js
++++ b/dist/core/config/validate.js
+@@ -2,8 +2,6 @@ import { errorMap } from "../errors/index.js";
+ import { AstroConfigRefinedSchema, createRelativeSchema } from "./schemas/index.js";
+ async function validateConfig(userConfig, root, cmd) {
+   const AstroConfigRelativeSchema = createRelativeSchema(cmd, root);
+-  await coerceLegacyMarkdownPlugins(userConfig);
+-  warnDeprecatedMarkdownOptions(userConfig);
+   return await validateConfigRefined(
+     await AstroConfigRelativeSchema.parseAsync(userConfig, {
+       error(issue) {
+@@ -19,72 +17,7 @@ See https://docs.astro.build/en/reference/experimental-flags/ for a list of all
+     })
+   );
+ }
+-let didWarnAboutDeprecatedMarkdownOptions = false;
+-function warnDeprecatedMarkdownOptions(config) {
+-  if (didWarnAboutDeprecatedMarkdownOptions) return;
+-  const md = config?.markdown;
+-  if (!md) return;
+-  const deprecated = ["gfm", "smartypants"].filter((k) => md[k] !== void 0);
+-  if (deprecated.length === 0) return;
+-  didWarnAboutDeprecatedMarkdownOptions = true;
+-  const names = deprecated.map((key) => `\`markdown.${key}\``).join(" and ");
+-  const isPlural = deprecated.length > 1;
+-  console.warn(
+-    `[astro] ${names} ${isPlural ? "are" : "is"} deprecated. Move ${isPlural ? "them" : "it"} onto your processor instead (e.g. \`satteri({ features: { gfm: false, smartPunctuation: false } })\`, or \`unified({ gfm: false, smartypants: false })\` from \`@astrojs/markdown-remark\`). Will be removed in a future major.`
+-  );
+-}
+-let didWarnAboutLegacyMarkdownPlugins = false;
+-let didWarnAboutProcessorMismatch = false;
+-const migratedLegacyPluginCounts = /* @__PURE__ */ new WeakMap();
+-async function coerceLegacyMarkdownPlugins(config) {
+-  const md = config?.markdown;
+-  if (!md) return;
+-  const remarkPlugins = md.remarkPlugins ?? [];
+-  const rehypePlugins = md.rehypePlugins ?? [];
+-  const remarkRehype = md.remarkRehype ?? {};
+-  if (remarkPlugins.length === 0 && rehypePlugins.length === 0 && Object.keys(remarkRehype).length === 0) {
+-    return;
+-  }
+-  let unified;
+-  let isUnifiedProcessor;
+-  try {
+-    ({ unified, isUnifiedProcessor } = await import("@astrojs/markdown-remark"));
+-  } catch {
+-    throw new Error(
+-      "`markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` run on the `unified` processor from `@astrojs/markdown-remark`, which is no longer installed by default now that S\xE4tteri is the default Markdown processor. Install it with:\n  npm install @astrojs/markdown-remark"
+-    );
+-  }
+-  const current = md.processor;
+-  if (!current || isUnifiedProcessor(current)) {
+-    const target = current ?? (md.processor = unified());
+-    const counts = migratedLegacyPluginCounts.get(target.options) ?? { remark: 0, rehype: 0 };
+-    if (remarkPlugins.length > counts.remark) {
+-      target.options.remarkPlugins.push(...remarkPlugins.slice(counts.remark));
+-    }
+-    if (rehypePlugins.length > counts.rehype) {
+-      target.options.rehypePlugins.push(...rehypePlugins.slice(counts.rehype));
+-    }
+-    Object.assign(target.options.remarkRehype, remarkRehype);
+-    migratedLegacyPluginCounts.set(target.options, {
+-      remark: remarkPlugins.length,
+-      rehype: rehypePlugins.length
+-    });
+-    if (!didWarnAboutLegacyMarkdownPlugins) {
+-      didWarnAboutLegacyMarkdownPlugins = true;
+-      console.warn(
+-        "[astro] `markdown.remarkPlugins`, `markdown.rehypePlugins`, and `markdown.remarkRehype` are deprecated. Pass them to `unified({...})` from `@astrojs/markdown-remark` directly instead."
+-      );
+-    }
+-  } else if (!didWarnAboutProcessorMismatch) {
+-    didWarnAboutProcessorMismatch = true;
+-    console.warn(
+-      `[astro] \`markdown.remarkPlugins\`/\`rehypePlugins\`/\`remarkRehype\` are set, but your \`${current.name}\` processor doesn't run them. Move them to \`unified({...})\` from \`@astrojs/markdown-remark\` and set \`markdown.processor: unified({...})\` if you want them to apply.`
+-    );
+-  }
+-}
+ async function validateConfigRefined(updatedConfig) {
+-  await coerceLegacyMarkdownPlugins(updatedConfig);
+-  warnDeprecatedMarkdownOptions(updatedConfig);
+   return await AstroConfigRefinedSchema.parseAsync(updatedConfig, { error: errorMap });
+ }
+ export {
+diff --git a/dist/core/constants.d.ts b/dist/core/constants.d.ts
+index b5a64b1f89965fa0ef9811db70602cec02f12450..35dd52da89e91d0ef7e77d764bbd267143b5110c 100644
+--- a/dist/core/constants.d.ts
++++ b/dist/core/constants.d.ts
+@@ -56,7 +56,7 @@ export declare const nodeRequestAbortControllerCleanupSymbol: unique symbol;
+  * Used to provide helpful errors and warnings when headers or cookies are added during streaming, after the response has already been sent.
+  */
+ export declare const responseSentSymbol: unique symbol;
+-export declare const SUPPORTED_MARKDOWN_FILE_EXTENSIONS: readonly [".markdown", ".mdown", ".mkdn", ".mkd", ".mdwn", ".md"];
++export declare const SUPPORTED_MARKDOWN_FILE_EXTENSIONS: readonly [];
+ export declare const MIDDLEWARE_PATH_SEGMENT_NAME = "middleware";
+ export declare const ASTRO_VITE_ENVIRONMENT_NAMES: {
+     readonly ssr: "ssr";
+diff --git a/dist/core/constants.js b/dist/core/constants.js
+index aea542a5464576efa1b820b53da683f5c25ec35e..dbdd66772b2e736ae8207875d32e0e4282c37bab 100644
+--- a/dist/core/constants.js
++++ b/dist/core/constants.js
+@@ -13,14 +13,7 @@ const nodeRequestAbortControllerCleanupSymbol = /* @__PURE__ */ Symbol.for(
+   "astro.nodeRequestAbortControllerCleanup"
+ );
+ const responseSentSymbol = /* @__PURE__ */ Symbol.for("astro.responseSent");
+-const SUPPORTED_MARKDOWN_FILE_EXTENSIONS = [
+-  ".markdown",
+-  ".mdown",
+-  ".mkdn",
+-  ".mkd",
+-  ".mdwn",
+-  ".md"
+-];
++const SUPPORTED_MARKDOWN_FILE_EXTENSIONS = [];
+ const MIDDLEWARE_PATH_SEGMENT_NAME = "middleware";
+ const ASTRO_VITE_ENVIRONMENT_NAMES = {
+   // It maps to the classic `ssr` Vite environment
+diff --git a/dist/core/create-vite.js b/dist/core/create-vite.js
+index 375f7339314225f303b858c748f8217d173554d7..3da2eeb3cb5fc5d24230ab350b8ac178d841cdfc 100644
+--- a/dist/core/create-vite.js
++++ b/dist/core/create-vite.js
+@@ -2,25 +2,15 @@ import nodeFs from "node:fs";
+ import { fileURLToPath } from "node:url";
+ import * as vite from "vite";
+ import { crawlFrameworkPkgs } from "vitefu";
+-import { vitePluginActions } from "../actions/vite-plugin-actions.js";
+ import { getAssetsPrefix } from "../assets/utils/getAssetsPrefix.js";
+ import astroAssetsPlugin from "../assets/vite-plugin-assets.js";
+ import astroContainer from "../container/vite-plugin-container.js";
+-import {
+-  astroContentAssetPropagationPlugin,
+-  astroContentImportPlugin,
+-  astroContentVirtualModPlugin
+-} from "../content/index.js";
+ import { createEnvLoader } from "../env/env-loader.js";
+ import { validateEnvPrefixAgainstSchema } from "../env/validators.js";
+ import { astroEnv } from "../env/vite-plugin-env.js";
+ import { importMetaEnv } from "../env/vite-plugin-import-meta-env.js";
+-import astroInternationalization from "../i18n/vite-plugin-i18n.js";
+ import { serializedManifestPlugin } from "../manifest/serialized.js";
+ import astroVirtualManifestPlugin from "../manifest/virtual-module.js";
+-import astroPrefetch from "../prefetch/vite-plugin-prefetch.js";
+-import astroDevToolbar from "../toolbar/vite-plugin-dev-toolbar.js";
+-import astroTransitions from "../transitions/vite-plugin-transitions.js";
+ import { vitePluginAdapterConfig } from "../vite-plugin-adapter-config/index.js";
+ import { vitePluginApp } from "../vite-plugin-app/index.js";
+ import { vitePluginFetchable } from "./fetch/vite-plugin.js";
+@@ -34,7 +24,6 @@ import astroHmrReloadPlugin from "../vite-plugin-hmr-reload/index.js";
+ import htmlVitePlugin from "../vite-plugin-html/index.js";
+ import astroIntegrationsContainerPlugin from "../vite-plugin-integrations-container/index.js";
+ import astroLoadFallbackPlugin from "../vite-plugin-load-fallback/index.js";
+-import markdownVitePlugin from "../vite-plugin-markdown/index.js";
+ import { pluginPage, pluginPages } from "../vite-plugin-pages/index.js";
+ import vitePluginRenderers from "../vite-plugin-renderers/index.js";
+ import astroPluginRoutes from "../vite-plugin-routes/index.js";
+@@ -47,7 +36,6 @@ import { joinPaths } from "./path.js";
+ import { ServerIslandsState } from "./server-islands/shared-state.js";
+ import { vitePluginServerIslands } from "./server-islands/vite-plugin-server-islands.js";
+ import { vitePluginCacheProvider } from "./cache/vite-plugin.js";
+-import { vitePluginSessionDriver, vitePluginSessionProvider } from "./session/vite-plugin.js";
+ import { vitePluginLogger } from "./logger/vite-plugin.js";
+ import { isObject } from "./util-runtime.js";
+ import { vitePluginEnvironment } from "../vite-plugin-environment/index.js";
+@@ -104,6 +92,7 @@ async function createVite(commandConfig, { settings, logger, mode, command, fs =
+     _crawlCache.set(crawlCacheKey, astroPkgsConfig);
+   }
+   astroPkgsConfig = cloneCrawlResult(astroPkgsConfig);
++  console.log("astroPkgsConfig: ", astroPkgsConfig);
+   const envLoader = createEnvLoader({
+     mode,
+     config: settings.config
+@@ -162,25 +151,15 @@ async function createVite(commandConfig, { settings, logger, mode, command, fs =
+       importMetaEnv({ envLoader }),
+       astroEnv({ settings, sync, envLoader }),
+       vitePluginAdapterConfig(settings),
+-      markdownVitePlugin({ settings, logger }),
+       htmlVitePlugin(),
+       astroIntegrationsContainerPlugin({ settings, logger }),
+       astroScriptsPageSSRPlugin({ settings }),
+       astroHeadPlugin(),
+-      astroContentVirtualModPlugin({ fs, settings }),
+-      astroContentImportPlugin({ fs, settings, logger }),
+-      astroContentAssetPropagationPlugin({ settings, cssContentCache }),
+       vitePluginMiddleware({ settings }),
+       astroAssetsPlugin({ fs, settings, sync, logger }),
+-      astroPrefetch({ settings }),
+-      astroTransitions({ settings }),
+-      astroDevToolbar({ settings, logger }),
+       vitePluginFileURL(),
+-      astroInternationalization({ settings }),
+       vitePluginActions({ fs, settings }),
+       vitePluginServerIslands({ settings, logger, serverIslandsState }),
+-      vitePluginSessionDriver({ settings }),
+-      vitePluginSessionProvider({ settings }),
+       vitePluginCacheProvider({ settings }),
+       vitePluginLogger({ settings }),
+       astroContainer(),
+diff --git a/dist/core/errors/dev/vite.js b/dist/core/errors/dev/vite.js
+index 94529415235c08ef405c877e6b78b0cf9b6e4a1b..429f755e5ed8114dc24b7baf24f36b113d07ee75 100644
+--- a/dist/core/errors/dev/vite.js
++++ b/dist/core/errors/dev/vite.js
+@@ -1,6 +1,6 @@
+ import * as fs from "node:fs";
+ import { fileURLToPath } from "node:url";
+-import { codeToHtml, createCssVariablesTheme } from "shiki";
++import { codeToHtml, createCssVariablesTheme } from "@shikijs/core";
+ import { AstroError } from "../errors.js";
+ import { FailedToLoadModuleSSR, MdxIntegrationMissingError } from "../errors-data.js";
+ import { createSafeError } from "../utils.js";
+diff --git a/dist/preferences/defaults.js b/dist/preferences/defaults.js
+index a52ccd1f40a52b34d9b01d0d509389232a7c691e..c574e314ef8ebf0b577bb6316057bf1e7e755ae7 100644
+--- a/dist/preferences/defaults.js
++++ b/dist/preferences/defaults.js
+@@ -1,7 +1,7 @@
+ const DEFAULT_PREFERENCES = {
+   devToolbar: {
+     /** Specifies whether the user has the Dev Overlay enabled */
+-    enabled: true
++    enabled: false
+   },
+   checkUpdates: {
+     /** Specifies whether the user has the update check enabled */
+diff --git a/dist/types/public/common.d.ts b/dist/types/public/common.d.ts
+index 57fe0c85866c73654b761b0d4481fac9f786ac89..459acb3335f0492782ae56c2eec2e78e20d48348 100644
+--- a/dist/types/public/common.d.ts
++++ b/dist/types/public/common.d.ts
+@@ -1,4 +1,4 @@
+-import type { BundledLanguage, LanguageRegistration, SpecialLanguage } from 'shiki';
++import type { BundledLanguage, LanguageRegistration, SpecialLanguage } from '@shikijs/types';
+ import type { OmitIndexSignature, Simplify } from '../../type-utils.js';
+ import type { APIContext } from './context.js';
+ /**

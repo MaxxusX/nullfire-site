@@ -13,6 +13,7 @@ overrides:
   'unifont': '-'
   '@capsizecss/unpack': '-'
   'svgo': '-'
+  'shiki': '-'
 ignoredOptionalDependencies:
   - 'sharp'
 minimumReleaseAgeIgnoreMissingTime: false
@@ -23,3 +24,16 @@ dedupePeers: true
 strictPeerDependencies: true
 allowBuilds:
   esbuild: true
+patchedDependencies:
+  '@astrojs/internal-helpers': patches/@astrojs__internal-helpers.patch
+  astro: patches/astro.patch
+packageExtensions:
+  '@astrojs/internal-helpers':
+    dependencies:
+      '@shikijs/core': '4.4.3'
+      '@shikijs/langs': '4.4.3'
+      '@shikijs/themes': '4.4.3'
+      '@shikijs/engine-oniguruma': '4.4.3'
+  'astro':
+    dependencies:
+      '@shikijs/core': '4.4.3'

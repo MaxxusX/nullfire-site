@@ -1,0 +1,324 @@
+diff --git a/dist/frontmatter.js b/dist/frontmatter.js
+index d2e0fe9baef8ea7340b4b7821e4bc76f1c9be6bc..938d36cc5bf338704463781c9ea1d2bf88928428 100644
+--- a/dist/frontmatter.js
++++ b/dist/frontmatter.js
+@@ -1,5 +1,4 @@
+-import * as yaml from "js-yaml";
+-import * as toml from "smol-toml";
++import { load as yaml_load } from "js-yaml";
+ function isFrontmatterValid(frontmatter) {
+   try {
+     JSON.stringify(frontmatter);
+@@ -8,21 +7,16 @@ function isFrontmatterValid(frontmatter) {
+   }
+   return typeof frontmatter === "object" && frontmatter !== null;
+ }
+-const frontmatterRE = /(?:^\uFEFF?|^\s*\n)(?:---|\+\+\+)([\s\S]*?\n)(?:---|\+\+\+)/;
+-const frontmatterTypeRE = /(?:^\uFEFF?|^\s*\n)(---|\+\+\+)/;
++const frontmatterRE = /^(?:\uFEFF?|\s*\n)---([\s\S]*?\n)---/;
+ function extractFrontmatter(code) {
+   return frontmatterRE.exec(code)?.[1];
+ }
+-function getFrontmatterParser(code) {
+-  return frontmatterTypeRE.exec(code)?.[1] === "+++" ? ["+++", toml.parse] : ["---", yaml.load];
+-}
+ function parseFrontmatter(code, options) {
+   const rawFrontmatter = extractFrontmatter(code);
+   if (rawFrontmatter == null) {
+     return { frontmatter: {}, rawFrontmatter: "", content: code };
+   }
+-  const [delims, parser] = getFrontmatterParser(code);
+-  const parsed = parser(rawFrontmatter);
++  const parsed = yaml_load(rawFrontmatter);
+   const frontmatter = parsed && typeof parsed === "object" ? parsed : {};
+   let content;
+   switch (options?.frontmatter ?? "remove") {
+@@ -30,17 +24,17 @@ function parseFrontmatter(code, options) {
+       content = code;
+       break;
+     case "remove":
+-      content = code.replace(`${delims}${rawFrontmatter}${delims}`, "");
++      content = code.replace(`---${rawFrontmatter}---`, "");
+       break;
+     case "empty-with-spaces":
+       content = code.replace(
+-        `${delims}${rawFrontmatter}${delims}`,
++        `---${rawFrontmatter}---`,
+         `   ${rawFrontmatter.replace(/[^\r\n]/g, " ")}   `
+       );
+       break;
+     case "empty-with-lines":
+       content = code.replace(
+-        `${delims}${rawFrontmatter}${delims}`,
++        `---${rawFrontmatter}---`,
+         rawFrontmatter.replace(/[^\r\n]/g, "")
+       );
+       break;
+diff --git a/dist/markdown.js b/dist/markdown.js
+index 46e00ed8b1a74bbb0d36a632c457342ef2f8a144..0d5d313405f65214f4399f87ec2500959e3b2129 100644
+--- a/dist/markdown.js
++++ b/dist/markdown.js
+@@ -1,20 +1,17 @@
+ const defaultExcludeLanguages = ["math"];
+-const syntaxHighlightDefaults = {
+-  type: "shiki",
+-  excludeLangs: defaultExcludeLanguages
+-};
++const syntaxHighlightDefaults = false;
+ const markdownConfigDefaults = {
+   syntaxHighlight: syntaxHighlightDefaults,
+   shikiConfig: {
+     langs: [],
+-    theme: "github-dark",
++    theme: "aurora-x",
+     themes: {},
+     wrap: false,
+     transformers: [],
+     langAlias: {}
+   },
+-  gfm: true,
+-  smartypants: true,
++  gfm: false,
++  smartypants: false,
+   remarkPlugins: [],
+   rehypePlugins: [],
+   remarkRehype: {}
+diff --git a/dist/shiki-engine-default.d.ts b/dist/shiki-engine-default.d.ts
+index c037d4ba88a152628c4ea73d3f14d7ac34ec5c95..b50a55e4a4dddb629e619c9be5bbe9dbb705caca 100644
+--- a/dist/shiki-engine-default.d.ts
++++ b/dist/shiki-engine-default.d.ts
+@@ -1,2 +1,2 @@
+-import type { RegexEngine } from 'shiki';
++import type { RegexEngine } from '@shikijs/types';
+ export declare function loadShikiEngine(): Promise<RegexEngine>;
+diff --git a/dist/shiki-engine-default.js b/dist/shiki-engine-default.js
+index 1c9f34d30a8da96965e597355ac474f23a2eae7a..433c24920e1b2ab8b97cd0466ebb2cf7d71699af 100644
+--- a/dist/shiki-engine-default.js
++++ b/dist/shiki-engine-default.js
+@@ -1,6 +1,6 @@
+-import { createOnigurumaEngine } from "shiki/engine/oniguruma";
++import { createOnigurumaEngine } from "@shikijs/engine-oniguruma";
+ function loadShikiEngine() {
+-  return createOnigurumaEngine(import("shiki/wasm"));
++  return createOnigurumaEngine(import("@shikijs/engine-oniguruma/wasm-inlined"));
+ }
+ export {
+   loadShikiEngine
+diff --git a/dist/shiki-engine-workerd.d.ts b/dist/shiki-engine-workerd.d.ts
+index c037d4ba88a152628c4ea73d3f14d7ac34ec5c95..b50a55e4a4dddb629e619c9be5bbe9dbb705caca 100644
+--- a/dist/shiki-engine-workerd.d.ts
++++ b/dist/shiki-engine-workerd.d.ts
+@@ -1,2 +1,2 @@
+-import type { RegexEngine } from 'shiki';
++import type { RegexEngine } from '@shikijs/types';
+ export declare function loadShikiEngine(): Promise<RegexEngine>;
+diff --git a/dist/shiki-engine-workerd.js b/dist/shiki-engine-workerd.js
+index 2b334edef6861b0cb58ea10ee99eeec7f514c60a..b0c33b9ab2228584062fcd0d3aae6a732a1c2810 100644
+--- a/dist/shiki-engine-workerd.js
++++ b/dist/shiki-engine-workerd.js
+@@ -1,4 +1,4 @@
+-import { createOnigurumaEngine } from "shiki/engine/oniguruma";
++import { createOnigurumaEngine } from "@shikijs/engine-oniguruma";
+ function loadShikiEngine() {
+   return createOnigurumaEngine(import("shiki/onig.wasm"));
+ }
+diff --git a/dist/shiki.d.ts b/dist/shiki.d.ts
+index eca6c7dfe33c28048f27e6a5b96d3fed41078b14..62e84970213245ac1b40b010196192dca81cffc3 100644
+--- a/dist/shiki.d.ts
++++ b/dist/shiki.d.ts
+@@ -1,5 +1,5 @@
+ import type { Root } from 'hast';
+-import { type BuiltinTheme, type HighlighterCoreOptions, type LanguageRegistration, type ShikiTransformer, type ThemeRegistration, type ThemeRegistrationRaw } from 'shiki';
++import { type BuiltinTheme, type HighlighterCoreOptions, type LanguageRegistration, type ShikiTransformer, type ThemeRegistration, type ThemeRegistrationRaw } from '@shikijs/types';
+ export type ThemePresets = BuiltinTheme | 'css-variables';
+ export interface ShikiHighlighter {
+     codeToHast(code: string, lang?: string, options?: ShikiHighlighterHighlightOptions): Promise<Root>;
+diff --git a/dist/shiki.js b/dist/shiki.js
+index 64f1c5f68129868f27cf3300fff601c5d80d09ea..2289fcfd66192ff13deec4bb2e107cce04a26613 100644
+--- a/dist/shiki.js
++++ b/dist/shiki.js
+@@ -1,92 +1,41 @@
+-import {
+-  createCssVariablesTheme,
+-  createHighlighter,
+-  isSpecialLang
+-} from "shiki";
++import auroraX from "@shikijs/themes/aurora-x";
++import luau from "@shikijs/langs/luau";
++import { createHighlighterCore } from "@shikijs/core";
+ import { loadShikiEngine } from "#shiki-engine";
+-let _cssVariablesTheme;
+-const cssVariablesTheme = () => _cssVariablesTheme ?? (_cssVariablesTheme = createCssVariablesTheme({
+-  variablePrefix: "--astro-code-"
+-}));
+-const cachedHighlighters = /* @__PURE__ */ new Map();
++let cachedHighlighter;
+ function clearShikiHighlighterCache() {
+-  cachedHighlighters.clear();
+-}
+-function createShikiHighlighter(options) {
+-  const key = getCacheKey(options);
+-  let highlighterPromise = cachedHighlighters.get(key);
+-  if (!highlighterPromise) {
+-    highlighterPromise = createShikiHighlighterInternal(options);
+-    cachedHighlighters.set(key, highlighterPromise);
++  if (cachedHighlighter != undefined) {
++    cachedHighlighter.dispose();
+   }
+-  return ensureLanguagesLoaded(highlighterPromise, options?.langs);
++  cachedHighlighter = undefined;
+ }
+-function getCacheKey(options) {
+-  const keyCache = [];
+-  const { theme, themes, langAlias } = options ?? {};
+-  if (theme) {
+-    keyCache.push(theme);
+-  }
+-  if (themes) {
+-    keyCache.push(Object.entries(themes).sort());
+-  }
+-  if (langAlias) {
+-    keyCache.push(Object.entries(langAlias).sort());
++function createShikiHighlighter(opts) {
++  console.log("createShikiHighlighter: opts:", opts)
++  if (!cachedHighlighter) {
++    cachedHighlighter = createShikiHighlighterInternal();
+   }
+-  return keyCache.length > 0 ? JSON.stringify(keyCache) : "";
+-}
+-async function ensureLanguagesLoaded(promise, langs) {
+-  const highlighter = await promise;
+-  if (!langs) {
+-    return highlighter;
+-  }
+-  const loadedLanguages = highlighter.getLoadedLanguages();
+-  for (const lang of langs) {
+-    if (typeof lang === "string" && (isSpecialLang(lang) || loadedLanguages.includes(lang))) {
+-      continue;
+-    }
+-    await highlighter.loadLanguage(lang);
+-  }
+-  return highlighter;
++  return cachedHighlighter;
+ }
+ let shikiEngine = void 0;
+-async function createShikiHighlighterInternal({
+-  langs = [],
+-  theme = "github-dark",
+-  themes = {},
+-  langAlias = {}
+-} = {}) {
+-  theme = theme === "css-variables" ? cssVariablesTheme() : theme;
++async function createShikiHighlighterInternal() {
+   if (shikiEngine === void 0) {
+     shikiEngine = await loadShikiEngine();
+   }
+-  const highlighter = await createHighlighter({
+-    langs: ["plaintext", ...langs],
+-    // Shallow-clone to prevent Shiki's Registry.loadLanguage() from mutating
+-    // the caller's object when it registers built-in language aliases.
+-    langAlias: { ...langAlias },
+-    themes: Object.values(themes).length ? Object.values(themes) : [theme],
++  const highlighter = await createHighlighterCore({
++    themes: [auroraX],
++    langs: [luau],
+     engine: shikiEngine
+   });
+-  async function highlight(code, lang = "plaintext", options, to) {
+-    const resolvedLang = langAlias[lang] ?? lang;
+-    const loadedLanguages = highlighter.getLoadedLanguages();
+-    if (!isSpecialLang(lang) && !loadedLanguages.includes(resolvedLang)) {
+-      try {
+-        await highlighter.loadLanguage(resolvedLang);
+-      } catch (_err) {
+-        const langStr = lang === resolvedLang ? `"${lang}"` : `"${lang}" (aliased to "${resolvedLang}")`;
+-        console.warn(`[Shiki] The language ${langStr} doesn't exist, falling back to "plaintext".`);
+-        lang = "plaintext";
+-      }
+-    }
++  async function highlight(code, lang, options, to) {
++    console.log("shiki highlight: to: "+to);
++    console.log("shiki highlight: lang: "+lang);
++    console.log("shiki highlight: options: ", options);
+     code = code.replace(/(?:\r\n|\r|\n)$/, "");
+-    const themeOptions = Object.values(themes).length ? { themes } : { theme };
+-    const inline = options?.inline ?? false;
++    const inline = false; // options?.inline ?? false;
+     return highlighter[to === "html" ? "codeToHtml" : "codeToHast"](code, {
+-      ...themeOptions,
+-      defaultColor: options.defaultColor,
+-      lang,
++      theme: "aurora-x",
++      defaultColor: false, // options.defaultColor,
++      lang: "luau",
+       // NOTE: while we can spread `options.attributes` here so that Shiki can auto-serialize this as rendered
+       // attributes on the top-level tag, it's not clear whether it is fine to pass all attributes as meta, as
+       // they're technically neither meta nor parsed from Shiki's `parseMetaString` API.
+@@ -103,55 +52,40 @@ async function createShikiHighlighterInternal({
+               ...rest
+             } = options?.attributes ?? {};
+             Object.assign(node.properties, rest);
+-            const classValue = (normalizePropAsString(node.properties.class) ?? "") + (attributesClass ? ` ${attributesClass}` : "");
+-            const styleValue = (normalizePropAsString(node.properties.style) ?? "") + (attributesStyle ? `; ${attributesStyle}` : "");
++            const classValue = (normalizePropAsString(node.properties.class) ?? "") + (attributesClass ? " "+attributesClass : "");
++            const styleValue = (normalizePropAsString(node.properties.style) ?? "") + (attributesStyle ? "; "+attributesStyle : "");
+             node.properties.class = classValue.replace(/shiki/g, "astro-code");
+-            node.properties.dataLanguage = lang;
+-            if (options.wrap === false || options.wrap === void 0) {
++            node.properties.dataLanguage = "luau";
++            //if (options.wrap === false || options.wrap === void 0) {
+               node.properties.style = styleValue + "; overflow-x: auto;";
+-            } else if (options.wrap === true) {
+-              node.properties.style = styleValue + "; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;";
+-            }
+-          },
+-          line(node) {
+-            if (resolvedLang === "diff") {
+-              const innerSpanNode = node.children[0];
+-              const innerSpanTextNode = innerSpanNode?.type === "element" && innerSpanNode.children?.[0];
+-              if (innerSpanTextNode && innerSpanTextNode.type === "text") {
+-                const start = innerSpanTextNode.value[0];
+-                if (start === "+" || start === "-") {
+-                  innerSpanTextNode.value = innerSpanTextNode.value.slice(1);
+-                  innerSpanNode.children.unshift({
+-                    type: "element",
+-                    tagName: "span",
+-                    properties: { style: "user-select: none;" },
+-                    children: [{ type: "text", value: start }]
+-                  });
+-                }
+-              }
+-            }
++            //} else if (options.wrap === true) {
++            //  node.properties.style = styleValue + "; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;";
++            //}
+           },
+           code(node) {
+             if (inline) {
+               return node.children[0];
+             }
+           }
+-        },
+-        ...options.transformers ?? []
++        }
+       ]
+     });
+   }
+   return {
+     codeToHast(code, lang, options = {}) {
++      console.log("shiki codeToHast");
+       return highlight(code, lang, options, "hast");
+     },
+     codeToHtml(code, lang, options = {}) {
++      console.log("shiki codeToHtml");
+       return highlight(code, lang, options, "html");
+     },
+     loadLanguage(...newLangs) {
++      console.log("shiki loadLanguage: newLangs:", newLangs);
+       return highlighter.loadLanguage(...newLangs);
+     },
+     getLoadedLanguages() {
++      console.log("shiki getLoadedLanguages");
+       return highlighter.getLoadedLanguages();
+     }
+   };
