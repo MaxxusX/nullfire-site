@@ -1,5 +1,18 @@
 overrides:
   'yaml-language-server>yaml@2.8.3': '2.9.0'
+  'js-yaml': '^5.3.0'
+  '@astrojs/markdown-satteri': '-'
+  '@astrojs/markdown-remark': '-'
+  'cookie': '-'
+  'unstorage': '-'
+  'unified': '-'
+  '@types/mdast': '-'
+  'mdast': '-'
+  'retext-smartypants': '-'
+  'fontace': '-'
+  'unifont': '-'
+  '@capsizecss/unpack': '-'
+  'svgo': '-'
 ignoredOptionalDependencies:
   - 'sharp'
 minimumReleaseAgeIgnoreMissingTime: false
