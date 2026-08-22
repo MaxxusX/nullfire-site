@@ -101,7 +101,10 @@ export default defineConfig({
 			minify: "oxc",
 			sourcemap: isDevBuild,
 			reportCompressedSize: false,
-			modulePreload: { polyfill: false },
+			modulePreload: false,
+		},
+		optimizeDeps: {
+			noDiscovery: true,
 		},
 	},
 });
