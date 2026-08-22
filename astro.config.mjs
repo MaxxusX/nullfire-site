@@ -58,6 +58,18 @@ export default defineConfig({
 		},
 		*/
 	},
+	markdown: {
+		syntaxHighlight: false,
+		gfm: false,
+		smartypants: false,
+		processor: {
+			name: "_disabled",
+			options: {},
+			createRenderer: async function() {
+				throw new Error("markdown disabled");
+			},
+		},
+	},
 	vite: {
 		mode: isDevBuild ? "development" : "production",
 		logLevel: "info",
