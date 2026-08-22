@@ -48,6 +48,7 @@ export default defineConfig({
 	},
 	devToolbar: { enabled: false },
 	session: false,
+	prefetch: false,
 	image: {
 		service: passthroughImageService(), // temp. cannot install sharp rn.
 		/*
