@@ -252,6 +252,10 @@ a {
 	margin: 0;
 	padding: 0;
 
+	contain-intrinsic-size: 350px 500px;
+	contain: strict;
+	content-visibility: auto;
+
 	overflow: hidden;
 	overscroll-behavior: none;
 	border-radius: 5px;
@@ -259,7 +263,7 @@ a {
 	/*
 	   whoever decided to not allow transparency on iframes which have a different
 	   color-scheme than the embedder deserves a public execution.
-	
+
 	   - maxxus
 	*/
 	color-scheme: normal;
