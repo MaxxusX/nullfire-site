@@ -82,7 +82,7 @@
 			"matchDepTypes": ["tool-constraint"],
 			"matchDepNames": ["node"],
 			"overrideDatasource": "node-version",
-			"overridePackageName": "node"
+			"overridePackageName": "node",
 			"commitMessageTopic": "Node.js",
 			"addLabels": ["javascript"]
 		},
