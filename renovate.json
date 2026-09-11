@@ -21,7 +21,18 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["package.json"],
 			"matchStrings": [
-				"{ 'currentValue': devEngines.runtime[name='nod'].version }"
+				"{ 'currentValue': devEngines.runtime[name='node'].version }"
+			],
+			"depNameTemplate": "node",
+			"datasourceTemplate": "node-version",
+			"versioningTemplate": "node"
+		},
+		{
+			"customType": "jsonata",
+			"fileFormat": "json",
+			"managerFilePatterns": ["renovate.json"],
+			"matchStrings": [
+				"{ 'currentValue': constraints.node.version }"
 			],
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node-version",
@@ -81,6 +92,12 @@
 			"matchDepTypes": ["packageManager"],
 			"matchDepNames": ["pnpm"],
 			"commitMessageTopic": "pnpm",
+			"addLabels": ["javascript"]
+		},
+		{
+			"matchManagers": ["custom.jsonata"],
+			"matchDepNames": ["node"],
+			"commitMessageTopic": "Node.js",
 			"addLabels": ["javascript"]
 		}
 	]
