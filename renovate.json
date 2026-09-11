@@ -34,7 +34,7 @@
 			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "github-releases",
 			"packageNameTemplate": "nodejs/node",
-			"registryNameTemplate": "https://nodejs.org/dist",
+			"registryUrlTemplate": "https://nodejs.org/dist",
 			"versioningTemplate": "node"
 		}
 	],
