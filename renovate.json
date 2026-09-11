@@ -100,8 +100,7 @@
 			"matchManagers": ["custom.jsonata"],
 			"matchDepNames": ["node"],
 			"commitMessageTopic": "Node.js",
-			"addLabels": ["javascript"],
-			"homepage": "https://nodejs.org"
+			"addLabels": ["javascript"]
 		}
 	]
 }
