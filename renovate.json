@@ -16,7 +16,7 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
-				"{ 'currentValue': devEngines.packageManager[name='pnpm'].version }"
+				"devEngines.packageManager[name='pnpm'].version.{ 'currentValue': $ }"
 			],
 			"depNameTemplate": "pnpm",
 			"datasourceTemplate": "npm",
@@ -28,12 +28,11 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
-				"devEngines.runtime[name='node'].version.{ 'currentValue': $, 'currentVersion': 'v'&$replace($, /^[\\^~=]|[><]=?/, '', 1) }"
+				"devEngines.runtime[name='node'].version.{ 'currentValue': $ }"
 			],
 			"depNameTemplate": "node",
 			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "node-version",
-			"registryUrlTemplate": "https://nodejs.org/dist",
 			"versioningTemplate": "node"
 		}
 	],
@@ -83,9 +82,6 @@
 			"matchManagers": ["renovate-config"],
 			"matchDepTypes": ["tool-constraint"],
 			"matchDepNames": ["node"],
-			"overrideDatasource": "node-version",
-			"overridePackageName": "node",
-			"commitMessageTopic": "Node.js",
 			"addLabels": ["javascript"]
 		},
 		{
