@@ -30,7 +30,8 @@
 			"matchStrings": [
 				"devEngines.runtime[name='node'].version.{ 'currentValue': $ }"
 			],
-			"depNameTemplate": "node",
+			"depNameTemplate": "node-devEngine",
+			"packageNameTemplate": "node",
 			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "node-version",
 			"versioningTemplate": "node"
@@ -82,6 +83,8 @@
 			"matchManagers": ["renovate-config"],
 			"matchDepTypes": ["tool-constraint"],
 			"matchDepNames": ["node"],
+			"overrideDatasource": "node-version",
+			"overridePackageName": "node",
 			"addLabels": ["javascript"]
 		},
 		{
