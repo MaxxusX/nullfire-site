@@ -31,8 +31,8 @@
 				"[devEngines.runtime[name='node'].version.{ 'depName': 'node', 'currentValue': $ }]"
 			],
 			"datasourceTemplate": "node-version",
-			"versioningTemplate": "node"
-			"depTypeTemplate": "devEngines",
+			"versioningTemplate": "node",
+			"depTypeTemplate": "devEngines"
 		}
 	],
 	"constraints": {
