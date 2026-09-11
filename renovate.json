@@ -32,8 +32,8 @@
 			],
 			"depNameTemplate": "node",
 			"depTypeTemplate": "devEngines",
-			"datasourceTemplate": "github-releases",
-			"packageNameTemplate": "containerbase/node-prebuild",
+			"datasourceTemplate": "node-versions",
+			"registryUrlTemplate": "https://nodejs.org/dist",
 			"versioningTemplate": "node"
 		}
 	],
