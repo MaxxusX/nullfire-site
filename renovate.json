@@ -34,6 +34,7 @@
 			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "github-releases",
 			"packageNameTemplate": "nodejs/node",
+			"registryNameTemplate": "https://nodejs.org/dist",
 			"versioningTemplate": "node"
 		}
 	],
@@ -99,7 +100,8 @@
 			"matchManagers": ["custom.jsonata"],
 			"matchDepNames": ["node"],
 			"commitMessageTopic": "Node.js",
-			"addLabels": ["javascript"]
+			"addLabels": ["javascript"],
+			"homepage": "https://nodejs.org"
 		}
 	]
 }
