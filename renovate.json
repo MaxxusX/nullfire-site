@@ -31,7 +31,8 @@
 				"{ 'currentValue': devEngines.runtime[name='node'].version }"
 			],
 			"depNameTemplate": "node",
-			"datasourceTemplate": "node-versions",
+			"depTypeTemplate": "devEngines",
+			"datasourceTemplate": "node-version",
 			"registryUrlTemplate": "https://nodejs.org/dist",
 			"versioningTemplate": "node"
 		}
