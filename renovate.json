@@ -9,16 +9,27 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["package.json"],
 			"matchStrings": [
-				"{ 'currentValue': devEngines.packageManager.version }"
+				"{ 'currentValue': devEngines.packageManager[name='pnpm'].version }"
 			],
 			"depNameTemplate": "pnpm",
 			"datasourceTemplate": "npm",
 			"depTypeTemplate": "packageManager",
 			"versioningTemplate": "semver"
+		},
+		{
+			"customType": "jsonata",
+			"fileFormat": "json",
+			"managerFilePatterns": ["package.json"],
+			"matchStrings": [
+				"{ 'currentValue': devEngines.runtime[name='nod'].version }"
+			],
+			"depNameTemplate": "node",
+			"datasourceTemplate": "node-version",
+			"versioningTemplate": "node"
 		}
 	],
 	"constraints": {
-		"node": "^26.5.1"
+		"node": "^26.8.2"
 	},
 	"configMigration": true,
 	"assignees": ["MaxxusX"],
