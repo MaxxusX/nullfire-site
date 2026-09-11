@@ -28,7 +28,7 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
-				"devEngines.runtime[name='node'].version.{ 'currentValue': $, 'currentVersion': 'v'&$replace($, /^[\^~=]|[><]=?/, '', 1) }"
+				"devEngines.runtime[name='node'].version.{ 'currentValue': $, 'currentVersion': 'v'&$replace($, /^[\\^~=]|[><]=?/, '', 1) }"
 			],
 			"depNameTemplate": "node",
 			"depTypeTemplate": "devEngines",
