@@ -40,7 +40,7 @@
 		}
 	],
 	"constraints": {
-		"node": "^26.8.2"
+		"node": "^26.8.1"
 	},
 	"configMigration": true,
 	"assignees": ["MaxxusX"],
@@ -66,7 +66,6 @@
 		{
 			"matchManagers": ["renovate-config"],
 			"matchDepTypes": ["tool-constraint"],
-			"matchDepNames": ["node"],
 			"enabled": false
 		},
 		{
