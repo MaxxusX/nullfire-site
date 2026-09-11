@@ -16,7 +16,7 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
-				"devEngines.packageManager[name='pnpm'].version.{ 'currentValue': $ }"
+				"[devEngines.packageManager[name='pnpm'].version.{ 'currentValue': $ }]"
 			],
 			"depNameTemplate": "pnpm",
 			"datasourceTemplate": "npm",
@@ -28,13 +28,11 @@
 			"fileFormat": "json",
 			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
-				"devEngines.runtime[name='node'].version.{ 'currentValue': $ }"
+				"[devEngines.runtime[name='node'].version.{ 'depName': 'node', 'currentValue': $ }]"
 			],
-			"depNameTemplate": "node-devEngine",
-			"packageNameTemplate": "node",
-			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "node-version",
 			"versioningTemplate": "node"
+			"depTypeTemplate": "devEngines",
 		}
 	],
 	"constraints": {
