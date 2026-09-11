@@ -2,12 +2,19 @@
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:recommended", "abandonments:recommended", "mergeConfidence:all-badges"],
 	"ignorePresets": [":semanticPrefixFixDepsChoreOthers"],
+	"includePaths": [
+		"renovate.json",
+		"package.json",
+		"pnpm-lock.yaml",
+		"pnpm-workspace.yaml",
+		".github/workflows/*"
+	],
 	"enabledManagers": ["custom.jsonata", "npm", "github-actions", "renovate-config"],
 	"customManagers": [
 		{
 			"customType": "jsonata",
 			"fileFormat": "json",
-			"managerFilePatterns": ["package.json"],
+			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
 				"{ 'currentValue': devEngines.packageManager[name='pnpm'].version }"
 			],
@@ -19,24 +26,13 @@
 		{
 			"customType": "jsonata",
 			"fileFormat": "json",
-			"managerFilePatterns": ["package.json"],
+			"managerFilePatterns": ["/^package\\.json$/"],
 			"matchStrings": [
 				"{ 'currentValue': devEngines.runtime[name='node'].version }"
 			],
 			"depNameTemplate": "node",
 			"datasourceTemplate": "node-version",
-			"versioningTemplate": "npm"
-		},
-		{
-			"customType": "jsonata",
-			"fileFormat": "json",
-			"managerFilePatterns": ["renovate.json"],
-			"matchStrings": [
-				"{ 'currentValue': constraints.node.version }"
-			],
-			"depNameTemplate": "node",
-			"datasourceTemplate": "node-version",
-			"versioningTemplate": "npm"
+			"versioningTemplate": "node"
 		}
 	],
 	"constraints": {
@@ -64,11 +60,6 @@
 	"postUpdateOptions": ["pnpmDedupe"],
 	"packageRules": [
 		{
-			"matchManagers": ["renovate-config"],
-			"matchDepTypes": ["tool-constraint"],
-			"enabled": false
-		},
-		{
 			"matchDepTypes": ["action"],
 			"matchPackageNames": ["pnpm/action-setup"],
 			"pinDigests": true
@@ -85,6 +76,15 @@
 		{
 			"matchManagers": ["github-actions"],
 			"addLabels": ["github_actions"]
+		},
+		{
+			"matchManagers": ["renovate-config"],
+			"matchDepTypes": ["tool-constraint"],
+			"matchDepNames": ["node"],
+			"overrideDatasource": "node-version",
+			"overridePackageName": "node"
+			"commitMessageTopic": "Node.js",
+			"addLabels": ["javascript"]
 		},
 		{
 			"matchManagers": ["custom.jsonata"],
