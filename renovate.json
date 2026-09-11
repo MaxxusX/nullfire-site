@@ -33,7 +33,7 @@
 			"depNameTemplate": "node",
 			"depTypeTemplate": "devEngines",
 			"datasourceTemplate": "github-releases",
-			"packageNameTemplate": "nodejs/node",
+			"packageNameTemplate": "containerbase/node-prebuild",
 			"versioningTemplate": "node"
 		}
 	],
