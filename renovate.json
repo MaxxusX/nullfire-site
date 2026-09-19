@@ -78,14 +78,6 @@
 			"addLabels": ["github_actions"]
 		},
 		{
-			"matchManagers": ["renovate-config"],
-			"matchDepTypes": ["tool-constraint"],
-			"matchDepNames": ["node"],
-			"overrideDatasource": "node-version",
-			"overridePackageName": "node",
-			"addLabels": ["javascript"]
-		},
-		{
 			"matchManagers": ["custom.jsonata"],
 			"matchDepTypes": ["packageManager"],
 			"matchDepNames": ["pnpm"],
