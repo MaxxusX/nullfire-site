@@ -55,13 +55,19 @@ jobs:
           rm -f pnpm-lock.yaml
 
       - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile --lockfile-only
+        run: pnpm install --force --no-frozen-lockfile --lockfile-only
 
       - name: Update Vulnerable Packages
         run: pnpm audit --fix=update
 
       - name: Dedupe Dependencies
         run: pnpm dedupe
+
+      - name: Prune Cache
+        run: pnpm cache prune
+
+      - name: Prune Store
+        run: pnpm store prune
 
       - name: Create PR
         run: |
