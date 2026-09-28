@@ -9,6 +9,8 @@
 	"proseWrap": "always",
 	"vueIndentScriptAndStyle": true,
 	"plugins": ["prettier-plugin-astro"],
+	"astroAllowShorthand": true,
+	"astroCompressHTML": "jsx",
 	"overrides": [
 		{
 			"files": "*.astro",
