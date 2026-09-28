@@ -60,22 +60,18 @@
 	"postUpdateOptions": ["pnpmDedupe"],
 	"packageRules": [
 		{
-			"matchDepTypes": ["action"],
-			"matchPackageNames": ["pnpm/action-setup"],
+			"matchManagers": ["github-actions"],
+			"addLabels": ["github_actions"],
 			"pinDigests": true
-		},
-		{
-			"matchDatasources": ["npm"],
-			"minimumReleaseAge": "1 days",
-			"internalChecksFilter": "strict"
 		},
 		{
 			"matchManagers": ["npm"],
 			"addLabels": ["javascript"]
 		},
 		{
-			"matchManagers": ["github-actions"],
-			"addLabels": ["github_actions"]
+			"matchDatasources": ["npm"],
+			"minimumReleaseAge": "1 days",
+			"internalChecksFilter": "strict"
 		},
 		{
 			"matchManagers": ["custom.jsonata"],
