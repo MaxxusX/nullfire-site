@@ -1,0 +1,34 @@
+---
+import { Code } from "astro:components";
+
+import Page from "@layouts/Page.astro";
+import Section from "@components/Section.astro";
+import InfoCard from "@components/InfoCard.astro";
+
+const example_addon =
+`NF.Info = {
+    name = "test addon",
+    icon = "star"
+}
+
+NF:AddLabel("ye pretty much it, the NF table will act like the groupbox itself", true)
+
+Library:Notify("this also works!")`;
+---
+
+<Page path={Astro.url.pathname} title="Addon Documentation">
+	<h1 translate="no">Addon Documentation</h1>
+	<Section title="How to develop addons" id="script">
+		<p>To create an addon, you simply create any file in the NullFire/Addons folder (located in your workspace). Then add addon info at the top of the file and you should be good to go.</p>
+	
+        <InfoCard>
+            The NF.Info (available as NF.info) table is required to be set and should be the first thing that executes in the file else the NullFire table will not be able to act as groupbox.
+            <br>
+            <br>
+            None of the Info is required, you can also simply Initialize the NF.Info table as an empty table and NullFire will pick a default.
+        </InfoCard>
+
+        <h4 id="loadstring">Example Addon</h4>
+		<Code code={example_addon} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
+    </Section>
+</Page>
