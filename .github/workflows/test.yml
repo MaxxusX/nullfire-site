@@ -17,6 +17,7 @@ on:
       - '!README.md'
       - '!wrangler.toml'
       - '.github/workflows/test.yml'
+      - '!.github/workflows/codeql.yml'
   pull_request:
     paths:
       - '**'
@@ -31,6 +32,7 @@ on:
       - '!README.md'
       - '!wrangler.toml'
       - '.github/workflows/test.yml'
+      - '!.github/workflows/codeql.yml'
   workflow_dispatch:
 
 permissions:
