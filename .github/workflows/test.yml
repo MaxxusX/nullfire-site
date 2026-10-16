@@ -37,8 +37,7 @@ on:
     - cron: '45 0 * * 5'
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: {}
 
 env:
   NODE_ENV: production
@@ -54,6 +53,8 @@ defaults:
 
 jobs:
   test:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
