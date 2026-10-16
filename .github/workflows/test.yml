@@ -33,6 +33,8 @@ on:
       - '!wrangler.toml'
       - '.github/workflows/test.yml'
       - '!.github/workflows/codeql.yml'
+  schedule:
+    - cron: '45 0 * * 5'
   workflow_dispatch:
 
 permissions:
