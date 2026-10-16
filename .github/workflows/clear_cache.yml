@@ -1,7 +1,8 @@
-name: Cleanup github runner caches on closed pull requests
+name: Cleanup github runner caches
 on:
   pull_request:
     types: [ 'closed' ]
+  workflow_dispatch:
 
 permissions: {}
 
@@ -11,7 +12,8 @@ defaults:
     working-directory: '.'
 
 jobs:
-  cleanup:
+  cleanup_pr:
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-slim
     permissions:
       actions: write
@@ -32,3 +34,24 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           BRANCH: refs/pull/${{ github.event.pull_request.number }}/merge
+  cleanup_all:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-slim
+    permissions:
+      actions: write
+    steps:
+      - name: Cleanup
+        run: |
+          echo 'Fetching list of cache keys'
+          cacheKeys=$(gh cache list --limit 100 --json ref,id --jq '.[] | (select(.ref != "refs/heads/main").id)')
+
+          # Setting this to not fail the workflow while deleting cache keys.
+          set +e
+          echo 'Deleting caches...'
+          for cacheKey in $cacheKeys; do
+              gh cache delete "$cacheKey"
+          done
+          echo 'Done'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
