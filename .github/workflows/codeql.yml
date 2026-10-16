@@ -28,10 +28,12 @@ on:
     - cron: 39 20 * * 5
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions:
       # required for all workflows
       security-events: write
