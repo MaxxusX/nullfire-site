@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"prettier": "3.9.10",
-		"prettier-plugin-astro": "1.1.1"
+		"prettier-plugin-astro": "1.1.2"
 	},
 	"packageManager": "pnpm@12.11.2",
 	"devEngines": {
