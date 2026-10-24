@@ -173,7 +173,7 @@ importers:
     dependencies:
       '@astrojs/check':
         specifier: ^0.9.10
-        version: 0.9.10(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.1)(prettier@3.9.10)(typescript@6.0.3)
+        version: 0.9.10(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.2)(prettier@3.9.10)(typescript@6.0.3)
       astro:
         specifier: ^7.3.8
         version: 7.3.8(yaml@2.9.1)
@@ -186,13 +186,13 @@ importers:
     devDependencies:
       node:
         specifier: runtime:>=26.12.0
-        version: runtime:26.12.0
+        version: runtime:26.12.1
       prettier:
         specifier: 3.9.10
         version: 3.9.10
       prettier-plugin-astro:
-        specifier: 1.1.1
-        version: 1.1.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(prettier@3.9.10)
+        specifier: 1.1.2
+        version: 1.1.2(prettier@3.9.10)
 
 packages:
 
@@ -206,34 +206,16 @@ packages:
     peerDependencies:
       typescript: ^5.0.0 || ^6.0.0
 
-  '@astrojs/compiler-binding-android-arm64@0.4.1':
-    resolution: {integrity: sha512-Wtx2DZORuNTLASLLZ8hlrjFaJe1LUloatcCn9EPq7knBhRpjMGXeJANIJMeBZG4igvz7x+3nyAJM2iwCSW9xog==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [arm64]
-    os: [android]
-
   '@astrojs/compiler-binding-android-arm64@0.5.2':
     resolution: {integrity: sha512-kckIxon6Rm/Bxzh9mGPYpRRqUbToUQoHptCmpMmE+Yt0Xumq8CqrKUidyYhrBsrHVO7bxuRzzWUUqvpf+iYceQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [android]
 
-  '@astrojs/compiler-binding-darwin-arm64@0.4.1':
-    resolution: {integrity: sha512-7iwXcU+hB60Y1SvOfnWHNioT72gDsDQKaDipXh2Onwp/TvQMozhbvhy13wJR8Af940a0h6PbddCeJFpj791UDA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [arm64]
-    os: [darwin]
-
   '@astrojs/compiler-binding-darwin-arm64@0.5.2':
     resolution: {integrity: sha512-1ZG5Ar3dD8HtodX9XH1mRmE0qBXZlvjYXSFfpgFwocqfWnvhFuqtGUNseL8wgfImiRMztIjpQqlogQFQQtgiag==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
-    os: [darwin]
-
-  '@astrojs/compiler-binding-darwin-x64@0.4.1':
-    resolution: {integrity: sha512-pifjICos49RXhSVKSDu5gDB0/8j0O7DmxSp1DaWW2PyLG5ekwSkcrfOZto5JqhdI7QYMZB3XOiXpsdOXpS4npA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
     os: [darwin]
 
   '@astrojs/compiler-binding-darwin-x64@0.5.2':
@@ -242,26 +224,12 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@astrojs/compiler-binding-linux-arm64-gnu@0.4.1':
-    resolution: {integrity: sha512-hsZMlNWc6LqWHh9LlSwTq1/XCY7pxA5rkkKIdZRV8mgbOz9OwLvjEoe5Jry13eIZjMUQO8XnQyzk8o/Pjw2YFA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-
   '@astrojs/compiler-binding-linux-arm64-gnu@0.5.2':
     resolution: {integrity: sha512-BqlR0EHNQLPLwgL9+xogjsAc7zGf0cHho2CPdhv0P1yqbVMwGVaGAqrANP6VYAXCqSC43AF4Czcxc2n+oqdesg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
-
-  '@astrojs/compiler-binding-linux-arm64-musl@0.4.1':
-    resolution: {integrity: sha512-a3EW27f+Z9uf57vYmpLgUriA1y9wDhKz57PT8D8XlFZt2HZEWhUxKuxI1jvKVI9p8okYee11WXEm/FHY1G9yoQ==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
 
   '@astrojs/compiler-binding-linux-arm64-musl@0.5.2':
     resolution: {integrity: sha512-GRGyby3AZWw5d6JQzidyxPyvGgHWsSusrpgKyFVpDTKctABF7L3Pd5V1cRJbV36/rcu+Eh292/wL7pF7MkmGkQ==}
@@ -270,26 +238,12 @@ packages:
     os: [linux]
     libc: [musl]
 
-  '@astrojs/compiler-binding-linux-x64-gnu@0.4.1':
-    resolution: {integrity: sha512-XruPTKB/SS4DFzeAjQ1ZyM0ieHDjapHkOSnnzRApZ4FXY2YAI7UY3mETjfJiIS/acyZyrnPH5jObv1gATTdUJQ==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
   '@astrojs/compiler-binding-linux-x64-gnu@0.5.2':
     resolution: {integrity: sha512-9XAqGTMQAtIslMsjK3xdyY6OI9d59OZqcLBB6pvD/DcoR0daYswfrKx2azdDERDY4AqAnWPC7odVM1BmxYv3Vw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
-
-  '@astrojs/compiler-binding-linux-x64-musl@0.4.1':
-    resolution: {integrity: sha512-E8j7lGanqNpudtkUbsFaOLJhmwFe4Ecqux7K9hkj4wULIPNZRM2bYZNcMSj8r1oWvaUiwZl8LaaNwv3+14jqhw==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
 
   '@astrojs/compiler-binding-linux-x64-musl@0.5.2':
     resolution: {integrity: sha512-jOViewGeTh9bSfS8vK72ECxoy2yvmA+Pd/ZcEvBI5c7+7IcfHwZ5qA4L9fRYuOhSrAifvQ2dV4vm1XAtloaWBw==}
@@ -298,32 +252,15 @@ packages:
     os: [linux]
     libc: [musl]
 
-  '@astrojs/compiler-binding-wasm32-wasi@0.4.1':
-    resolution: {integrity: sha512-vNLxIv41ZE+nmPFtw24cRW5ZXG+ZPcAGtgigtjCP8lvcxKI7u2GrXoMsCgEH5fMw8WCEJpwLvsVBg15rJKAkyA==}
-    engines: {node: '>=14.0.0'}
-    cpu: [wasm32]
-
   '@astrojs/compiler-binding-wasm32-wasi@0.5.2':
     resolution: {integrity: sha512-Z7p64doar1uvR5C9Xs6j1CV9lGlPVQX7OQ2aAtZ/xKC5aGS6GB13nyc2UfQXTQLvZrvVwsyaflTQy6ziY5Bekw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [wasm32]
 
-  '@astrojs/compiler-binding-win32-arm64-msvc@0.4.1':
-    resolution: {integrity: sha512-/xTDgRsFDoTh0/+KFXJ74DY4Jqn8CoSHwa8UP5RAblHfnRHkenwfSl4zYDET61O9vXKLk09UzHjjq09yP20/AQ==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [arm64]
-    os: [win32]
-
   '@astrojs/compiler-binding-win32-arm64-msvc@0.5.2':
     resolution: {integrity: sha512-Tr13bh+ahTWsjXjzctK7pFpWV+dUU4FtBfETlR7gO+ueex0F+RDch7eRr0YfKysaRhk9tWm14lsCJ5uWyFPNHQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
-    os: [win32]
-
-  '@astrojs/compiler-binding-win32-x64-msvc@0.4.1':
-    resolution: {integrity: sha512-0x5J6iHZO0Fjo/CVzoIbXKzWnGESftDbEUQ/oXQ61HhUAFoR7+T1jfToZSNAS+gYyBXHSTpMWYC7lzarbhClcg==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
     os: [win32]
 
   '@astrojs/compiler-binding-win32-x64-msvc@0.5.2':
@@ -332,17 +269,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@astrojs/compiler-binding@0.4.1':
-    resolution: {integrity: sha512-ZYVDW1P58OXyxqZbOMp+/2U9KA7y2esIx9r4pWdpZ/l6fCZhaw4ul+D7EgpRVxYLkyTWqzANbTTUFGPFP8zDHA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-
   '@astrojs/compiler-binding@0.5.2':
     resolution: {integrity: sha512-lEn76+0JcMQ5RDXU0wSMWJg2ZppiZvSULpghC29cfv4o9bhvWFDbQjsCtvjjXN9iVLFQ7fL3wTR2L2UU13mP8g==}
     engines: {node: ^20.19.0 || >=22.12.0}
-
-  '@astrojs/compiler-rs@0.4.1':
-    resolution: {integrity: sha512-//NmAuRhy7eU9iP0ceI5Pymy55M+nUZ//kS6XeOyhBWdDib2KbJOyFaVJ52k7sDkJwTKVox7oPu3SpYiVnGm5A==}
-    engines: {node: '>=22.12.0'}
 
   '@astrojs/compiler-rs@0.5.2':
     resolution: {integrity: sha512-IvwYLB8t1M86rKO4oPdBi9GP4gzXcgrVlNgocjwos1jeeUuEIV8d9Crn1PvYD/5IKteWOxpIHomf7e8iYlkE+Q==}
@@ -1139,7 +1068,7 @@ packages:
   node-mock-http@1.0.5:
     resolution: {integrity: sha512-KQyt/wLjG3TAc7DOUhpqWzgd4ERxR80JOlTK5VE5R1S12IaPVN5qkj4klBce9HPG1Njuup4Sb5bljaT34lIyjw==}
 
-  node@runtime:26.12.0:
+  node@runtime:26.12.1:
     resolution:
       type: variations
       variants:
@@ -1147,9 +1076,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-NNMG0T4yGUL2pIxcC4xOeB6GTL4FLPBDhqzpT1RIAz0=
+            integrity: sha256-DLlub0CRtke2b4EQMNXEvw0Kbm9H5B4SSBe2RMr/kcE=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-aix-ppc64.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-aix-ppc64.tar.gz
           targets:
             - cpu: ppc64
               os: aix
@@ -1157,9 +1086,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-KhVNSlRYkw4KLWoez2Tt31orPhwTY2tgnC7LBC6MRVM=
+            integrity: sha256-GQHVOZEsAq+hDRzBJpQ6iFWn7t6+gwEZRjRw215sWeg=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-darwin-arm64.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-darwin-arm64.tar.gz
           targets:
             - cpu: arm64
               os: darwin
@@ -1167,9 +1096,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-h47O3hkcerwb/wHT+4H37YGqEWEEDboYd2uP+Fk2FLE=
+            integrity: sha256-uFwupEIK0LxKvy3Gzx9VEw7WgfHKv2DPP1JuTJ4nEv8=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-darwin-x64.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-darwin-x64.tar.gz
           targets:
             - cpu: x64
               os: darwin
@@ -1177,9 +1106,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-7FPJFcP92HhsVoWr0lrj/p+6BpIwf5gR18qq3qG8rwM=
+            integrity: sha256-psAa9FndiXKrP7CO5dqBJE0muoxJRKYtW7uoxZeuFU8=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-arm64.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-arm64.tar.gz
           targets:
             - cpu: arm64
               os: linux
@@ -1187,9 +1116,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-+TUIR9BzL4vMFXdBfOU28NYX+T8JPGZNiPCx5w8sxOQ=
+            integrity: sha256-lnFXnUWHMf6rAX+bGZ8hUAVKtxkQotbN81QAQoUbMnA=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-ppc64le.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-ppc64le.tar.gz
           targets:
             - cpu: ppc64le
               os: linux
@@ -1197,9 +1126,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-dWPgJqwD+VEgIB431gdJYNBmEFNvRarB+l7YfPdKwNQ=
+            integrity: sha256-2oK09HBZlNL5IpHjStc2IHpaa4sTm2k5OHXYEwLtedg=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-s390x.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-s390x.tar.gz
           targets:
             - cpu: s390x
               os: linux
@@ -1207,9 +1136,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-/aos9uRMpEOjdLBdsSGCcAGqFnviVnY2i6ub82wOSNE=
+            integrity: sha256-Q8QG48qIFItZaBoHu5Ru3HXeAF1e9IuZg1IizyyHiT0=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-x64-musl.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-x64-musl.tar.gz
           targets:
             - cpu: x64
               os: linux
@@ -1218,9 +1147,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-2fiK9yrTT33fjmcomCnxaY9UtiVPfU9Ut0UxF/8aPSw=
+            integrity: sha256-D9Hrd3BZj1KiGZXt9u01/GkEAPpDfCOGrzKVGekUMTI=
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-x64.tar.gz
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-x64.tar.gz
           targets:
             - cpu: x64
               os: linux
@@ -1228,10 +1157,10 @@ packages:
             archive: zip
             bin:
               node: node.exe
-            integrity: sha256-zHc7mCliPj1P0TrvOU8FAQ4EWSc/J/syVRUPOKJXer8=
-            prefix: node-v26.12.0-win-arm64
+            integrity: sha256-NFZ1ge5jlns3r7a3oMxjotVQpD1dg4rbdZgtfjVvLiw=
+            prefix: node-v26.12.1-win-arm64
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-win-arm64.zip
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-win-arm64.zip
           targets:
             - cpu: arm64
               os: win32
@@ -1239,10 +1168,10 @@ packages:
             archive: zip
             bin:
               node: node.exe
-            integrity: sha256-UO+vAaCMUgtLvkmcCajFpcNwACxBnA2dosaBXTBmpFM=
-            prefix: node-v26.12.0-win-x64
+            integrity: sha256-s+/Vxwy6MwjtRufmmam4qsB1u8awJ/yznITDGswl4rQ=
+            prefix: node-v26.12.1-win-x64
             type: binary
-            url: https://nodejs.org/download/release/v26.12.0/node-v26.12.0-win-x64.zip
+            url: https://nodejs.org/download/release/v26.12.1/node-v26.12.1-win-x64.zip
           targets:
             - cpu: x64
               os: win32
@@ -1250,9 +1179,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-LnC21a266UVGxNfgHee2TFC/jT2/qtK7B3SULp2pArg=
+            integrity: sha256-w2lFUfbLiI/gvvtMsuE//kWwuyUo7BQefDopp9eXTRM=
             type: binary
-            url: https://unofficial-builds.nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-arm64-musl.tar.gz
+            url: https://unofficial-builds.nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-arm64-musl.tar.gz
           targets:
             - cpu: arm64
               os: linux
@@ -1261,14 +1190,14 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-SLoc3yHmhPE/OLYpX0O/6pUfH/0Ai0z5M2HJZrM/aTg=
+            integrity: sha256-i/nMDn+OPH7FNo3KGSQsrWUbawnTW83PKQrD+Akl6N0=
             type: binary
-            url: https://unofficial-builds.nodejs.org/download/release/v26.12.0/node-v26.12.0-linux-x64-musl.tar.gz
+            url: https://unofficial-builds.nodejs.org/download/release/v26.12.1/node-v26.12.1-linux-x64-musl.tar.gz
           targets:
             - cpu: x64
               os: linux
               libc: musl
-    version: 26.12.0
+    version: 26.12.1
     hasBin: true
 
   normalize-path@3.0.0:
@@ -1330,8 +1259,8 @@ packages:
     resolution: {integrity: sha512-zkd+e9S1AQHhmaBKye9zlFHWjOwVgqXl1q3ECYy8561K7qxR2cREf/STLskulBFd78k6AOFeA+ff1TtEzk9bAA==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier-plugin-astro@1.1.1:
-    resolution: {integrity: sha512-ykymNFOinCFXY4z4yF0978GgAvg6GRtrzCYg3+R1Nv/dndACwuEsSrUpHkJohER9FiwYMPKuYT38FbjCLmwu9A==}
+  prettier-plugin-astro@1.1.2:
+    resolution: {integrity: sha512-vKyJW7Bb/QcIPUebEehbG+Tn+3yTIhoJ8ecm6NyJgcOj5T2xP+eF1IxY4zv809YyA69nV4ZFj+H9mdpC5cTaQA==}
     engines: {node: '>=22.12.0'}
     peerDependencies:
       prettier: ^3.5.3
@@ -1803,9 +1732,9 @@ snapshots:
     transitivePeerDependencies:
       - '@emnapi/runtime'
 
-  '@astrojs/check@0.9.10(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/check@0.9.10(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.2)(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
-      '@astrojs/language-server': 2.17.2(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.1)(prettier@3.9.10)(typescript@6.0.3)
+      '@astrojs/language-server': 2.17.2(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.2)(prettier@3.9.10)(typescript@6.0.3)
       chokidar: 4.0.3
       kleur: 4.1.5
       typescript: 6.0.3
@@ -1815,54 +1744,25 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/compiler-binding-android-arm64@0.4.1':
-    optional: true
-
   '@astrojs/compiler-binding-android-arm64@0.5.2':
-    optional: true
-
-  '@astrojs/compiler-binding-darwin-arm64@0.4.1':
     optional: true
 
   '@astrojs/compiler-binding-darwin-arm64@0.5.2':
     optional: true
 
-  '@astrojs/compiler-binding-darwin-x64@0.4.1':
-    optional: true
-
   '@astrojs/compiler-binding-darwin-x64@0.5.2':
-    optional: true
-
-  '@astrojs/compiler-binding-linux-arm64-gnu@0.4.1':
     optional: true
 
   '@astrojs/compiler-binding-linux-arm64-gnu@0.5.2':
     optional: true
 
-  '@astrojs/compiler-binding-linux-arm64-musl@0.4.1':
-    optional: true
-
   '@astrojs/compiler-binding-linux-arm64-musl@0.5.2':
-    optional: true
-
-  '@astrojs/compiler-binding-linux-x64-gnu@0.4.1':
     optional: true
 
   '@astrojs/compiler-binding-linux-x64-gnu@0.5.2':
     optional: true
 
-  '@astrojs/compiler-binding-linux-x64-musl@0.4.1':
-    optional: true
-
   '@astrojs/compiler-binding-linux-x64-musl@0.5.2':
-    optional: true
-
-  '@astrojs/compiler-binding-wasm32-wasi@0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)':
-    dependencies:
-      '@napi-rs/wasm-runtime': 1.2.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
-    transitivePeerDependencies:
-      - '@emnapi/core'
-      - '@emnapi/runtime'
     optional: true
 
   '@astrojs/compiler-binding-wasm32-wasi@0.5.2':
@@ -1872,33 +1772,11 @@ snapshots:
       '@napi-rs/wasm-runtime': 1.2.5(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
     optional: true
 
-  '@astrojs/compiler-binding-win32-arm64-msvc@0.4.1':
-    optional: true
-
   '@astrojs/compiler-binding-win32-arm64-msvc@0.5.2':
-    optional: true
-
-  '@astrojs/compiler-binding-win32-x64-msvc@0.4.1':
     optional: true
 
   '@astrojs/compiler-binding-win32-x64-msvc@0.5.2':
     optional: true
-
-  '@astrojs/compiler-binding@0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)':
-    optionalDependencies:
-      '@astrojs/compiler-binding-android-arm64': 0.4.1
-      '@astrojs/compiler-binding-darwin-arm64': 0.4.1
-      '@astrojs/compiler-binding-darwin-x64': 0.4.1
-      '@astrojs/compiler-binding-linux-arm64-gnu': 0.4.1
-      '@astrojs/compiler-binding-linux-arm64-musl': 0.4.1
-      '@astrojs/compiler-binding-linux-x64-gnu': 0.4.1
-      '@astrojs/compiler-binding-linux-x64-musl': 0.4.1
-      '@astrojs/compiler-binding-wasm32-wasi': 0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
-      '@astrojs/compiler-binding-win32-arm64-msvc': 0.4.1
-      '@astrojs/compiler-binding-win32-x64-msvc': 0.4.1
-    transitivePeerDependencies:
-      - '@emnapi/core'
-      - '@emnapi/runtime'
 
   '@astrojs/compiler-binding@0.5.2':
     optionalDependencies:
@@ -1912,13 +1790,6 @@ snapshots:
       '@astrojs/compiler-binding-wasm32-wasi': 0.5.2
       '@astrojs/compiler-binding-win32-arm64-msvc': 0.5.2
       '@astrojs/compiler-binding-win32-x64-msvc': 0.5.2
-
-  '@astrojs/compiler-rs@0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)':
-    dependencies:
-      '@astrojs/compiler-binding': 0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
-    transitivePeerDependencies:
-      - '@emnapi/core'
-      - '@emnapi/runtime'
 
   '@astrojs/compiler-rs@0.5.2':
     dependencies:
@@ -1935,7 +1806,7 @@ snapshots:
       unified: 11.0.5
       yaml: 2.9.1
 
-  '@astrojs/language-server@2.17.2(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.1)(prettier@3.9.10)(typescript@6.0.3)':
+  '@astrojs/language-server@2.17.2(@emnapi/runtime@1.11.3)(prettier-plugin-astro@1.1.2)(prettier@3.9.10)(typescript@6.0.3)':
     dependencies:
       '@astrojs/astro2tsx': 0.1.3(@emnapi/runtime@1.11.3)
       '@astrojs/yaml2ts': 0.2.4
@@ -1956,7 +1827,7 @@ snapshots:
       vscode-uri: 3.2.0
     optionalDependencies:
       prettier: 3.9.10
-      prettier-plugin-astro: 1.1.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(prettier@3.9.10)
+      prettier-plugin-astro: 1.1.2(prettier@3.9.10)
     transitivePeerDependencies:
       - '@emnapi/runtime'
       - typescript
@@ -2733,7 +2604,7 @@ snapshots:
 
   node-mock-http@1.0.5: {}
 
-  node@runtime:26.12.0: {}
+  node@runtime:26.12.1: {}
 
   normalize-path@3.0.0: {}
 
@@ -2788,15 +2659,12 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  prettier-plugin-astro@1.1.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)(prettier@3.9.10):
+  prettier-plugin-astro@1.1.2(prettier@3.9.10):
     dependencies:
-      '@astrojs/compiler-rs': 0.4.1(@emnapi/core@1.11.3)(@emnapi/runtime@1.11.3)
+      '@astrojs/compiler-rs': 0.5.2
       '@prettier/parse-srcset': 3.1.0
       prettier: 3.9.10
       sass-formatter: 0.8.0
-    transitivePeerDependencies:
-      - '@emnapi/core'
-      - '@emnapi/runtime'
 
   prettier@3.9.10: {}
 
