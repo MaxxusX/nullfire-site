@@ -53,7 +53,7 @@ jobs:
             config: |
               paths:
                 - .github/workflows/**
-          - language: javascript-typescript
+          - language: javascript
             config: |
               paths:
                 - package.json
