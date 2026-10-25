@@ -3,7 +3,7 @@ export function satteri(_) {
 	throw new Error("[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented: `satteri`");
 	/*
 	return {
-		name: "satteri",
+		name: "satteri_placeholder",
 		options: {
 			mdastPlugins: [],
 			hastPlugins: [],
