@@ -1,5 +1,5 @@
 "use strict";
-throw new Error("[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented.");
+export { isSatteriProcessor, satteri } from "./processor.js";
 /*
 export {
 	createCollectImagesPlugin as satteriCollectImagesPlugin,
@@ -11,5 +11,5 @@ export {
 	collectHastText as satteriCollectHastText,
 	createSatteriMarkdownProcessor,
 } from "./satteri-processor.js";
-export { isSatteriProcessor, satteri } from "./processor.js";
 */
+throw new Error("[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented.");
