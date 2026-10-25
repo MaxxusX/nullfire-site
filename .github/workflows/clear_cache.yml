@@ -21,13 +21,14 @@ jobs:
       - name: Cleanup
         run: |
           echo 'Fetching list of cache keys'
-          cacheKeysForPR=$(gh cache list --ref "$BRANCH" --json id --jq '.[].id')
+          cacheKeysForPR=$(gh cache list --limit 100 --ref "$BRANCH" --json id --jq '.[].id')
 
           # Setting this to not fail the workflow while deleting cache keys.
-          set +e
+          #set +e
           echo 'Deleting caches...'
           for cacheKey in $cacheKeysForPR; do
-              gh cache delete "$cacheKey"
+              printf 'Deleting cache "%s"\n' "$cacheKey"
+              gh cache delete "$cacheKey" || printf 'Failed to delete cache "%s"\n' "$cacheKey"
           done
           echo 'Done'
         env:
@@ -46,10 +47,11 @@ jobs:
           cacheKeys=$(gh cache list --limit 100 --json ref,id --jq '.[] | (select(.ref != "refs/heads/main").id)')
 
           # Setting this to not fail the workflow while deleting cache keys.
-          set +e
+          #set +e
           echo 'Deleting caches...'
           for cacheKey in $cacheKeys; do
-              gh cache delete "$cacheKey"
+              printf 'Deleting cache "%s"\n' "$cacheKey"
+              gh cache delete "$cacheKey" || printf 'Failed to delete cache "%s"\n' "$cacheKey"
           done
           echo 'Done'
         env:
