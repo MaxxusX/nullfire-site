@@ -185,7 +185,7 @@ importers:
         version: 6.0.3
     devDependencies:
       node:
-        specifier: runtime:>=26.12.1
+        specifier: runtime:26.12.1
         version: runtime:26.12.1
       prettier:
         specifier: 3.9.10
