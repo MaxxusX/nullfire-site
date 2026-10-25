@@ -1,6 +1,8 @@
 overrides:
   'yaml-language-server>yaml@2.8.3': '2.9.1'
   'sharp': '-'
+  '@astrojs/markdown-remark': '-'
+  '@astrojs/markdown-satteri': 'file:./__pkgs__/@astrojs_markdown-satteri'
 ignoredOptionalDependencies:
   - 'sharp'
 minimumReleaseAgeIgnoreMissingTime: false
