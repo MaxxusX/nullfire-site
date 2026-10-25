@@ -1,9 +1,7 @@
 "use strict";
 export function satteri(_) {
-	throw new Error("[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented: `satteri`");
-	/*
 	return {
-		name: "satteri_placeholder",
+		name: "satteri",
 		options: {
 			mdastPlugins: [],
 			hastPlugins: [],
@@ -25,6 +23,7 @@ export function satteri(_) {
 			//	}
 			//};
 		},
+		/*
 		async createMdxRenderer(_, _) {
 			throw new Error(
 				"[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented: `satteri()/createMdxRenderer`"
@@ -38,8 +37,8 @@ export function satteri(_) {
 			//	}
 			//};
 		},
+		*/
 	};
-	*/
 }
 export function isSatteriProcessor(p) {
 	throw new Error(
