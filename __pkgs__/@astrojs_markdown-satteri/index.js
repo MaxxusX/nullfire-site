@@ -12,4 +12,3 @@ export {
 	createSatteriMarkdownProcessor,
 } from "./satteri-processor.js";
 */
-throw new Error("[markdown-satteri (EMPTY PLACEHOLDER)]: Not Implemented.");
