@@ -1,9 +1,11 @@
 overrides:
   'yaml-language-server>yaml@2.8.3': '2.9.1'
   'sharp': '-'
+  'esbuild': '-'
   '@astrojs/markdown-remark': '-'
   '@astrojs/markdown-satteri': 'file:./__pkgs__/@astrojs_markdown-satteri'
 ignoredOptionalDependencies:
+  - 'esbuild'
   - 'sharp'
 minimumReleaseAgeIgnoreMissingTime: false
 minimumReleaseAgeStrict: true
@@ -11,5 +13,3 @@ minimumReleaseAge: 1440
 blockExoticSubdeps: true
 dedupePeers: true
 strictPeerDependencies: true
-allowBuilds:
-  esbuild: true
