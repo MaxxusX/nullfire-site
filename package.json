@@ -22,7 +22,7 @@
 		"prettier": "3.9.10",
 		"prettier-plugin-astro": "1.1.2"
 	},
-	"packageManager": "pnpm@12.15.0",
+	"packageManager": "pnpm@12.16.1",
 	"devEngines": {
 		"runtime": {
 			"name": "node",
@@ -31,7 +31,7 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "12.15.0",
+			"version": "12.16.1",
 			"onFail": "download"
 		}
 	}
