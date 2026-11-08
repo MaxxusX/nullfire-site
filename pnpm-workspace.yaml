@@ -15,8 +15,6 @@ dedupePeers: true
 strictPeerDependencies: true
 audit:
   ignorePrune: true
-  ignore:
-    - GHSA-gcqx-w48m-w2h4
 packageExtensions:
   '@astrojs/astro2tsx':
     dependencies:
