@@ -31,6 +31,12 @@
 			"options": {
 				"parser": "jsonc"
 			}
+		},
+		{
+			"files": ["*.json", "*.jsonc"],
+			"options": {
+				"trailingComma": "none"
+			}
 		}
 	]
 }
