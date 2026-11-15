@@ -1,0 +1,21 @@
+{
+	"files.associations": {
+		"*.astro": "astro",
+		".vscode/*.json": "jsonc",
+		"tsconfig.json": "jsonc"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"[yaml]": {
+		"editor.detectIndentation": false,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.indentSize": "tabSize",
+	}
+}
