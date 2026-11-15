@@ -8,7 +8,7 @@
 	"trailingComma": "es5",
 	"proseWrap": "always",
 	"vueIndentScriptAndStyle": true,
-	"plugins": ["prettier-plugin-astro"],
+	"plugins": ["@prettier/plugin-yuku", "prettier-plugin-astro"],
 	"astroAllowShorthand": true,
 	"astroCompressHTML": "jsx",
 	"overrides": [

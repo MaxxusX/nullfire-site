@@ -20,6 +20,7 @@
 	},
 	"devDependencies": {
 		"prettier": "3.10.1",
+		"@prettier/plugin-yuku": "^0.0.3",
 		"prettier-plugin-astro": "1.1.2"
 	},
 	"packageManager": "pnpm@12.21.0",
