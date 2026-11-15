@@ -28,10 +28,10 @@ const { pixelated, image, name, role, rolecolor } = Astro.props;
 		<div class="DevCard-Header">
 			{/* TODO: (a11y) use css styling instead of h3 */}
 			<h3 class="DevCard-Title">
-				<span translate="no">{name}</span><span
-					class="DevCard-Role"
-					style={`background-color: ${rolecolor};`}>{role}</span
-				>
+				<span translate="no">{name}</span>
+				<span class="DevCard-Role" style={`background-color: ${rolecolor};`}>
+					{role}
+				</span>
 			</h3>
 			{/* <a class="DevCard-Profile" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"><svg></svg></a> */}
 		</div>
@@ -42,161 +42,161 @@ const { pixelated, image, name, role, rolecolor } = Astro.props;
 </div>
 
 <style is:global>
-.DevCard {
-	display: flex;
-	width: 100%;
-	height: fit-content;
-	align-items: center;
-	justify-content: space-between;
-	border-radius: 0.375rem;
-	border-color: var(--color-foreground-border);
-	border-width: 2px;
-	border-style: solid;
-	padding: 1rem;
-	background-color: var(--color-foreground);
-	transform: translateY(0);
-	transition:
-		border-color 75ms ease-in-out,
-		background-color 75ms ease-in-out,
-		transform 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
-
-	@media (min-width: 440px) {
-		height: 9rem;
-	}
-
-	&:hover {
-		border-color: var(--color-foreground-border-selected);
-		background-color: var(--color-foreground-selected);
-		transform: translateY(-0.5rem);
-
-		.DevCard-Image {
-			border-color: var(--color-foreground-border-selected);
-		}
-
-		.DevCard-Profile {
-			background-color: var(--color-foreground-ui-selected);
-		}
-	}
-
-	.DevCard-Image {
-		display: block;
-		vertical-align: middle;
-		width: 6rem;
-		height: 6rem;
-		max-width: 100%;
-		max-height: 100%;
-		aspect-ratio: 1 / 1;
+	.DevCard {
+		display: flex;
+		width: 100%;
+		height: fit-content;
+		align-items: center;
+		justify-content: space-between;
 		border-radius: 0.375rem;
 		border-color: var(--color-foreground-border);
 		border-width: 2px;
 		border-style: solid;
-		margin-right: 1rem;
-		transition: border-color 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
-		flex: 0 0 auto;
-		/*
-		@media (min-width: 440px) {
-			width: 6rem;
-			height: 6rem;
-		}
-		*/
-	}
-
-	.DevCard-About {
-		display: flex;
-		flex: 1 1 0%;
-		min-width: 0;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-	}
-
-	.DevCard-Header {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		flex-direction: row;
-		gap: 0.5rem;
-		text-align: center;
-		min-width: 0;
-		max-width: 100%;
-	}
-
-	.DevCard-Title {
-		margin: 0;
-		display: flex;
-		align-items: center;
-		text-align: center;
-		font-weight: 700;
-		font-size: 1.25rem;
-		line-height: 1.75rem;
-		text-align: center;
-		flex-wrap: wrap;
-		justify-content: center;
-		gap: 0.5rem;
-		max-width: 100%;
-		min-width: 0;
+		padding: 1rem;
+		background-color: var(--color-foreground);
+		transform: translateY(0);
+		transition:
+			border-color 75ms ease-in-out,
+			background-color 75ms ease-in-out,
+			transform 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
 
 		@media (min-width: 440px) {
-			font-size: 1.5rem;
-			line-height: 2rem;
+			height: 9rem;
 		}
-	}
 
-	.DevCard-Role {
-		width: fit-content;
-		padding-top: 0.125rem;
-		padding-bottom: 0.125rem;
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-		max-width: 100%;
-		overflow-wrap: anywhere;
-		align-items: flex-start;
-		border-radius: 0.5rem;
-		font-weight: 600;
-		font-size: 0.75rem;
-		line-height: 1rem;
-		text-align: center;
-		color: var(--color-foreground-title);
+		&:hover {
+			border-color: var(--color-foreground-border-selected);
+			background-color: var(--color-foreground-selected);
+			transform: translateY(-0.5rem);
 
-		@media (min-width: 440px) {
-			font-size: 0.875rem;
-			line-height: 1.25rem;
+			.DevCard-Image {
+				border-color: var(--color-foreground-border-selected);
+			}
+
+			.DevCard-Profile {
+				background-color: var(--color-foreground-ui-selected);
+			}
 		}
-	}
 
-	.DevCard-Profile {
-		text-decoration: none;
-		display: flex;
-		border-radius: 9999px;
-		padding: 0.625rem;
-		transition: background-color 0.3s linear;
-
-		/*
-		& > svg {
+		.DevCard-Image {
 			display: block;
 			vertical-align: middle;
-			margin-left: auto;
-			margin-right: auto;
-			height: 1rem;
-			width: 1rem;
-			fill: var(--color-foreground-text);
+			width: 6rem;
+			height: 6rem;
+			max-width: 100%;
+			max-height: 100%;
+			aspect-ratio: 1 / 1;
+			border-radius: 0.375rem;
+			border-color: var(--color-foreground-border);
+			border-width: 2px;
+			border-style: solid;
+			margin-right: 1rem;
+			transition: border-color 0.5s cubic-bezier(0.39, 0.21, 0.12, 0.96);
+			flex: 0 0 auto;
+			/*
+			@media (min-width: 440px) {
+				width: 6rem;
+				height: 6rem;
+			}
+			*/
 		}
-		*/
-	}
 
-	.DevCard-Desc {
-		margin: 0;
-		text-align: center;
-		font-size: 0.875rem;
-		line-height: 1.25rem;
-		max-width: 100%;
-		overflow-wrap: anywhere;
+		.DevCard-About {
+			display: flex;
+			flex: 1 1 0%;
+			min-width: 0;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
 
-		@media (min-width: 440px) {
-			font-size: 1rem;
-			line-height: 1.5rem;
+		.DevCard-Header {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			flex-direction: row;
+			gap: 0.5rem;
+			text-align: center;
+			min-width: 0;
+			max-width: 100%;
+		}
+
+		.DevCard-Title {
+			margin: 0;
+			display: flex;
+			align-items: center;
+			text-align: center;
+			font-weight: 700;
+			font-size: 1.25rem;
+			line-height: 1.75rem;
+			text-align: center;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 0.5rem;
+			max-width: 100%;
+			min-width: 0;
+
+			@media (min-width: 440px) {
+				font-size: 1.5rem;
+				line-height: 2rem;
+			}
+		}
+
+		.DevCard-Role {
+			width: fit-content;
+			padding-top: 0.125rem;
+			padding-bottom: 0.125rem;
+			padding-left: 0.5rem;
+			padding-right: 0.5rem;
+			max-width: 100%;
+			overflow-wrap: anywhere;
+			align-items: flex-start;
+			border-radius: 0.5rem;
+			font-weight: 600;
+			font-size: 0.75rem;
+			line-height: 1rem;
+			text-align: center;
+			color: var(--color-foreground-title);
+
+			@media (min-width: 440px) {
+				font-size: 0.875rem;
+				line-height: 1.25rem;
+			}
+		}
+
+		.DevCard-Profile {
+			text-decoration: none;
+			display: flex;
+			border-radius: 9999px;
+			padding: 0.625rem;
+			transition: background-color 0.3s linear;
+
+			/*
+			& > svg {
+				display: block;
+				vertical-align: middle;
+				margin-left: auto;
+				margin-right: auto;
+				height: 1rem;
+				width: 1rem;
+				fill: var(--color-foreground-text);
+			}
+			*/
+		}
+
+		.DevCard-Desc {
+			margin: 0;
+			text-align: center;
+			font-size: 0.875rem;
+			line-height: 1.25rem;
+			max-width: 100%;
+			overflow-wrap: anywhere;
+
+			@media (min-width: 440px) {
+				font-size: 1rem;
+				line-height: 1.5rem;
+			}
 		}
 	}
-}
 </style>

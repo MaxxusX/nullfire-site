@@ -15,8 +15,7 @@ import img_shrimper from "@assets/shrimper.webp";
 import img_kawi from "@assets/kawi.webp";
 import img_firebacon from "@assets/firebacon.webp";
 
-const nullfire_script =
-`-- both of these loadstrings work equally well; use either!
+const nullfire_script = `-- both of these loadstrings work equally well; use either!
 
 -- maintained by seikoso - recommended to use
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()
@@ -28,52 +27,73 @@ loadstring(game:HttpGet("https://NullFire.pythonanywhere.com/script"))()`;
 <Page path={Astro.url.pathname} title="About">
 	<Fragment slot="head">
 		<link rel="dns-prefetch" href="https://discord.com" />
-		<link rel="preconnect" href="https://discord.com" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<link
+			rel="preconnect"
+			href="https://discord.com"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
 		<link rel="prefetch" href="/privacy" referrerpolicy="no-referrer" />
 	</Fragment>
 
 	<h1 translate="no">NullFire</h1>
 	<p class="lead">
-		<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span
-		> Roblox script hub with <span class="imprtnt">countless features</span
-		> and a <span class="imprtnt">wide array of supported games</span>.
+		<span translate="no">NullFire</span> is a <span class="pwrful">powerful</span> Roblox script
+		hub with <span class="imprtnt">countless features</span> and a{" "}
+		<span class="imprtnt">wide array of supported games</span>.
 	</p>
 	<br />
-	<p class="lead-subtext">Developed by <span translate="no">seikoso</span> and <span translate="no">kawi</span> as a hobby.</p>
+	<p class="lead-subtext">
+		Developed by <span translate="no">seikoso</span> and <span translate="no">kawi</span> as a
+		hobby.
+	</p>
 
 	<Section title="Script" id="script">
 		<h4 id="loadstring">Loadstring</h4>
 		<Code code={nullfire_script} lang="luau" theme="aurora-x" translate="no" dir="ltr" />
-	
+
 		<h4 id="supported_games">Supported Games</h4>
 		<SupportedGames />
 	</Section>
-	
+
 	<Section title="FAQ" id="faq">
 		<p class="no-pad-y">
-			<b aria-hidden="true">Q.</b> What information do you log?<br />
-			<b aria-hidden="true">A.</b> We log <abbr title="Hardware IDs">HWIDs</abbr> and hashed <abbr title="IP Addresses">IPs</abbr
-			> to prevent premium users from sharing their <span translate="no">NullFire+</span>
+			<b aria-hidden="true">Q.</b> What information do you log?
+			<br />
+			<b aria-hidden="true">A.</b> We log <abbr title="Hardware IDs">HWIDs</abbr> and hashed{" "}
+			<abbr title="IP Addresses">IPs</abbr> to prevent premium users from sharing their{" "}
+			<span translate="no">NullFire+</span>
 		</p>
 	</Section>
-	
+
 	<Section title="Developers" id="developers">
 		<DevList>
 			<DevCard image={img_seikoso} name="seikoso" role="owner" rolecolor="#ff0000">
-				main dev<br />
+				main dev
+				<br />
 				does pretty much all the work
 			</DevCard>
 			<DevCard image={img_kawi} name="kawi" role="co-owner" rolecolor="#ff4447">
-				made ui library + the other loadstring<br />
+				made ui library + the other loadstring
+				<br />
 				also helps with some other stuff
 			</DevCard>
-			<DevCard pixelated image={img_maxxus} name="maxxus" role="website dev" rolecolor="#0016ff">
-				coolest <span translate="no">NullFire</span> dev<br />
+			<DevCard
+				pixelated
+				image={img_maxxus}
+				name="maxxus"
+				role="website dev"
+				rolecolor="#0016ff"
+			>
+				coolest <span translate="no">NullFire</span> dev
+				<br />
 				not gay
 			</DevCard>
 			<DevCard image={img_shrimper} name="shrimper" role="developer" rolecolor="#4600ff">
-				second dev<br />
-				worked on the script for The Foundation<br />
+				second dev
+				<br />
+				worked on the script for The Foundation
+				<br />
 				helped on v4 rewrite
 			</DevCard>
 			<DevCard image={img_catperson} name="cat_person" role="contributer" rolecolor="#7c00ff">
@@ -84,7 +104,7 @@ loadstring(game:HttpGet("https://NullFire.pythonanywhere.com/script"))()`;
 			</DevCard>
 		</DevList>
 	</Section>
-	
+
 	<Section title="Join our Discord(s)!" id="discord">
 		<IFrame
 			class="discordEmbed"
@@ -115,5 +135,14 @@ loadstring(game:HttpGet("https://NullFire.pythonanywhere.com/script"))()`;
 	</Section>
 
 	<br />
-	<p>Copyright (c) 2024-2026 maxxus and contributors | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a> | <a href="/tos" rel="terms-of-service noreferrer">Terms of Service</a></p>
+	<p>
+		Copyright (c) 2024-2026 maxxus and contributors |{" "}
+		<a href="/privacy" rel="privacy-policy noreferrer">
+			Privacy Policy
+		</a>{" "}
+		|{" "}
+		<a href="/tos" rel="terms-of-service noreferrer">
+			Terms of Service
+		</a>
+	</p>
 </Page>

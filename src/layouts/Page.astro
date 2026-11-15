@@ -14,13 +14,13 @@ const { path, title } = Astro.props;
 const optimizedBackgroundImage = await getImage({
 	src: bgImage,
 	format: "webp",
-	quality: "max"
+	quality: "max",
 });
 ---
 
 <!doctype html>
 <html lang="en-US">
-	<Head path={path} title={title}>
+	<Head {path} {title}>
 		<Fragment slot="preload">
 			<link
 				rel="preload"
@@ -53,4 +53,3 @@ const optimizedBackgroundImage = await getImage({
 		</main>
 	</body>
 </html>
-

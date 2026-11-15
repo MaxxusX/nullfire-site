@@ -5,8 +5,7 @@ import Page from "@layouts/Page.astro";
 import Section from "@components/Section.astro";
 import InfoCard from "@components/InfoCard.astro";
 
-const example_addon =
-`NF.Info = {
+const example_addon = `NF.Info = {
     name = "test addon",
     icon = "star"
 }
@@ -19,14 +18,21 @@ Library:Notify("this also works!")`;
 <Page path={Astro.url.pathname} title="Addon Documentation">
 	<h1>Addon Documentation</h1>
 	<Section title="How to develop addons" id="how_to_develop_addons">
-		<p>To create an addon, you simply create any file in the NullFire/Addons folder (located in your workspace). Then add addon info at the top of the file and you should be good to go.</p>
+		<p>
+			To create an addon, you simply create any file in the NullFire/Addons folder (located in
+			your workspace). Then add addon info at the top of the file and you should be good to
+			go.
+		</p>
 		<br />
 
 		<InfoCard>
-			The NF.Info (available as NF.info) table is required to be set and should be the first thing that executes in the file else the NullFire table will not be able to act as groupbox.
+			The NF.Info (available as NF.info) table is required to be set and should be the first
+			thing that executes in the file else the NullFire table will not be able to act as
+			groupbox.
 			<br />
 			<br />
-			None of the Info is required, you can also simply Initialize the NF.Info table as an empty table and NullFire will pick a default.
+			None of the Info is required, you can also simply Initialize the NF.Info table as an
+			empty table and NullFire will pick a default.
 		</InfoCard>
 
 		<br />
@@ -35,5 +41,14 @@ Library:Notify("this also works!")`;
 	</Section>
 
 	<br />
-	<p>Copyright (c) 2024-2026 maxxus and contributors | <a href="/privacy" rel="privacy-policy noreferrer">Privacy Policy</a> | <a href="/tos" rel="terms-of-service noreferrer">Terms of Service</a></p>
+	<p>
+		Copyright (c) 2024-2026 maxxus and contributors |{" "}
+		<a href="/privacy" rel="privacy-policy noreferrer">
+			Privacy Policy
+		</a>{" "}
+		|{" "}
+		<a href="/tos" rel="terms-of-service noreferrer">
+			Terms of Service
+		</a>
+	</p>
 </Page>

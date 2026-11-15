@@ -30,9 +30,11 @@ html {
 	/* TODO: remove my hacky scrolling shit so we can allow overscroll refreshing on mobile */
 	overscroll-behavior: none;
 
-	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
-		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
-		monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family:
+		"JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
+		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono",
+		Consolas, monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 	font-variation-settings: normal;
 	font-feature-settings:
 		"zero" /* slashed 0 */,
@@ -95,7 +97,7 @@ h4 {
 	line-height: 1;
 
 	text-rendering: optimizeLegibility;
-	font-feature-settings:	
+	font-feature-settings:
 		"zero" /* slashed 0 */,
 		"ss19" /* break equals ligatures */,
 		"cv01" /* l bottom serif */,
@@ -171,9 +173,11 @@ code {
 	hyphens: none;
 	overflow-wrap: normal;
 
-	font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
-		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono", Consolas,
-		monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family:
+		"JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, "DejaVu Sans Mono",
+		"Roboto Mono", Monaco, "Lucida Console", "Liberation Mono", "Bitstream Vera Sans Mono",
+		Consolas, monospace, monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 	font-variation-settings: normal;
 	font-feature-settings:
 		"zero" /* slashed 0 */,

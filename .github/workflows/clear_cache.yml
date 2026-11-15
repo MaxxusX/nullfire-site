@@ -1,7 +1,7 @@
 name: Cleanup github runner caches
 on:
   pull_request:
-    types: [ 'closed' ]
+    types: ['closed']
   workflow_dispatch:
 
 permissions: {}

@@ -39,8 +39,10 @@ export default defineConfig({
 			"Cross-Origin-Embedder-Policy": "credentialless",
 			"Cross-Origin-Opener-Policy": "same-origin",
 			"Cross-Origin-Resource-Policy": "same-origin",
-			"Content-Security-Policy": "default-src 'self' https: data:; script-src 'self' https:; script-src-attr 'none'; style-src 'self' https: data: 'unsafe-inline'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content",
-			"Permissions-Policy": "cross-origin-isolated=(),storage-access=(),deferred-fetch=(),deferred-fetch-minimal=()",
+			"Content-Security-Policy":
+				"default-src 'self' https: data:; script-src 'self' https:; script-src-attr 'none'; style-src 'self' https: data: 'unsafe-inline'; object-src 'none'; upgrade-insecure-requests; block-all-mixed-content",
+			"Permissions-Policy":
+				"cross-origin-isolated=(),storage-access=(),deferred-fetch=(),deferred-fetch-minimal=()",
 			"X-DNS-Prefetch-Control": "off",
 			"X-Download-Options": "noopen",
 			"X-XSS-Protection": "0",

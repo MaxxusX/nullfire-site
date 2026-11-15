@@ -1,6 +1,6 @@
 ---
 const refresh = "0;url=" + Astro.site;
-const script = `"use strict";(function(){window.location.replace(${ Astro.site })})()`;
+const script = `"use strict";(function(){window.location.replace(${Astro.site})})()`;
 const url = new URL("/404", Astro.site).href;
 ---
 
@@ -18,8 +18,12 @@ const url = new URL("/404", Astro.site).href;
 	<body>
 		<main>
 			<h1>404 Not Found</h1>
-			<p class="lead"><a href="/" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer"
-				>Click here if you are not automatically redirected</a>.</p>
+			<p class="lead">
+				<a href="/" rel="noopener noreferrer nofollow" referrerpolicy="no-referrer">
+					Click here if you are not automatically redirected
+				</a>
+				.
+			</p>
 		</main>
 	</body>
 </html>

@@ -12,7 +12,8 @@ const { path, title: pageName } = Astro.props;
 const url = new URL(path, Astro.site).href;
 const siteName = "NullFire";
 const title = `${siteName} | ${pageName}`;
-const desc = "NullFire is a powerful Roblox script hub with countless features and a wide array of supported games.";
+const desc =
+	"NullFire is a powerful Roblox script hub with countless features and a wide array of supported games.";
 const tags = "nullfire,nullhub,firehub,mshub revive,roblox,hacks,scripts,exploits,script hub";
 
 const icon = await getImage({
@@ -21,7 +22,7 @@ const icon = await getImage({
 	height: logo.height,
 	format: "png",
 	quality: "max",
-	priority: true
+	priority: true,
 });
 const iconAbsoluteSrc = new URL(icon.src, Astro.site).href;
 const iconAlt = "NullFire Logo";
@@ -55,14 +56,14 @@ const themeColor = "#651089"; // previously #0e0f13
 	{/* Apple Metadata */}
 	<meta name="apple-mobile-web-app-title" content={siteName} />
 	<link rel="apple-touch-icon" href={icon.src} />
-	
+
 	{/* Twitter Metadata */}
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={desc} />
 	<meta name="twitter:image" content={iconAbsoluteSrc} />
 	<meta name="twitter:image:alt" content={iconAlt} />
-	
+
 	{/* OpenGraph Metadata */}
 	<meta property="og:url" content={url} />
 	<meta property="og:type" content="website" />

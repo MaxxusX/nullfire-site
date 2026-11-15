@@ -8,39 +8,38 @@ const { title, id } = Astro.props;
 ---
 
 <section class="Section">
-	<h2 id={id}>{title}</h2>
-	<div><slot /></div>
+	<h2 {id}>{title}</h2>
+	<div>
+		<slot />
+	</div>
 </section>
 
 <style is:global>
-.Section {
-	display: block;
-	width: 100%;
-	text-indent: 0;
-	/* background-color: var(--ui-color); */
-	/* border: var(--border); */
-	/* padding: 1rem; */
-	/* margin-top: 5rem; */
-	align-items: center;
-	justify-items: center;
-	justify-content: center;
+	.Section {
+		display: block;
+		width: 100%;
+		text-indent: 0;
+		/* background-color: var(--ui-color); */
+		/* border: var(--border); */
+		/* padding: 1rem; */
+		/* margin-top: 5rem; */
+		align-items: center;
+		justify-items: center;
+		justify-content: center;
 
-	& > h2 {
-		/* background-color: #5555; */
-		/* border: 2px #0003 solid; */
-		/* padding: 0.3rem; */
-		padding: 0;
-	}
+		& > h2 {
+			/* background-color: #5555; */
+			/* border: 2px #0003 solid; */
+			/* padding: 0.3rem; */
+			padding: 0;
+		}
 
-	& > div {
-		font-size: 1.3rem;
-		margin-top: 1rem;
-		padding-top: 0;
-		margin-bottom: 0;
-		padding-bottom: 0;
+		& > div {
+			font-size: 1.3rem;
+			margin-top: 1rem;
+			padding-top: 0;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
 	}
-}
 </style>
-
-
-

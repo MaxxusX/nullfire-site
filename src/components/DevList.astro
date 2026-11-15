@@ -7,37 +7,36 @@ interface Props {}
 </div>
 
 <style is:global>
-.DevList {
-	display: grid;
-	justify-items: center;
-	gap: 1rem;
+	.DevList {
+		display: grid;
+		justify-items: center;
+		gap: 1rem;
 
-	grid-template-columns: repeat(1, 1fr); /* minmax(0, 1fr) */
-	grid-auto-rows: 1fr; /* keep them all the same size vertically */
+		grid-template-columns: repeat(1, 1fr); /* minmax(0, 1fr) */
+		grid-auto-rows: 1fr; /* keep them all the same size vertically */
 
-	@media (min-width: 850px) {
-		grid-template-columns: repeat(2, 1fr);
+		@media (min-width: 850px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: 1280px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		/*
+		margin-top: 0;
+		padding-top: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: start;
+		justify-content: space-evenly;
+		gap: 0.5rem;
+		*/
 	}
-
-	@media (min-width: 1280px) {
-		grid-template-columns: repeat(3, 1fr);
-	}
-
-	/*
-	margin-top: 0;
-	padding-top: 0;
-	margin-bottom: 0;
-	padding-bottom: 0;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: start;
-	justify-content: space-evenly;
-	gap: 0.5rem;
-	*/
-}
 </style>
-
