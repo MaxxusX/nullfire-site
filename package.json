@@ -19,15 +19,15 @@
 		"typescript": "^6.0.3"
 	},
 	"devDependencies": {
-		"prettier": "3.10.1",
 		"@prettier/plugin-yuku": "^0.0.3",
+		"prettier": "3.10.1",
 		"prettier-plugin-astro": "1.1.2"
 	},
 	"packageManager": "pnpm@12.23.0",
 	"devEngines": {
 		"runtime": {
 			"name": "node",
-			"version": ">=26.13.1",
+			"version": "26.13.1",
 			"onFail": "download"
 		},
 		"packageManager": {
