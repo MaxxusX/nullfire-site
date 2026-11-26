@@ -4,6 +4,7 @@ overrides:
   'esbuild': '-'
   'astro>unifont': '-'
   'astro>@capsizecss/unpack': '-'
+  'astro>svgo': '-'
   '@astrojs/markdown-remark': '-'
   '@astrojs/markdown-satteri': 'file:./__pkgs__/@astrojs_markdown-satteri'
 ignoredOptionalDependencies:
