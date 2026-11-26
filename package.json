@@ -23,7 +23,7 @@
 		"@prettier/plugin-yuku": "^0.0.3",
 		"prettier-plugin-astro": "1.1.2"
 	},
-	"packageManager": "pnpm@12.21.0",
+	"packageManager": "pnpm@12.23.0",
 	"devEngines": {
 		"runtime": {
 			"name": "node",
@@ -32,7 +32,7 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "12.21.0",
+			"version": "12.23.0",
 			"onFail": "download"
 		}
 	}
